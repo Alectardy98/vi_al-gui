@@ -4,6 +4,8 @@
 
 import sys
 
+from ui_text import device_text
+
 from keycodes.keycodes_v5 import keycodes_v5
 from keycodes.keycodes_v6 import keycodes_v6
 
@@ -278,15 +280,15 @@ KEYCODES_BASIC = [
     K("KC_F11", "F11", recorder_alias=["f11"]),
     K("KC_F12", "F12", recorder_alias=["f12"]),
 
-    K("KC_APPLICATION", "Menu", recorder_alias=["menu", "left menu", "right menu"], alias=["KC_APP"]),
-    K("KC_LCTRL", "LCtrl", recorder_alias=["left ctrl", "ctrl"], alias=["KC_LCTL"]),
-    K("KC_LSHIFT", "LShift", recorder_alias=["left shift", "shift"], alias=["KC_LSFT"]),
-    K("KC_LALT", "LAlt", recorder_alias=["alt"], alias=["KC_LOPT"]),
-    K("KC_LGUI", "LGui", recorder_alias=["left windows", "windows"], alias=["KC_LCMD", "KC_LWIN"]),
-    K("KC_RCTRL", "RCtrl", recorder_alias=["right ctrl"], alias=["KC_RCTL"]),
-    K("KC_RSHIFT", "RShift", recorder_alias=["right shift"], alias=["KC_RSFT"]),
-    K("KC_RALT", "RAlt", alias=["KC_ALGR", "KC_ROPT"]),
-    K("KC_RGUI", "RGui", recorder_alias=["right windows"], alias=["KC_RCMD", "KC_RWIN"]),
+    K("KC_APPLICATION", "Menu", "Menu", recorder_alias=["menu", "left menu", "right menu"], alias=["KC_APP"]),
+    K("KC_LCTRL", "LCtrl", "Left Control", recorder_alias=["left ctrl", "ctrl"], alias=["KC_LCTL"]),
+    K("KC_LSHIFT", "LShift", "Left Shift", recorder_alias=["left shift", "shift"], alias=["KC_LSFT"]),
+    K("KC_LALT", "LAlt", "Left Alt/Left Mac Option", recorder_alias=["alt"], alias=["KC_LOPT"]),
+    K("KC_LGUI", "LGui", "Left Gui/Left Mac Command", recorder_alias=["left windows", "windows"], alias=["KC_LCMD", "KC_LWIN"]),
+    K("KC_RCTRL", "RCtrl", "Right Control", recorder_alias=["right ctrl"], alias=["KC_RCTL"]),
+    K("KC_RSHIFT", "RShift", "Right Shift", recorder_alias=["right shift"], alias=["KC_RSFT"]),
+    K("KC_RALT", "RAlt", "Right Alt/Right Mac Option", alias=["KC_ALGR", "KC_ROPT"]),
+    K("KC_RGUI", "RGui", "Right Gui/Right Mac Command", recorder_alias=["right windows"], alias=["KC_RCMD", "KC_RWIN"]),
 ]
 
 KEYCODES_BASIC.extend(KEYCODES_BASIC_NUMPAD)
@@ -320,15 +322,15 @@ KEYCODES_ISO = [
     K("KC_NONUS_HASH", "~\n#", "Non-US # and ~", alias=["KC_NUHS"]),
     K("KC_NONUS_BSLASH", "|\n\\", "Non-US \\ and |", alias=["KC_NUBS"]),
     K("KC_RO", "_\n\\", "JIS \\ and _", alias=["KC_INT1"]),
-    K("KC_KANA", "カタカナ\nひらがな", "JIS Katakana/Hiragana", alias=["KC_INT2"]),
+    K("KC_KANA", "Kana", "JIS Katakana/Hiragana", alias=["KC_INT2"]),
     K("KC_JYEN", "|\n¥", alias=["KC_INT3"]),
-    K("KC_HENK", "変換", "JIS Henkan", alias=["KC_INT4"]),
-    K("KC_MHEN", "無変換", "JIS Muhenkan", alias=["KC_INT5"]),
+    K("KC_HENK", "Henkan", "JIS Henkan", alias=["KC_INT4"]),
+    K("KC_MHEN", "Muhenkan", "JIS Muhenkan", alias=["KC_INT5"]),
 ]
 
 KEYCODES_ISO_KR = [
-    K("KC_LANG1", "한영\nかな", "Korean Han/Yeong / JP Mac Kana", alias=["KC_HAEN"]),
-    K("KC_LANG2", "漢字\n英数", "Korean Hanja / JP Mac Eisu", alias=["KC_HANJ"]),
+    K("KC_LANG1", "Hangul\nKana", "Korean Han/Yeong / JP Mac Kana", alias=["KC_HAEN"]),
+    K("KC_LANG2", "Hanja\nEisu", "Korean Hanja / JP Mac Eisu", alias=["KC_HANJ"]),
 ]
 
 KEYCODES_ISO.extend(KEYCODES_ISO_KR)
@@ -338,7 +340,7 @@ RESET_KEYCODE = "QK_BOOT"
 
 KEYCODES_BOOT = [
     K("QK_BOOT", "Boot-\nloader", "Put the keyboard into bootloader mode for flashing", alias=["RESET"]),
-    K("QK_REBOOT", "Reboot", "Reboots the keyboard. Does not load the bootloader"),
+    K("QK_REBOOT", "Reboot", "Reboots the keyboard. Does not load the bootloader", alias=["REBOOT"]),
     K("QK_CLEAR_EEPROM", "Clear\nEEPROM", "Reinitializes the keyboard's EEPROM (persistent memory)", alias=["EE_CLR"]),
 ]
 
@@ -374,14 +376,14 @@ KEYCODES_MODIFIERS = [
     K("OSM(MOD_RCTL|MOD_RSFT|MOD_RALT)", "OSM\nRMeh", "Enable Right Control, Shift, and Alt for one keypress"),
     K("OSM(MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)", "OSM\nRHyp", "Enable Right Control, Shift, Alt, and GUI for one keypress"),
 
-    K("LSFT(kc)", "LSft\n(kc)", masked=True),
-    K("LCTL(kc)", "LCtl\n(kc)", masked=True),
-    K("LALT(kc)", "LAlt\n(kc)", masked=True),
-    K("LGUI(kc)", "LGui\n(kc)", masked=True),
-    K("RSFT(kc)", "RSft\n(kc)", masked=True),
-    K("RCTL(kc)", "RCtl\n(kc)", masked=True),
-    K("RALT(kc)", "RAlt\n(kc)", masked=True),
-    K("RGUI(kc)", "RGui\n(kc)", masked=True),
+    K("LSFT(kc)", "LSft\n(kc)", "Left Shift with keycode",masked=True),
+    K("LCTL(kc)", "LCtl\n(kc)", "Left Ctrl with keycode", masked=True),
+    K("LALT(kc)", "LAlt\n(kc)", "Left Alt with keycode",masked=True),
+    K("LGUI(kc)", "LGui\n(kc)", "Left Gui with keycode",masked=True),
+    K("RSFT(kc)", "RSft\n(kc)", "Right Shift with keycode",masked=True),
+    K("RCTL(kc)", "RCtl\n(kc)", "Right Ctrl with keycode", masked=True),
+    K("RALT(kc)", "RAlt\n(kc)", "Right Alt with keycode", masked=True),
+    K("RGUI(kc)", "RGui\n(kc)", "Right Gui with keycode", masked=True),
     K("C_S(kc)", "LCS\n(kc)", "LCTL + LSFT", masked=True, alias=["LCS(kc)"]),
     K("LCA(kc)", "LCA\n(kc)", "LCTL + LALT", masked=True),
     K("LCG(kc)", "LCG\n(kc)", "LCTL + LGUI", masked=True),
@@ -500,13 +502,13 @@ KEYCODES_QUANTUM = [
 ]
 
 KEYCODES_BACKLIGHT = [
-    K("BL_TOGG", "BL\nToggle", "Turn the backlight on or off"),
-    K("BL_STEP", "BL\nCycle", "Cycle through backlight levels"),
-    K("BL_BRTG", "BL\nBreath", "Toggle backlight breathing"),
-    K("BL_ON", "BL On", "Set the backlight to max brightness"),
-    K("BL_OFF", "BL Off", "Turn the backlight off"),
-    K("BL_INC", "BL +", "Increase the backlight level"),
-    K("BL_DEC", "BL - ", "Decrease the backlight level"),
+#    K("BL_TOGG", "BL\nToggle", "Turn the backlight on or off"),
+#    K("BL_STEP", "BL\nCycle", "Cycle through backlight levels"),
+#    K("BL_BRTG", "BL\nBreath", "Toggle backlight breathing"),
+#    K("BL_ON", "BL On", "Set the backlight to max brightness"),
+#    K("BL_OFF", "BL Off", "Turn the backlight off"),
+#    K("BL_INC", "BL +", "Increase the backlight level"),
+#    K("BL_DEC", "BL - ", "Decrease the backlight level"),
 
     K("RGB_TOG", "RGB\nToggle", "Toggle RGB lighting on or off"),
     K("RGB_MOD", "RGB\nMode +", "Next RGB mode"),
@@ -519,15 +521,15 @@ KEYCODES_BACKLIGHT = [
     K("RGB_VAD", "Bright -", "Decrease value"),
     K("RGB_SPI", "Effect +", "Increase RGB effect speed"),
     K("RGB_SPD", "Effect -", "Decrease RGB effect speed"),
-    K("RGB_M_P", "RGB\nMode P", "RGB Mode: Plain"),
-    K("RGB_M_B", "RGB\nMode B", "RGB Mode: Breathe"),
-    K("RGB_M_R", "RGB\nMode R", "RGB Mode: Rainbow"),
-    K("RGB_M_SW", "RGB\nMode SW", "RGB Mode: Swirl"),
-    K("RGB_M_SN", "RGB\nMode SN", "RGB Mode: Snake"),
-    K("RGB_M_K", "RGB\nMode K", "RGB Mode: Knight Rider"),
-    K("RGB_M_X", "RGB\nMode X", "RGB Mode: Christmas"),
-    K("RGB_M_G", "RGB\nMode G", "RGB Mode: Gradient"),
-    K("RGB_M_T", "RGB\nMode T", "RGB Mode: Test"),
+#    K("RGB_M_P", "RGB\nMode P", "RGB Mode: Plain"),
+#    K("RGB_M_B", "RGB\nMode B", "RGB Mode: Breathe"),
+#    K("RGB_M_R", "RGB\nMode R", "RGB Mode: Rainbow"),
+#    K("RGB_M_SW", "RGB\nMode SW", "RGB Mode: Swirl"),
+#    K("RGB_M_SN", "RGB\nMode SN", "RGB Mode: Snake"),
+#    K("RGB_M_K", "RGB\nMode K", "RGB Mode: Knight Rider"),
+#    K("RGB_M_X", "RGB\nMode X", "RGB Mode: Christmas"),
+#    K("RGB_M_G", "RGB\nMode G", "RGB Mode: Gradient"),
+#    K("RGB_M_T", "RGB\nMode T", "RGB Mode: Test"),
 
     K("RM_ON", "RGBM\nOn", "Turn on RGB Matrix"),
     K("RM_OFF", "RGBM\nOff", "Turn off RGB Matrix"),
@@ -593,7 +595,7 @@ KEYCODES_MEDIA = [
     K("KC_VOLU", "Vol +", "Volume Up", alias=["KC_AUDIO_VOL_UP"]),
     K("KC__VOLDOWN", "Vol -\nAlt", "Volume Down Alternate"),
     K("KC__VOLUP", "Vol +\nAlt", "Volume Up Alternate"),
-    K("KC_MSTP", "Media\nStop", alias=["KC_MEDIA_STOP"]),
+    K("KC_MSTP", "Media\nStop", "Stop playback", alias=["KC_MEDIA_STOP"]),
     K("KC_MPLY", "Media\nPlay", "Play/Pause", alias=["KC_MEDIA_PLAY_PAUSE"]),
     K("KC_MRWD", "Prev\nTrack\n(macOS)", "Previous Track / Rewind (macOS)", alias=["KC_MEDIA_REWIND"]),
     K("KC_MFFD", "Next\nTrack\n(macOS)", "Next Track / Fast Forward (macOS)", alias=["KC_MEDIA_FAST_FORWARD"]),
@@ -608,10 +610,10 @@ KEYCODES_MEDIA = [
     K("KC_BTN3", "Mouse\n3", "Mouse Button 3", alias=["KC_MS_BTN3"]),
     K("KC_BTN4", "Mouse\n4", "Mouse Button 4", alias=["KC_MS_BTN4"]),
     K("KC_BTN5", "Mouse\n5", "Mouse Button 5", alias=["KC_MS_BTN5"]),
-    K("KC_WH_U", "Mouse\nWheel\nUp", alias=["KC_MS_WH_UP"]),
-    K("KC_WH_D", "Mouse\nWheel\nDown", alias=["KC_MS_WH_DOWN"]),
-    K("KC_WH_L", "Mouse\nWheel\nLeft", alias=["KC_MS_WH_LEFT"]),
-    K("KC_WH_R", "Mouse\nWheel\nRight", alias=["KC_MS_WH_RIGHT"]),
+    K("KC_WH_U", "Mouse\nWheel\nUp", "Wheel Up", alias=["KC_MS_WH_UP"]),
+    K("KC_WH_D", "Mouse\nWheel\nDown", "Wheel Down", alias=["KC_MS_WH_DOWN"]),
+    K("KC_WH_L", "Mouse\nWheel\nLeft", "Wheel Left", alias=["KC_MS_WH_LEFT"]),
+    K("KC_WH_R", "Mouse\nWheel\nRight", "wheel Right", alias=["KC_MS_WH_RIGHT"]),
     K("KC_ACL0", "Mouse\nAccel\n0", "Set mouse acceleration to 0", alias=["KC_MS_ACCEL0"]),
     K("KC_ACL1", "Mouse\nAccel\n1", "Set mouse acceleration to 1", alias=["KC_MS_ACCEL1"]),
     K("KC_ACL2", "Mouse\nAccel\n2", "Set mouse acceleration to 2", alias=["KC_MS_ACCEL2"]),
@@ -836,11 +838,18 @@ def create_custom_user_keycodes(custom_keycodes):
         KEYCODES_USER.append(
             Keycode(
                 "USER{:02}".format(x),
-                c_keycode.get("shortName", "USER{:02}".format(x)),
-                c_keycode.get("title", "USER{:02}".format(x)),
+                device_text(c_keycode.get("shortName", "USER{:02}".format(x))),
+                device_text(c_keycode.get("title", "USER{:02}".format(x))),
                 alias=[c_keycode.get("name", "USER{:02}".format(x))]
             )
         )
+
+    # Definition order remains the wire USERxx identity. Optional presentation
+    # order changes only the picker; existing Vial mappings keep their values.
+    order={"USER{:02}".format(i):c.get("displayOrder",i)
+           if type(c.get("displayOrder",i)) is int and 0<=c.get("displayOrder",i)<len(custom_keycodes) else i
+           for i,c in enumerate(custom_keycodes)}
+    KEYCODES_USER.sort(key=lambda key:order[key.qmk_id])
 
 
 def create_midi_keycodes(midiSettingLevel):

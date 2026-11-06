@@ -21,6 +21,7 @@ from protocol.dynamic import ProtocolDynamic
 from protocol.key_override import ProtocolKeyOverride
 from protocol.macro import ProtocolMacro
 from protocol.tap_dance import ProtocolTapDance
+from addon_runtime import initialize_keyboard, definition_loaded, keyboard_loaded
 from unlocker import Unlocker
 from util import MSG_LEN, hid_send
 
@@ -68,6 +69,7 @@ class Keyboard(ProtocolMacro, ProtocolDynamic, ProtocolTapDance, ProtocolCombo, 
         self.rgb_supported_effects = set()
 
         self.via_protocol = self.vial_protocol = self.keyboard_id = -1
+        initialize_keyboard(self)
 
     def reload(self, sideload_json=None):
         """ Load information about the keyboard: number of layers, physical key layout """
@@ -97,6 +99,7 @@ class Keyboard(ProtocolMacro, ProtocolDynamic, ProtocolTapDance, ProtocolCombo, 
         self.reload_combo()
         self.reload_key_override()
         self.reload_alt_repeat_key()
+        keyboard_loaded(self)
 
     def reload_layers(self):
         """ Get how many layers the keyboard has """
@@ -158,6 +161,7 @@ class Keyboard(ProtocolMacro, ProtocolDynamic, ProtocolTapDance, ProtocolCombo, 
         self.cols = payload["matrix"]["cols"]
 
         self.custom_keycodes = payload.get("customKeycodes", None)
+        definition_loaded(self)
 
         serial = KleSerial()
         kb = serial.deserialize(payload["layouts"]["keymap"])

@@ -45,10 +45,16 @@ class KeymapEditor(BasicEditor):
         self.container.clicked.connect(self.on_key_clicked)
         self.container.deselected.connect(self.on_key_deselected)
 
+        layout_desc_container = QHBoxLayout()
+        layout_desc_container.addStretch(1)
+        layout_desc_container.addWidget(self.container, 0, Qt.AlignHCenter)
+        layout_desc_container.addStretch(1)
+        #layout_desc_container.addStretch(1)
         layout = QVBoxLayout()
         layout.addLayout(layout_labels_container)
-        layout.addWidget(self.container)
-        layout.setAlignment(self.container, Qt.AlignHCenter)
+        #layout.addWidget(self.container)
+        layout.addLayout(layout_desc_container)
+        #layout.setAlignment(self.container, Qt.AlignHCenter)
         w = ClickableWidget()
         w.setLayout(layout)
         w.clicked.connect(self.on_empty_space_clicked)
@@ -136,8 +142,8 @@ class KeymapEditor(BasicEditor):
     def restore_layout(self, data):
         if json.loads(data.decode("utf-8")).get("uid") != self.keyboard.keyboard_id:
             ret = QMessageBox.question(self.widget(), "",
-                                       tr("KeymapEditor", "Saved keymap belongs to a different keyboard,"
-                                                          " are you sure you want to continue?"),
+                                       tr("KeymapEditor", "This keymap belongs to a different keyboard. Continue?"
+                                                          ),
                                        QMessageBox.Yes | QMessageBox.No)
             if ret != QMessageBox.Yes:
                 return

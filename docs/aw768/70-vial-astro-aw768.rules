@@ -1,0 +1,4 @@
+# The two parent matches must be separate rules: USB interface and USB device
+# attributes live on different ancestors. No access to keyboard/DFU interfaces.
+SUBSYSTEM=="hidraw", ATTRS{bInterfaceNumber}=="02", ENV{VIAL_ASTRO_LIGHTING_IF2}="1"
+SUBSYSTEM=="hidraw", ENV{VIAL_ASTRO_LIGHTING_IF2}=="1", ATTRS{idVendor}=="04f2", ATTRS{idProduct}=="1666", TAG+="uaccess"

@@ -3,3 +3,12 @@ target
 __pycache__
 *.pyc
 .idea
+
+.venv/
+.build-tools/
+dist/
+build/
+artifacts/
+*.spec.bak
+
+.pytest_cache/

@@ -1,0 +1,5 @@
+-r ../../requirements.txt
+PyInstaller==6.16.0
+Pillow>=11.0
+setuptools==80.10.2
+backports.tarfile==1.2.0

@@ -32,6 +32,8 @@ from util import tr, EXAMPLE_KEYBOARDS, KeycodeDisplay, EXAMPLE_KEYBOARD_PREFIX
 from vial_device import VialKeyboard
 from editor.matrix_test import MatrixTest
 
+from addon_runtime.manager import AddonManager
+from addon_runtime.api import Page
 import themes
 
 
@@ -40,10 +42,13 @@ class MainWindow(QMainWindow):
     def __init__(self, appctx):
         super().__init__()
         self.appctx = appctx
+        self.setWindowTitle("Vi_al 1.0")
+        from widgets.combo_popup import install_combo_popup_limits
+        install_combo_popup_limits(qApp)
 
         self.ui_lock_count = 0
 
-        self.settings = QSettings("Vial", "Vial")
+        self.settings = QSettings("Vi_al", "Vi_al")
         if self.settings.value("size", None):
             self.resize(self.settings.value("size"))
         else:
@@ -86,11 +91,15 @@ class MainWindow(QMainWindow):
         self.matrix_tester = MatrixTest(self.layout_editor)
         self.rgb_configurator = RGBConfigurator()
 
-        self.editors = [(self.keymap_editor, "Keymap"), (self.layout_editor, "Layout"), (self.macro_recorder, "Macros"),
-                        (self.rgb_configurator, "Lighting"), (self.tap_dance, "Tap Dance"), (self.combos, "Combos"),
-                        (self.key_override, "Key Overrides"), (self.alt_repeat_key, "Alt Repeat Key"),
-                        (self.qmk_settings, "QMK Settings"), (self.matrix_tester, "Matrix tester"),
-                        (self.firmware_flasher, "Firmware updater")]
+        core_pages = [Page(self.keymap_editor, 'Keymap', 10), Page(self.layout_editor, 'Layout', 20),
+                      Page(self.macro_recorder, 'Macros', 30), Page(self.rgb_configurator, 'Lighting', 230),
+                      Page(self.qmk_settings, 'QMK Settings', 180), Page(self.tap_dance, 'Tap Dance', 190),
+                      Page(self.combos, 'Combos', 200), Page(self.key_override, 'Key Overrides', 210),
+                      Page(self.alt_repeat_key, 'Alt Repeat Key', 220),
+                      Page(self.firmware_flasher, 'Firmware Updater', 270), Page(self.matrix_tester, 'Matrix Tester', 280)]
+        self.addon_manager = AddonManager(self, appctx)
+        pages = sorted(core_pages + self.addon_manager.pages(), key=lambda p: p.order)
+        self.editors = [(page.editor, page.title) for page in pages]
 
         Unlocker.global_layout_editor = self.layout_editor
         Unlocker.global_main_window = self
@@ -98,7 +107,6 @@ class MainWindow(QMainWindow):
         self.current_tab = None
         self.tabs = QTabWidget()
         self.tabs.currentChanged.connect(self.on_tab_changed)
-        self.refresh_tabs()
 
         no_devices = 'No devices detected. Connect a Vial-compatible device and press "Refresh"<br>' \
                      'or select "File" → "Download VIA definitions" in order to enable support for VIA keyboards.'
@@ -123,7 +131,12 @@ class MainWindow(QMainWindow):
         w.setLayout(layout)
         self.setCentralWidget(w)
 
+        # Attach pages only after the tab widget belongs to the central widget.
+        self._create_editor_containers()
+        self.refresh_tabs()
+
         self.init_menu()
+        self.addon_manager.add_menu(self.menuBar())
 
         self.autorefresh = Autorefresh()
         self.autorefresh.devices_updated.connect(self.on_devices_updated)
@@ -233,7 +246,7 @@ class MainWindow(QMainWindow):
             if theme_group.checkedAction() is None:
                 theme_group.actions()[0].setChecked(True)
 
-        about_vial_act = QAction(tr("MenuAbout", "About Vial..."), self)
+        about_vial_act = QAction(tr("MenuAbout", "About Vi_al 1.0..."), self)
         about_vial_act.triggered.connect(self.about_vial)
         self.about_keyboard_act = QAction("", self)
         self.about_keyboard_act.triggered.connect(self.about_keyboard)
@@ -336,18 +349,26 @@ class MainWindow(QMainWindow):
             Unlocker.unlock(self.autorefresh.current_device.keyboard)
             self.autorefresh.current_device.keyboard.reload()
 
-        for e in [self.layout_editor, self.keymap_editor, self.firmware_flasher, self.macro_recorder,
-                  self.tap_dance, self.combos, self.key_override, self.alt_repeat_key,
-                  self.qmk_settings, self.matrix_tester, self.rgb_configurator]:
+        for e, _ in self.editors:
             e.rebuild(self.autorefresh.current_device)
+
+    def _create_editor_containers(self):
+        # Even unsupported pages need a QWidget owner before rebuild() can show
+        # individual controls. Otherwise Qt displays those controls as windows.
+        # Keep one container per editor throughout the window's lifetime.
+        self.editor_containers = {}
+        for editor, _ in self.editors:
+            container = EditorContainer(editor, self.tabs)
+            container.hide()
+            self.editor_containers[editor] = container
 
     def refresh_tabs(self):
         self.tabs.clear()
-        for container, lbl in self.editors:
-            if not container.valid():
+        for editor, lbl in self.editors:
+            if not editor.valid():
                 continue
 
-            c = EditorContainer(container)
+            c = self.editor_containers[editor]
             self.tabs.addTab(c, tr("MainWindow", lbl))
 
     def load_via_stack_json(self):
@@ -430,7 +451,8 @@ class MainWindow(QMainWindow):
         if index >= 0:
             new_tab = self.tabs.widget(index)
 
-        if old_tab is not None:
+        same = self.addon_manager.same_controller(old_tab, new_tab)
+        if old_tab is not None and not same:
             old_tab.editor.deactivate()
         if new_tab is not None:
             new_tab.editor.activate()
@@ -438,8 +460,8 @@ class MainWindow(QMainWindow):
         self.current_tab = new_tab
 
     def about_vial(self):
-        title = "About Vial"
-        text = 'Vial {}<br><br>Python {}<br>Qt {}<br><br>' \
+        title = "About Vi_al 1.0"
+        text = 'Vi_al 1.0 — based on Vial<br><br>Build {}<br>Python {}<br>Qt {}<br><br>' \
                'Licensed under the terms of the<br>GNU General Public License (version 2 or later)<br><br>' \
                '<a href="https://get.vial.today/">https://get.vial.today/</a>' \
                .format(qApp.applicationVersion(),
@@ -460,6 +482,9 @@ class MainWindow(QMainWindow):
         self.about_dialog.show()
 
     def closeEvent(self, e):
+        if not self.addon_manager.before_close():
+            e.ignore()
+            return
         self.settings.setValue("size", self.size())
         self.settings.setValue("pos", self.pos())
         self.settings.setValue("maximized", self.isMaximized())

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Original upstream Vial pixels; only the color matrix changes the palette.
+       On the blue artwork this preserves maximum RGB intensity and alpha.
+       Neutral white/gray remains neutral. No geometry is redrawn. -->
+  <defs><filter id="dark-purple" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.45 0 0.55 0 0  0.62 0.38 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+  </filter></defs>
+  <image width="1024" height="1024" filter="url(#dark-purple)" xlink:href="vial_original.png"/>
+</svg>

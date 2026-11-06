@@ -8,7 +8,7 @@ from widgets.key_widget import KeyWidget
 from vial_device import VialKeyboard
 from editor.basic_editor import BasicEditor
 from widgets.tab_widget_keycodes import TabWidgetWithKeycodes
-
+from util import tr
 
 class ComboEntryUI(QObject):
 
@@ -86,7 +86,10 @@ class Combos(BasicEditor):
             entry.key_changed.connect(self.on_key_changed)
             self.combo_entries_available.append(entry)
 
+        desc_label = QLabel(tr("Combos", "Press up to four keys together to send one output key."))
+        desc_label.setWordWrap(True)
         self.addWidget(self.tabs)
+        self.addWidget(desc_label)
 
     def rebuild_ui(self):
         while self.tabs.count() > 0:

@@ -6,8 +6,8 @@ class EditorContainer(QWidget):
 
     clicked = pyqtSignal()
 
-    def __init__(self, editor):
-        super().__init__()
+    def __init__(self, editor, parent=None):
+        super().__init__(parent)
 
         self.editor = editor
 

@@ -34,7 +34,7 @@ class TapDanceEntryUI(QObject):
         l.addWidget(w)
         l.setAlignment(w, QtCore.Qt.AlignHCenter)
         l.addSpacing(10)
-        lbl = QLabel("Use <code>TD({})</code> to set up this action in the keymap.".format(self.idx))
+        lbl = QLabel("Assign <code>TD({})</code> in Keymap to use this action.".format(self.idx))
         l.addWidget(lbl)
         l.setAlignment(lbl, QtCore.Qt.AlignHCenter)
         l.addStretch()
@@ -115,6 +115,9 @@ class TapDance(BasicEditor):
 
         self.addWidget(self.tabs)
         buttons = QHBoxLayout()
+        desc_label = QLabel(tr("TapDance", "Assign separate actions for a tap, hold, double tap, or tap followed by a hold.\nThe tapping term determines when a press becomes a hold."))
+        desc_label.setWordWrap(True)
+        buttons.addWidget(desc_label)
         buttons.addStretch()
         self.btn_save = QPushButton(tr("TapDance", "Save"))
         self.btn_save.clicked.connect(self.on_save)

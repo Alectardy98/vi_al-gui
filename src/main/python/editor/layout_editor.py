@@ -1,3 +1,4 @@
+from ui_text import device_text
 # SPDX-License-Identifier: GPL-2.0-or-later
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal
@@ -14,7 +15,7 @@ class BooleanChoice:
         self.cb = cb
         self.choice = False
 
-        self.widget_label = QLabel(label)
+        self.widget_label = QLabel(device_text(label))
         self.widget_checkbox = QCheckBox()
         self.widget_checkbox.stateChanged.connect(self.on_checkbox)
 
@@ -50,9 +51,9 @@ class SelectChoice:
         self.choice = 0
         self.options = options
 
-        self.widget_label = QLabel(label)
+        self.widget_label = QLabel(device_text(label))
         self.widget_options = QComboBox()
-        self.widget_options.addItems(options)
+        self.widget_options.addItems([device_text(option) for option in options])
         self.widget_options.currentIndexChanged.connect(self.on_selection)
 
         row = container.rowCount()
@@ -163,7 +164,10 @@ class LayoutEditor(BasicEditor):
             value = value[:-sz]
 
     def get_choice(self, index):
-        return int(self.choices[index].pack(), 2)
+        if index < len(self.choices):
+            return int(self.choices[index].pack(), 2)
+        else:
+            return 0
 
     def on_changed(self):
         self.changed.emit()

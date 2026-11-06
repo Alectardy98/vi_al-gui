@@ -10,7 +10,7 @@ class AnyKeycodeDialog(QDialog):
     def __init__(self, initial):
         super().__init__()
 
-        self.setWindowTitle(tr("AnyKeycodeDialog", "Enter an arbitrary keycode"))
+        self.setWindowTitle(tr("AnyKeycodeDialog", "Enter Keycode"))
 
         self.buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         self.buttons.accepted.connect(self.accept)

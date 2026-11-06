@@ -3,7 +3,7 @@ import json
 
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtWidgets import QPushButton, QGridLayout, QHBoxLayout, QToolButton, QVBoxLayout, \
-    QWidget, QMenu, QScrollArea, QFrame
+    QWidget, QMenu, QScrollArea, QFrame, QMessageBox
 
 from keycodes.keycodes import Keycode
 from macro.macro_action import ActionTap
@@ -56,7 +56,7 @@ class MacroTab(QVBoxLayout):
         self.btn_tap_enter.clicked.connect(self.on_tap_enter)
 
         self.btn_text_window = QToolButton()
-        self.btn_text_window.setText(tr("MacroRecorder", "Open Text Editor..."))
+        self.btn_text_window.setText(tr("MacroRecorder", "Text editor"))
         self.btn_text_window.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.btn_text_window.clicked.connect(self.on_text_window)
 
@@ -133,10 +133,17 @@ class MacroTab(QVBoxLayout):
             macro_text = self.dlg_textbox.getText()
             if len(macro_text) < 6:
                 macro_text = "[]"
-            macro_load = json.loads(macro_text)
+            try:
+                macro_load = json.loads(macro_text)
+            except json.JSONDecodeError:
+                macro_load = None
 
             # ensure a list exists
             if not isinstance(macro_load, list):
+                QMessageBox.warning(None,
+                            "Apply macro",
+                            tr("MacroRecorder", "Invalid macro. Check its format."),
+                            buttons=QMessageBox.Ok)
                 return
 
             # clear the actions from this tab

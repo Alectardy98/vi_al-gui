@@ -222,7 +222,7 @@ class QmkSettings(BasicEditor):
 
     def reset_settings(self):
         if QMessageBox.question(self.widget(), "",
-                                tr("QmkSettings", "Reset all settings to default values?"),
+                                tr("QmkSettings", "Reset all QMK settings to their defaults?"),
                                 QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
             self.keyboard.qmk_settings_reset()
             self.reload_settings()
@@ -235,7 +235,7 @@ class QmkSettings(BasicEditor):
     @classmethod
     def initialize(cls, appctx):
         cls.qsid_fields = defaultdict(list)
-        with open(appctx.get_resource("qmk_settings.json"), "r") as inf:
+        with open(appctx.get_resource("qmk_settings.json"), "r", encoding='utf-8') as inf:
             cls.settings_defs = json.load(inf)
         for tab in cls.settings_defs["tabs"]:
             for field in tab["fields"]:

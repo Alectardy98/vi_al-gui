@@ -1,6 +1,7 @@
 {
-    "app_name": "Vial",
-    "author": "xyz",
+    "app_name": "Vi_al",
+    "display_name": "Vi_al 1.0",
+    "author": "Alectardy98",
     "main_module": "src/main/python/main.py",
-    "version": "0.7.5"
+    "version": "1.0.2"
 }

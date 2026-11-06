@@ -1,0 +1,8 @@
+{
+  "api": 1,
+  "id": "ec_42",
+  "name": "EC42 \u00b7 Electrocapacitive / Topre",
+  "version": "1.0.0",
+  "entrypoint": "provider",
+  "description": "Calibration, per-key actuation, Rapid Trigger and live sensors."
+}

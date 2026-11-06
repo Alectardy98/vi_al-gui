@@ -10,9 +10,10 @@ import traceback
 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtGui import QFontDatabase, QFont, QIcon
 
-from fbs_runtime.application_context import cached_property
-from fbs_runtime.application_context.PyQt5 import ApplicationContext
+from app_context import cached_property
+from app_context import ApplicationContext
 
 import sys
 
@@ -44,6 +45,9 @@ class UncaughtHook(QtCore.QObject):
         self._exception_caught.connect(show_exception_box)
 
     def exception_hook(self, exc_type, exc_value, exc_traceback):
+        if os.environ.get("VI_AL_SMOKE_TEST") or os.environ.get("VI_AL_HID_READ_GUARD"):
+            sys.__excepthook__(exc_type, exc_value, exc_traceback)
+            os._exit(1)
         if issubclass(exc_type, KeyboardInterrupt):
             # ignore keyboard interrupt to support console applications
             sys.__excepthook__(exc_type, exc_value, exc_traceback)
@@ -61,13 +65,18 @@ class VialApplicationContext(ApplicationContext):
         # Override the app definition in order to set WM_CLASS.
         result = QtWidgets.QApplication(sys.argv)
         result.setApplicationName(self.build_settings["app_name"])
-        result.setOrganizationDomain("vial.today")
+        result.setApplicationDisplayName(self.build_settings.get("display_name", "Vi_al 1.0"))
+        result.setOrganizationDomain("vi-al")
 
         #TODO: Qt sets applicationVersion on non-Linux platforms if the exe/pkg metadata is correctly configured.
         # https://doc.qt.io/qt-5/qcoreapplication.html#applicationVersion-prop
         # Verify it is, and only set manually on Linux.
         #if sys.platform.startswith("linux"):
         result.setApplicationVersion(self.build_settings["version"])
+        result.setOrganizationName("Vi_al")
+        result.setWindowIcon(QIcon(self.get_resource("Icon.ico")))
+        if hasattr(result, "setDesktopFileName"):
+            result.setDesktopFileName("vi-al")
         return result
 
 if __name__ == '__main__':
@@ -77,6 +86,11 @@ if __name__ == '__main__':
         linux_keystroke_recorder()
     else:
         appctxt = VialApplicationContext()       # 1. Instantiate ApplicationContext
+        QFontDatabase.addApplicationFont(appctxt.get_resource("wqy-microhei.ttc"))
+        font = QFont("wqy-microhei")
+        font.setPointSize(10)
+        appctxt.app.setFont(font)
+
         init_logger()
         qt_exception_hook = UncaughtHook()
         window = MainWindow(appctxt)

@@ -3,6 +3,7 @@ import time
 
 from hidproxy import hid
 from protocol.keyboard_comm import Keyboard
+from addon_runtime import create_keyboard
 from protocol.dummy_keyboard import DummyKeyboard
 from util import MSG_LEN, pad_for_vibl
 
@@ -47,7 +48,8 @@ class VialKeyboard(VialDevice):
 
     def open(self, override_json=None):
         super().open(override_json)
-        self.keyboard = Keyboard(self.dev)
+        self.keyboard = create_keyboard(self.dev)
+        self.keyboard.usb_descriptor = dict(self.desc)
         self.keyboard.reload(override_json)
 
     def title(self):

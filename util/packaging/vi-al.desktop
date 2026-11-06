@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Vi_al
+Exec=Vi_al
+Icon=vi-al
+Type=Application
+Categories=Utility;Settings;
+Comment=Vial keyboard configurator with installable keyboard add-ons
+StartupWMClass=Vi_al

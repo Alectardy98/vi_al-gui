@@ -1,0 +1,8 @@
+{
+  "api": 1,
+  "id": "my2k",
+  "name": "MY-2K 100NG",
+  "version": "1.0.1",
+  "entrypoint": "provider",
+  "description": "RGB, Lock Lights, touch bar, displays, animation transfer and gaming controls."
+}

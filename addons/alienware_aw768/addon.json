@@ -1,0 +1,8 @@
+{
+  "api": 1,
+  "id": "alienware_aw768",
+  "name": "Alienware AW768 Lighting",
+  "version": "1.0.1",
+  "entrypoint": "provider",
+  "description": "Native AW768 lighting PCB, paired with its custom RP2040 keyboard."
+}

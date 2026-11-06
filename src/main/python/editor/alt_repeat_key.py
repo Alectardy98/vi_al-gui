@@ -137,10 +137,10 @@ class AltRepeatKeyEntryUI(QObject):
         self.container.addWidget(QLabel("Last key"), 2, 0)
         self.container.addWidget(self.last_key, 2, 1)
 
-        self.container.addWidget(QLabel("Alt key"), 3, 0)
+        self.container.addWidget(QLabel("Alternate key"), 3, 0)
         self.container.addWidget(self.alt_key, 3, 1)
 
-        self.container.addWidget(QLabel("Allowed mods"), 4, 0)
+        self.container.addWidget(QLabel("Allowed modifiers"), 4, 0)
         self.container.addWidget(self.allowed_mods, 4, 1)
 
         self.container.addWidget(QLabel("Options"), 5, 0)

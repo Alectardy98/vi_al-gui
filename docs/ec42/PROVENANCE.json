@@ -1,0 +1,20 @@
+{
+  "source_sha256": {
+    "src/protocol.cpp": "b9dcaeab1d907c9d0c2f05a64b67ba313ab1fd9bf7cbf53bb20daeca29ee9486",
+    "src/protocol.h": "6aa88431881047b3c19c72db380050f91f9fcad514b43b8c0fddfb3d35a0edc7",
+    "src/settings.cpp": "b690cc166315e6f70525836755c483515b782a7d1129a81694d40921f43ad195",
+    "src/device.cpp": "7a90b9c8c1e714a81912ab17891b22bbf4f1f31f2304d3f1aaa7720a6a0cfe6c",
+    "src/calibration.cpp": "afd8d06dec5fb7f7c6aa08153c620a630f864e49e5f365e9e8f3d43533a1c691",
+    "src/livepanel.cpp": "3a9c5e268ddeea11fccc937da2bfe6c1e1e1682f2874e1ac416f74a76ee0c1a6",
+    "src/boardprofile.cpp": "f0d6ac75da66cef1ac091476b54dcab0f87e4d18caedf3b33f9ad9bc8f050117",
+    "COPYING": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+    "NOTICE.md": "ba2fcc582b8ea1d66a50eb7112d037a7f543b6ab76b289d2f5d1c4f1acad96f8"
+  },
+  "scope": "GUI-only EC42 v2.9 port; no firmware changes",
+  "adapter_files": [
+    "addons/ec_42/python/vi_al_addons/ec_42/protocol.py",
+    "addons/ec_42/python/vi_al_addons/ec_42/editor.py"
+  ],
+  "upstream_license": "GPL-3.0-or-later",
+  "source_project": "qmk-ec-util (EC42 v2.9)"
+}

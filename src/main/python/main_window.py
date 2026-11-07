@@ -435,14 +435,12 @@ class MainWindow(QMainWindow):
         KeycodeDisplay.set_keymap_override(KEYMAPS[index][1])
 
     def get_theme(self):
-        return self.settings.value("theme", "Dark")
+        return themes.Theme.saved_theme(self.settings)
 
     def set_theme(self, theme):
         themes.Theme.set_theme(theme)
         self.settings.setValue("theme", theme)
-        msg = QMessageBox()
-        msg.setText(tr("MainWindow", "In order to fully apply the theme you should restart the application."))
-        msg.exec_()
+        self.settings.setValue(themes.PURPLE_DEFAULT_APPLIED, True)
 
     def on_tab_changed(self, index):
         TabbedKeycodes.close_tray()

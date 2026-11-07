@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from PyQt5.QtGui import QPainter, QColor, QPainterPath, QTransform, QBrush, QPolygonF, QPalette
+from PyQt5.QtGui import QPainter, QColor, QPainterPath, QTransform, QBrush, QPolygonF, QPalette, QLinearGradient, QGradient
 from PyQt5.QtWidgets import QWidget, QToolTip, QApplication
 from PyQt5.QtCore import Qt, QSize, QRect, QPointF, pyqtSignal, QEvent, QRectF
 
@@ -8,6 +8,7 @@ from constants import KEY_SIZE_RATIO, KEY_SPACING_RATIO, KEYBOARD_WIDGET_PADDING
     KEYBOARD_WIDGET_MASK_HEIGHT, KEY_ROUNDNESS, SHADOW_SIDE_PADDING, SHADOW_TOP_PADDING, SHADOW_BOTTOM_PADDING, \
     KEYBOARD_WIDGET_NONMASK_PADDING
 from themes import Theme
+from purple_theme import NAME as PURPLE_THEME, KEYCAP_TOP, KEYCAP_BOTTOM
 
 
 class KeyWidget:
@@ -380,6 +381,12 @@ class KeyboardWidget(QWidget):
         foreground_brush = QBrush()
         foreground_brush.setColor(QApplication.palette().color(QPalette.Button).lighter(120))
         foreground_brush.setStyle(Qt.SolidPattern)
+        if Theme.get_theme() == PURPLE_THEME:
+            gradient = QLinearGradient(0, 0, 0, 1)
+            gradient.setCoordinateMode(QGradient.ObjectBoundingMode)
+            gradient.setColorAt(0, QColor(KEYCAP_TOP))
+            gradient.setColorAt(1, QColor(KEYCAP_BOTTOM))
+            foreground_brush = QBrush(gradient)
 
         mask_brush = QBrush()
         mask_brush.setColor(QApplication.palette().color(QPalette.Button).lighter(Theme.mask_light_factor()))

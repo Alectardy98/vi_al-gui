@@ -4,6 +4,10 @@
 
 **Vial keyboard configuration, with optional keyboard add-ons.**
 
+**Vi_al Purple** is the default desktop theme, matching the web edition's dark
+backgrounds and lavender accents. This update selects purple once, including on
+existing installations. Later choices from **Theme** are saved normally.
+
 Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
 automatically on future launches. The bundled release includes all three.

@@ -8,6 +8,10 @@
 backgrounds and lavender accents. This update selects purple once, including on
 existing installations. Later choices from **Theme** are saved normally.
 
+The window opens directly to the normal disconnected interface. Keyboard discovery starts after
+all pages are prepared, so switching tabs does not trigger deferred page builds.
+Switching keyboards still reads their current device settings.
+
 Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
 automatically on future launches. The bundled release includes all three.

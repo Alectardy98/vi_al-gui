@@ -11,6 +11,9 @@ import keyboard
 
 root=Path(os.environ['VI_AL_VALIDATION_DIR']);root.mkdir(parents=True,exist_ok=True)
 try:
+    assert WINDOW.startup_ready,'Keyboard support is still loading'
+    assert not WINDOW._startup_timer.isActive(),'Deferred page construction remains'
+    assert len(WINDOW.editors)==len(WINDOW.editor_containers),'An editor lacks a page container'
     assert WINDOW.windowTitle()=='Vi_al 1.0',WINDOW.windowTitle()
     assert APP.applicationDisplayName()=='Vi_al 1.0',APP.applicationDisplayName()
     from themes import Theme, DEFAULT_THEME

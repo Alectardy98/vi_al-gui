@@ -238,8 +238,13 @@ class KeycodeDisplay:
             if qmk_id in KeycodeDisplay.keymap_override:
                 label = KeycodeDisplay.keymap_override[qmk_id]
                 highlight_color = QApplication.palette().color(QPalette.Link).getRgb()
-                widget.setStyleSheet("QPushButton {color: rgb%s;}" % str(highlight_color))
+                style = "QPushButton {color: rgb%s;}" % str(highlight_color)
             else:
                 label = widget.keycode.label
-                widget.setStyleSheet("QPushButton {}")
+                style = ""
+            # An empty rule still creates a local stylesheet wrapper for every
+            # button. Normal keycodes inherit the app theme directly; only
+            # language overrides need a local text color.
+            if widget.styleSheet() != style:
+                widget.setStyleSheet(style)
             widget.setText(label.replace("&", "&&"))

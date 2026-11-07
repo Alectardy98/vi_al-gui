@@ -396,6 +396,7 @@ input[type="checkbox"] {
   gap: 22px;
 }
 .keyboard-scroll {
+  container-type: inline-size;
   overflow-x: auto;
   padding: 22px 8px 25px;
   display: flex;
@@ -430,6 +431,14 @@ input[type="checkbox"] {
   border-color: #d0abf7;
   color: #fff;
 }
+.keycap-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  pointer-events: none;
+}
 .keycap.pressed {
   background: #355f48;
   border-color: #8fdeae;
@@ -446,6 +455,27 @@ input[type="checkbox"] {
   font-size: 11px;
   padding: 10px 5px;
   min-height: 40px;
+}
+.keycode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 15px 0;
+}
+.keycode-tabs button {
+  font-size: 12px;
+  padding: 9px 13px;
+}
+.keycode-count {
+  font-size: 11px;
+  margin: 12px 0 0;
+}
+.keycode-description {
+  min-height: 42px;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--border);
+  color: #c4b4d4;
+  font-size: 12px;
 }
 .matrix {
   display: grid;

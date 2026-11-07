@@ -8,10 +8,11 @@ import {
   section,
   select,
 } from "./ui.js";
-import { keyLabel, parseKeycode } from "./keycodes.js";
+import { keyLabel } from "./keycodes.js";
 import { keyboardView } from "./keyboard-view.js";
 import { optionValues } from "./keyboard.js";
 import { delay } from "./binary.js";
+import { keycodePicker } from "./keycode-picker.js";
 
 export function keymapPage(container, ctx) {
   const k = ctx.keyboard;
@@ -23,12 +24,6 @@ export function keymapPage(container, ctx) {
       { class: "muted" },
       "Select a key to change its assignment.",
     );
-  const input = el("input", {
-    placeholder: "Search keycodes…",
-    "aria-label": "Search keycodes",
-    type: "search",
-  });
-  const picker = el("div", { class: "keycode-picker" });
   const render = () =>
     view.replaceChildren(
       keyboardView(k, {
@@ -38,7 +33,7 @@ export function keymapPage(container, ctx) {
           selected = { key, id };
           selection.textContent = `Selected: ${keyLabel(k, k.code(layer, key))} · ${id}`;
           render();
-          renderPicker();
+          picker.refresh();
         },
       }),
     );
@@ -56,31 +51,10 @@ export function keymapPage(container, ctx) {
         ? "Demo key changed. No keyboard was written."
         : "Key assignment saved and read back.",
     );
-  const renderPicker = () => {
-    const query = input.value.trim().toLowerCase();
-    const matches = k.catalogue
-      .filter((r) =>
-        `${r.id} ${r.label} ${r.title}`.toLowerCase().includes(query),
-      )
-      .slice(0, 120);
-    picker.replaceChildren(
-      ...matches.map((row) =>
-        el(
-          "button",
-          {
-            title: `${row.id}${row.title ? " · " + row.title : ""}`,
-            disabled: !selected,
-            onClick: () => set(row.code),
-          },
-          row.label,
-        ),
-      ),
-    );
-  };
-  input.addEventListener("input", renderPicker);
-  const arbitrary = el("input", {
-    placeholder: "KC_A or 0x0004",
-    "aria-label": "Any keycode",
+  const picker = keycodePicker(k, {
+    onChoose: set,
+    hasSelection: () => !!selected,
+    notify: ctx.notify,
   });
   const layerButtons = el(
     "div",
@@ -124,28 +98,9 @@ export function keymapPage(container, ctx) {
       ),
       view,
     ),
-    section(
-      "Keycodes",
-      null,
-      selection,
-      input,
-      picker,
-      el(
-        "div",
-        { class: "toolbar" },
-        arbitrary,
-        button("Assign keycode", () => {
-          try {
-            set(parseKeycode(k, arbitrary.value.trim()));
-          } catch (e) {
-            ctx.notify(e.message, true);
-          }
-        }),
-      ),
-    ),
+    section("Keycodes", null, selection, picker.node),
   );
   render();
-  renderPicker();
 }
 
 export function layoutPage(container, ctx) {
@@ -162,6 +117,9 @@ export function layoutPage(container, ctx) {
     );
     return;
   }
+  const preview = el("div");
+  const renderPreview = () =>
+    preview.replaceChildren(keyboardView(k, { layoutChoices: values }));
   const fields = labels.map((label, i) =>
     field(
       typeof label === "string" ? label : label[0],
@@ -175,11 +133,17 @@ export function layoutPage(container, ctx) {
         values[i],
         (e) => {
           values[i] = +e.target.value;
+          renderPreview();
         },
       ),
     ),
   );
   container.append(
+    section(
+      "Layout preview",
+      "Preview physical options here. Apply layout saves them to the keyboard.",
+      preview,
+    ),
     section(
       "Physical layout",
       "Choose the actual switch layout fitted to your keyboard.",
@@ -195,6 +159,7 @@ export function layoutPage(container, ctx) {
       ),
     ),
   );
+  renderPreview();
 }
 
 export async function securityPage(container, ctx) {

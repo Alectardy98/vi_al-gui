@@ -1,22 +1,41 @@
 import { el } from "./ui.js";
 import { keyLabel } from "./keycodes.js";
+import { keyBounds, keyOutline, placeLayout } from "./layout.js";
 
 export function keyboardView(
   keyboard,
-  { layer = 0, selected, onSelect, values } = {},
+  { layer = 0, selected, onSelect, values, layoutChoices } = {},
 ) {
-  const keys = keyboard.visibleKeys();
-  const unit = 54;
-  const gap = 4;
-  const left = Math.min(...keys.map((k) => k.x)),
-    top = Math.min(...keys.map((k) => k.y));
-  const width = Math.max(...keys.map((k) => k.x + k.width)) - left;
-  const height = Math.max(...keys.map((k) => k.y + k.height)) - top;
+  const keys = layoutChoices
+    ? placeLayout(keyboard.keys, layoutChoices)
+    : keyboard.visibleKeys();
+  if (!keys.length)
+    return el(
+      "p",
+      { class: "notice" },
+      "No physical keys match the selected layout options.",
+    );
+  const bounds = keys.map(keyBounds);
+  const left = Math.min(...bounds.map((b) => b.left)),
+    top = Math.min(...bounds.map((b) => b.top));
+  const width = Math.max(...bounds.map((b) => b.right)) - left;
+  const height = Math.max(...bounds.map((b) => b.bottom)) - top;
+  const length = (n) => `calc(${n} * var(--key-unit))`;
   const canvas = el("div", {
     class: "keyboard",
-    style: { width: `${width * unit}px`, height: `${height * unit}px` },
+    style: { width: length(width), height: length(height) },
   });
+  canvas.style.setProperty(
+    "--key-unit",
+    `clamp(30px, calc((100cqw - 16px) / ${width}), 54px)`,
+  );
   for (const key of keys) {
+    const shape = keyOutline(key);
+    const shaped =
+      key.x2 ||
+      key.y2 ||
+      key.width2 !== key.width ||
+      key.height2 !== key.height;
     const keyId =
       key.encoder !== null
         ? `e${key.encoder}:${key.direction}`
@@ -34,18 +53,34 @@ export function keyboardView(
         "data-key": keyId,
         disabled: !onSelect,
         style: {
-          left: `${(key.x - left) * unit}px`,
-          top: `${(key.y - top) * unit}px`,
-          width: `${key.width * unit - gap}px`,
-          height: `${key.height * unit - gap}px`,
+          left: length(shape.left - left),
+          top: length(shape.top - top),
+          width: `calc(${shape.width} * var(--key-unit) - 4px)`,
+          height: `calc(${shape.height} * var(--key-unit) - 4px)`,
           transform: key.rotation_angle
             ? `rotate(${key.rotation_angle}deg)`
             : "",
-          transformOrigin: `${(key.rotation_x - key.x) * unit}px ${(key.rotation_y - key.y) * unit}px`,
+          transformOrigin: `${length(key.rotation_x - shape.left)} ${length(key.rotation_y - shape.top)}`,
+          clipPath:
+            shaped && shape.connected
+              ? `polygon(${shape.points.map(([x, y]) => `${(100 * (x - shape.left)) / shape.width}% ${(100 * (y - shape.top)) / shape.height}%`).join(", ")})`
+              : "",
         },
         onClick: () => onSelect?.(key, keyId),
       },
-      values?.(key) ?? keyLabel(keyboard, code),
+      el(
+        "span",
+        {
+          class: "keycap-label",
+          style: {
+            left: `${(100 * (key.x - shape.left)) / shape.width}%`,
+            top: `${(100 * (key.y - shape.top)) / shape.height}%`,
+            width: `${(100 * key.width) / shape.width}%`,
+            height: `${(100 * key.height) / shape.height}%`,
+          },
+        },
+        values?.(key) ?? keyLabel(keyboard, code),
+      ),
     );
     canvas.append(cap);
   }

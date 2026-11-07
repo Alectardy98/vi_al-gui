@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 import xz from "xz-decompress";
-import kle from "@ijprest/kle-serial";
+import { deserializeLayout, placeLayout } from "./layout.js";
 import { bytes, dword, equal, hex, integer, u16, u32, word } from "./binary.js";
 const { XzReadableStream } = xz;
 
@@ -10,42 +10,52 @@ export function parseDefinition(definition) {
   integer(cols, 1, 32, "Matrix columns");
   if (!Array.isArray(definition.layouts?.keymap))
     throw Error("The keyboard did not provide a physical layout.");
-  const keys = kle.Serial.deserialize(definition.layouts.keymap).keys.map(
-    (key) => {
-      if (
-        ![
-          key.x,
-          key.y,
-          key.width,
-          key.height,
-          key.rotation_angle,
-          key.rotation_x,
-          key.rotation_y,
-        ].every(Number.isFinite) ||
-        Math.abs(key.x) > 100 ||
-        Math.abs(key.y) > 100 ||
-        key.width <= 0 ||
-        key.width > 24 ||
-        key.height <= 0 ||
-        key.height > 24 ||
-        Math.abs(key.rotation_angle) > 360
-      )
-        throw Error("Keyboard geometry is outside supported bounds.");
-      const coord = key.labels[0]?.match(/^(\d+),(\d+)$/);
-      const option = key.labels[8]?.match(/^(\d+),(\d+)$/);
-      const encoder = key.labels[4] === "e";
-      if (coord && !encoder && (+coord[1] >= rows || +coord[2] >= cols))
-        throw Error("Layout key is outside its matrix.");
-      return {
-        ...key,
-        row: coord && !encoder ? +coord[1] : null,
-        col: coord && !encoder ? +coord[2] : null,
-        encoder: encoder && coord ? +coord[1] : null,
-        direction: encoder && coord ? +coord[2] : null,
-        option: option ? [+option[1], +option[2]] : null,
-      };
-    },
-  );
+  const keys = deserializeLayout(definition.layouts.keymap).map((key) => {
+    if (
+      ![
+        key.x,
+        key.y,
+        key.width,
+        key.height,
+        key.x2,
+        key.y2,
+        key.width2,
+        key.height2,
+        key.rotation_angle,
+        key.rotation_x,
+        key.rotation_y,
+      ].every(Number.isFinite) ||
+      Math.abs(key.x) > 100 ||
+      Math.abs(key.y) > 100 ||
+      key.width <= 0 ||
+      key.width > 24 ||
+      key.height <= 0 ||
+      key.height > 24 ||
+      key.width2 <= 0 ||
+      key.width2 > 24 ||
+      key.height2 <= 0 ||
+      key.height2 > 24 ||
+      Math.abs(key.x2) > 24 ||
+      Math.abs(key.y2) > 24 ||
+      Math.abs(key.rotation_x) > 100 ||
+      Math.abs(key.rotation_y) > 100 ||
+      Math.abs(key.rotation_angle) > 360
+    )
+      throw Error("Keyboard geometry is outside supported bounds.");
+    const coord = key.labels[0]?.match(/^\s*(\d+)\s*,\s*(\d+)\s*$/);
+    const option = key.labels[8]?.match(/^\s*(\d+)\s*,\s*(\d+)\s*$/);
+    const encoder = key.labels[4] === "e";
+    if (coord && !encoder && (+coord[1] >= rows || +coord[2] >= cols))
+      throw Error("Layout key is outside its matrix.");
+    return {
+      ...key,
+      row: coord && !encoder ? +coord[1] : null,
+      col: coord && !encoder ? +coord[2] : null,
+      encoder: encoder && coord ? +coord[1] : null,
+      direction: encoder && coord ? +coord[2] : null,
+      option: option ? [+option[1], +option[2]] : null,
+    };
+  });
   if (keys.length > 1024) throw Error("Physical layout is too large.");
   return keys;
 }
@@ -146,11 +156,14 @@ export class VialKeyboard {
     this.macroMemory = u16(await this.request(13), 1);
     integer(this.macroCount, 0, 128, "Macro count");
     this.dynamic = { tapDance: 0, combo: 0, override: 0, repeat: 0 };
+    this.supportedFeatures = new Set();
     if (this.version >= 4) {
       const counts = await this.request(254, 13, 0);
       ["tapDance", "combo", "override", "repeat"].forEach((key, i) => {
         this.dynamic[key] = counts[i];
       });
+      if (counts[31] & 1) this.supportedFeatures.add("caps_word");
+      if (counts[31] & 2) this.supportedFeatures.add("layer_lock");
     }
     return this;
   }
@@ -224,12 +237,7 @@ export class VialKeyboard {
       this.definition.layouts.labels,
       this.layoutOptions,
     );
-    return this.keys.filter(
-      (k) =>
-        !k.decal &&
-        (k.row !== null || k.encoder !== null) &&
-        (!k.option || options[k.option[0]] === k.option[1]),
-    );
+    return placeLayout(this.keys, options);
   }
   async unlockStatus() {
     return this.request(254, 5);

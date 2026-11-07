@@ -14,9 +14,12 @@ const aw = JSON.parse(
 const prox = JSON.parse(
   readFileSync(new URL("../fixtures/pro-x-definition.json", import.meta.url)),
 );
+const zenithalLayouts = JSON.parse(
+  readFileSync(new URL("../fixtures/zenithal-layouts.json", import.meta.url)),
+);
 export async function mockKeyboard(page, kind = "my2k") {
   await page.addInitScript(
-    ({ f, kind, aw, prox }) => {
+    ({ f, kind, aw, prox, zenithal }) => {
       const unhex = (s) =>
         Uint8Array.from(s.match(/../g).map((x) => parseInt(x, 16)));
       const set16 = (a, i, v, le = false) => {
@@ -47,20 +50,34 @@ export async function mockKeyboard(page, kind = "my2k") {
       const revisions = { touch: 1, sleep: 1, locks: 1, game: 1, ec: 1 };
       const compressed = Uint8Array.from(
         atob(
-          kind === "prox"
-            ? prox.compressed
-            : kind === "ec"
-              ? f.ecCompressed
-              : kind === "aw"
-                ? f.awCompressed
-                : kind === "core"
-                  ? f.coreCompressed
-                  : f.compressed,
+          kind.startsWith("zenithal")
+            ? zenithal.compressed
+            : kind === "prox"
+              ? prox.compressed
+              : kind === "ec"
+                ? f.ecCompressed
+                : kind === "aw"
+                  ? f.awCompressed
+                  : kind === "core"
+                    ? f.coreCompressed
+                    : f.compressed,
         ),
         (c) => c.charCodeAt(0),
       );
-      const rows = kind === "prox" ? 5 : kind === "ec" ? 6 : 3,
-        cols = kind === "prox" ? 15 : kind === "ec" ? 16 : 5;
+      const rows = kind.startsWith("zenithal")
+          ? 10
+          : kind === "prox"
+            ? 5
+            : kind === "ec"
+              ? 6
+              : 3,
+        cols = kind.startsWith("zenithal")
+          ? 10
+          : kind === "prox"
+            ? 15
+            : kind === "ec"
+              ? 16
+              : 5;
       const keymap = new Uint8Array(4 * rows * cols * 2);
       const macroBuffer = new Uint8Array(256);
       macroBuffer.set([...ascii("Hello"), 0, 1, 1, 4, 0]);
@@ -73,6 +90,8 @@ export async function mockKeyboard(page, kind = "my2k") {
       window.__qmkValues = { 7: 200, 21: 32768 };
       for (let i = 0; i < keymap.length; i += 2)
         set16(keymap, i, i === 0 ? 41 : 4 + ((i / 2) % 26));
+      if (kind.startsWith("zenithal")) set16(keymap, (8 * cols + 3) * 2, 44);
+      let layoutOptions = 0;
       const gameKeys = [82, 81, 80, 79, 29, 27, 40, 44];
       let ani = [9, 0, 0],
         active = 1;
@@ -139,13 +158,15 @@ export async function mockKeyboard(page, kind = "my2k") {
               r[0] = 6;
               r.set(
                 unhex(
-                  kind === "prox"
-                    ? prox.uid
-                    : kind === "ec"
-                      ? "0ec173239f8f8f2c"
-                      : kind === "aw"
-                        ? "2945ce03248c2c0c"
-                        : "0123456789abcdef",
+                  kind.startsWith("zenithal")
+                    ? "e07d62d65aab8883"
+                    : kind === "prox"
+                      ? prox.uid
+                      : kind === "ec"
+                        ? "0ec173239f8f8f2c"
+                        : kind === "aw"
+                          ? "2945ce03248c2c0c"
+                          : "0123456789abcdef",
                 ),
                 4,
               );
@@ -231,6 +252,9 @@ export async function mockKeyboard(page, kind = "my2k") {
           else if (q[0] === 2) {
             r.fill(0);
             r.set(q.slice(0, 2));
+            if (q[1] === 2) set32(r, 2, layoutOptions);
+          } else if (q[0] === 3 && q[1] === 2) {
+            layoutOptions = new DataView(q.buffer).getUint32(2);
           } else if (q[0] === 253) {
             const channel = q[1],
               op = q[2];
@@ -509,6 +533,12 @@ export async function mockKeyboard(page, kind = "my2k") {
         configurable: true,
       });
     },
-    { f: fixture, kind, aw, prox },
+    {
+      f: fixture,
+      kind,
+      aw,
+      prox,
+      zenithal: zenithalLayouts[kind === "zenithal_alec" ? 2 : 1],
+    },
   );
 }

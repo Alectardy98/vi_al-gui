@@ -90,7 +90,7 @@ change.
 
 | Area | Browser implementation |
 |---|---|
-| Vial core | Actual compressed definition, layout options, layers, keycodes, encoders, keymap export, macros, Tap Dance, combos, key overrides, alternate repeat, QMK settings, generic lighting, unlock/lock and matrix tester |
+| Vial core | Actual compressed definition, correctly placed layout alternatives and ISO/stepped keys, layers, categorized keycode tabs, firmware-defined User keycodes, modifier/layer-tap builder, encoders, keymap export, macros, Tap Dance, combos, key overrides, alternate repeat, QMK settings, generic lighting, unlock/lock and matrix tester |
 | EC42 | Verified v2.9 identity, global/per-key actuation, atomic global reset, Rapid Trigger, live sensors, calibration backup/capture/review/apply and stored readback |
 | MY-2K | RGB region effects/colors/brightness, Lock Lights, touch/jitter, visual sleep, Standard/High Performance selection, OLED message/label/overrides, clock sync, game bindings and ROM selection, GIF conversion, slot preview/upload/clear/play |
 | AW768 | Explicit original-PCB selection, native group effects, Macro zone color, full two-pass onboard save and group readback |
@@ -102,6 +102,21 @@ No flash/UF2 operation is implemented here. The browser cannot invoke the OS
 mount/eject tools or independently prove internal USB hub topology for AW768;
 the user must choose the correct native PCB. Legacy Macro color readback can be
 unavailable even when the feature write completes, and the UI states this.
+
+The Keymap picker has **Basic, ISO/JIS, Layers, Quantum, Backlight, Media & Mouse,
+MIDI, Tap Dance, User and Macro** tabs, plus **All** and **Any**. Search checks
+every category, including custom names and descriptions. The **User** tab reads
+`customKeycodes` from the connected keyboard, preserving definition-order IDs
+even when an optional `displayOrder` changes their presentation. Firmware counts
+bound the Macro and Tap Dance entries; optional MIDI/Quantum features follow
+the capabilities advertised by the device.
+
+Modifier and layer-tap actions prompt for their inner basic key before saving.
+**Any** accepts supported names and aliases, `USER00`, 16-bit values, and
+expressions such as `LCTL(KC_A)` or `LT(1,KC_SPC)`. Selecting tabs, searching or
+previewing physical layout options sends no settings writes. Use **Apply layout**
+to save physical options; selecting a keycode saves that assignment and verifies
+its readback.
 
 Manual EC calibration requires the browser Save File Picker API to confirm a
 recovery file was written before volatile capture starts. The original GPIO,

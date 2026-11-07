@@ -1,19 +1,21 @@
 # Web preview validation
 
 Validated on the `web` branch with Node 26.8.1 and local headless Chrome.
-The GitHub workflow uses Node 24 and Playwright Chromium. CI execution and
-GitHub Pages publication have not yet been verified remotely.
+The GitHub workflow uses Node 24 and Playwright Chromium. The earlier preview
+at commit `e4753e7` passed its GitHub build and deployment; the published homepage
+and demo were checked in Chrome. The layout/picker changes described below have
+been validated locally and require a new push before remote deployment.
 
 | Check | Result |
 |---|---|
-| `npm test` | 24 passed |
-| `npm run test:browser` | 14 passed |
+| `npm test` | 32 passed |
+| `npm run test:browser` | 18 passed |
 | `npm run build` | Passed; static output in `web/dist/` |
 | `npm run test:production` | Passed under `/vi_al-gui/`, including all three providers; no external requests or browser errors |
 | Core build with `web/addons/` absent | Passed in an isolated copy |
 | Desktop regression suite before folder reorganization | 170 tests and 365 subtests passed |
 | Desktop add-on ZIP boundary | All three packages validated; browser sources excluded |
-| Standalone `web/` copy | 24 unit tests, build and production checks passed without desktop source/assets |
+| Standalone `web/` copy after folder reorganization | 24 unit tests, build and production checks passed without desktop source/assets |
 
 Browser-only source, assets, licenses, fixtures, tests and configuration now
 live under `web/`, including `web/addons/`. The GitHub Pages workflow remains
@@ -34,6 +36,40 @@ Browser tests use simulated USB peers. They prove frontend behavior against
 those peers, not that a physical device or its firmware accepts every operation.
 No firmware was built or flashed and no connected keyboard settings were changed
 while implementing or running these tests.
+
+### Zenithal layout and keycode picker
+
+`IMG_8962.jpg` exposed a reproducible browser geometry defect. The packaged
+`kle-serial` parser did not reset its coordinate cursor when `rx`/`ry` changed,
+even though Vial uses those cluster origins for unrotated keys too. With the
+Rev3 definition, the spacebar appeared at row 21.25 and bottom numpad at row
+26.25 instead of row 4. Their off-screen placement also stretched the keymap
+card and pushed the keycode picker far below the visible keyboard.
+
+The browser now corrects the cluster cursor, places each selected layout group
+relative to option 0 as desktop Vial does, includes secondary key rectangles and
+rotated bounds, and fits wide layouts within the available space. Very narrow
+views retain horizontal scrolling instead of shrinking keys indefinitely. The
+Layout page previews changes without writing them until Apply.
+
+Independent fixtures generated from the desktop Python/Qt renderer cover 58
+placements across Zenithal Rev1, Rev3/Pico and the DC2014 custom definition.
+Tests compare source coordinates and displayed key positions, including every
+individual option and a combined-options case. Browser tests confirm the full
+spacebar/numpad are visible, keycode controls are no longer pushed down by the
+bad geometry, ISO Enter retains its shape, and layout persistence uses the same
+acknowledgement/readback commands.
+
+The picker now uses the desktop category metadata and versioned wire encodings,
+including aliases and modifier/layer-tap masks. The 120-result cutoff is removed.
+Tests cover all tabs, capability filtering, v5/v6 encodings, custom presentation
+order versus immutable numeric identity, all 39 User entries in the Alec
+definition, descriptions, and assignment/readback. Browsing, searching and
+choosing a wrapper before its inner key do not issue settings writes.
+
+These tests use real source definitions and simulated device replies. The
+remote Zenithal PCB was not connected for physical acceptance; no keyboard
+firmware or EEPROM was changed.
 
 ### Pro X connection follow-up
 

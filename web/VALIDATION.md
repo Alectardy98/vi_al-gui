@@ -10,9 +10,17 @@ GitHub Pages publication have not yet been verified remotely.
 | `npm run test:browser` | 14 passed |
 | `npm run build` | Passed; static output in `web/dist/` |
 | `npm run test:production` | Passed under `/vi_al-gui/`, including all three providers; no external requests or browser errors |
-| Core build with `addons/` absent | Passed in an isolated copy |
-| Existing desktop regression suite | 170 tests and 365 subtests passed |
+| Core build with `web/addons/` absent | Passed in an isolated copy |
+| Desktop regression suite before folder reorganization | 170 tests and 365 subtests passed |
 | Desktop add-on ZIP boundary | All three packages validated; browser sources excluded |
+| Standalone `web/` copy | 24 unit tests, build and production checks passed without desktop source/assets |
+
+Browser-only source, assets, licenses, fixtures, tests and configuration now
+live under `web/`, including `web/addons/`. The GitHub Pages workflow remains
+in `.github/workflows/`. Desktop packaging uses its original implementation;
+it no longer needs an exclusion for browser files. Website build and runtime
+data do not import files from the desktop tree.
+The moved desktop-package integration test passed after this reorganization.
 
 Protocol vectors come from the existing Python codecs and captured Dell packet
 fixtures. Tests cover CRC corruption, HID report IDs/serialization, stalled

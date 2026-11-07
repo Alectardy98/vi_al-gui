@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-import { bytes, delay, equal, integer, u16 } from "../../../web/src/binary.js";
+import { bytes, delay, equal, integer, u16 } from "../../src/binary.js";
 export const groups = [
   [2, "WASD"],
   [16, "Arrows"],

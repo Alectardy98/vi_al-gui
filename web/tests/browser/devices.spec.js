@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { fixture, mockKeyboard } from "./mock-hid.js";
 import { readFileSync } from "node:fs";
-import { parseCrs } from "../../../addons/my2k/web/files.js";
+import { parseCrs } from "../../addons/my2k/files.js";
 
 async function connect(page, kind) {
   await mockKeyboard(page, kind);

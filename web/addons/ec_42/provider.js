@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import { EC42, decodeRecord, profiles } from "./protocol.js";
-import { bytes, u16 } from "../../../web/src/binary.js";
+import { bytes, u16 } from "../../src/binary.js";
 import {
   button,
   download,
@@ -11,8 +11,8 @@ import {
   range,
   section,
   toggle,
-} from "../../../web/src/ui.js";
-import { keyboardView } from "../../../web/src/keyboard-view.js";
+} from "../../src/ui.js";
+import { keyboardView } from "../../src/keyboard-view.js";
 
 async function client(ctx) {
   return new EC42(ctx.keyboard).identify();

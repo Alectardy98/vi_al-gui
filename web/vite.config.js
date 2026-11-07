@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
 
 // Keep runtime credits in the static distribution after minification.
 const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
@@ -11,14 +11,12 @@ const notices = [
     1,
   )[0] + "*/",
   read("./node_modules/@ijprest/kle-serial/LICENSE"),
-  read("../COPYING"),
+  read("./licenses/GPL-2.0.txt"),
+  read("./licenses/GPL-3.0.txt"),
 ];
-if (existsSync(new URL("../docs/ec42/COPYING", import.meta.url)))
-  notices.push(read("../docs/ec42/COPYING"));
 
 export default defineConfig({
   base: "./",
-  server: { fs: { allow: [".."] } },
   build: { target: "es2022", outDir: "dist", emptyOutDir: true },
   plugins: [
     {

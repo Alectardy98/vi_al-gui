@@ -8,8 +8,8 @@ import {
   range,
   section,
   select,
-} from "../../../web/src/ui.js";
-import { keyboardView } from "../../../web/src/keyboard-view.js";
+} from "../../src/ui.js";
+import { keyboardView } from "../../src/keyboard-view.js";
 
 async function render(container, ctx) {
   let client,

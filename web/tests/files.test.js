@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { bytes, crc32, dword, hex, u16, u32, word } from "../src/binary.js";
-import { UsbFiles, parseCrs, encodeRle } from "../../addons/my2k/web/files.js";
+import { UsbFiles, parseCrs, encodeRle } from "../addons/my2k/files.js";
 const f = JSON.parse(
   readFileSync(new URL("./fixtures/protocols.json", import.meta.url)),
 );

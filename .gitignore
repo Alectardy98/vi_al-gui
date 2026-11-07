@@ -12,9 +12,3 @@ artifacts/
 *.spec.bak
 
 .pytest_cache/
-
-# Browser build and local test output
-web/node_modules/
-web/dist/
-web/test-results/
-web/playwright-report/

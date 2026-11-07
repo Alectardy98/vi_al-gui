@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { EC42, profiles } from "../../addons/ec_42/web/protocol.js";
+import { EC42, profiles } from "../addons/ec_42/protocol.js";
 import { u16, word } from "../src/binary.js";
 
 const fixture = JSON.parse(

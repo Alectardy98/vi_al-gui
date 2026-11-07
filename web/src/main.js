@@ -1,6 +1,6 @@
 import "./style.css";
 import "./components.css";
-import logo from "../../src/main/icons/linux/256.png";
+import logo from "../assets/icons/256.png";
 import { el, button, note, section } from "./ui.js";
 import { rawInterface, RawHidTransport } from "./transport.js";
 import { VialKeyboard } from "./keyboard.js";
@@ -15,7 +15,7 @@ import {
 } from "./pages.js";
 import { macroPage, dynamicPage, settingsPage } from "./advanced.js";
 
-const addonModules = import.meta.glob("../../addons/*/web/provider.js", {
+const addonModules = import.meta.glob("../addons/*/provider.js", {
   eager: true,
 });
 const addons = Object.values(addonModules).map((module) => module.default);
@@ -185,7 +185,7 @@ function welcome() {
           el(
             "p",
             {},
-            "Add a browser add-on in addons/<id>/web/, then rebuild and publish the site. Its controls appear automatically for matching keyboards. EC42, MY-2K and Alienware are already included.",
+            "Add a browser add-on in web/addons/<id>/, then rebuild and publish the site. Its controls appear automatically for matching keyboards. EC42, MY-2K and Alienware are already included.",
           ),
         ),
         section(

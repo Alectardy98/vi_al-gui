@@ -47,12 +47,23 @@ CI installs its own Chromium through Playwright.
 ## Structure
 
 ```text
-web/src/                    Browser UI, serialized WebHID, Vial core
-web/src/data/               Checked-in versioned keycode/font/encoding data
-addons/<id>/web/provider.js  Add-on ID, identity matching and pages
-addons/<id>/web/protocol.js  Browser implementation of that add-on's protocol
-web/tests/                  Protocol vectors and simulated browser tests
+web/
+  src/                       Browser UI, WebHID and Vial core
+    data/                    Keycodes, fonts, encoding and QMK settings
+  addons/<id>/
+    provider.js              Add-on identity matching and pages
+    protocol.js              Browser implementation of the device protocol
+  assets/                    Purple icons and other browser assets
+  licenses/                  Notices included in the static build
+  tests/                     Protocol fixtures and simulated browser tests
+  scripts/                   Build checks and optional desktop-data exporters
+  package.json               Build and test commands
+  vite.config.js             Static-site build configuration
 ```
+
+The website can be built and tested from a copy of `web/` alone. GitHub's
+deployment workflow stays at `.github/workflows/web.yml`, where GitHub requires
+it. The root `addons/` directory is exclusively for the desktop application.
 
 Every browser add-on exports `{id, name, supports(keyboard), pages}`. A page is
 `{id, title, render(container, context)}`. Use `context.run()` for user actions,
@@ -62,9 +73,18 @@ These share a connection-wide operation queue, including across page changes.
 Timeouts invalidate the connection; mutation requests are never retried.
 
 Browser providers are bundled at build time using Vite's local module discovery.
-The core builds if `addons/` is absent. Desktop Python add-on ZIPs cannot execute
-in a browser. The desktop ZIP packager excludes `web/`, preserving its existing
-package format. Existing Python providers and firmware are unchanged.
+The core builds if `web/addons/` is absent. Desktop Python add-on ZIPs cannot
+execute in a browser. Browser providers are kept separate from desktop package
+sources, so the desktop packager needs no web-specific changes. Existing Python
+providers and firmware are unchanged.
+
+The optional Python exporters in `web/scripts/` refresh checked-in data from
+the desktop source tree. They are developer synchronization tools, not required
+by `npm ci`, the website build, or browser tests. The optional integration test
+in `web/tests/desktop/` checks desktop ZIPs from the complete repository.
+Icons and the QMK settings schema are local copies in `web/assets/` and
+`web/src/data/`; refresh those copies deliberately when their desktop originals
+change.
 
 ## Current controls and limits
 
@@ -103,7 +123,8 @@ still require hardware acceptance; simulated tests do not establish them.
 See [validation and hardware checklist](VALIDATION.md) for the completed checks
 and the remaining device tests.
 
-Protocol references: existing Python modules beside each provider,
+Protocol references: existing Python modules in the repository's root
+`addons/<id>/python/` directories,
 [WebHID](https://developer.chrome.com/docs/capabilities/hid),
 [WebUSB](https://developer.chrome.com/docs/capabilities/usb), and
 [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).

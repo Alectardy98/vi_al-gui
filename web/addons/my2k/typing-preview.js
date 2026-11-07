@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 // Same QMK ASCII glyphs and 72x40 layout as oled_typing_preview.py.
-import glyphs from "../../../web/src/data/typing-glyphs.json" with { type: "json" };
+import glyphs from "../../src/data/typing-glyphs.json" with { type: "json" };
 export function typingBitmap(label, history = "ABC", current = "D") {
   const bitmap = new Uint8Array(360);
   function glyph(char, x, y, scale = 1) {

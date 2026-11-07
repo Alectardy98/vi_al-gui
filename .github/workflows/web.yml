@@ -5,14 +5,10 @@ on:
     branches: [web]
     paths:
       - 'web/**'
-      - 'addons/*/web/**'
-      - 'src/main/icons/**'
-      - 'src/main/resources/base/qmk_settings.json'
       - '.github/workflows/web.yml'
   pull_request:
     paths:
       - 'web/**'
-      - 'addons/*/web/**'
       - '.github/workflows/web.yml'
   workflow_dispatch:
 

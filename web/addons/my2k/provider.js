@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 import { My2k, lockRecord, oledRecord } from "./protocol.js";
-import { bytes, equal, integer, u16, u32 } from "../../../web/src/binary.js";
+import { bytes, equal, integer, u16, u32 } from "../../src/binary.js";
 import {
   button,
   el,
@@ -10,8 +10,8 @@ import {
   section,
   select,
   toggle,
-} from "../../../web/src/ui.js";
-import { keyLabel, parseKeycode } from "../../../web/src/keycodes.js";
+} from "../../src/ui.js";
+import { keyLabel, parseKeycode } from "../../src/keycodes.js";
 import { animationPage, connectFiles } from "./animations.js";
 import { typingBitmap } from "./typing-preview.js";
 

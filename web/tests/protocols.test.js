@@ -18,19 +18,15 @@ import {
   decodeOled,
   lockRecord,
   decodeLocks,
-} from "../../addons/my2k/web/protocol.js";
-import {
-  encode,
-  decodeRecord,
-  profiles,
-} from "../../addons/ec_42/web/protocol.js";
+} from "../addons/my2k/protocol.js";
+import { encode, decodeRecord, profiles } from "../addons/ec_42/protocol.js";
 import {
   groups,
   lightingBatch,
   parseSnapshot,
   macroPacket,
-} from "../../addons/alienware_aw768/web/protocol.js";
-import { typingBitmap } from "../../addons/my2k/web/typing-preview.js";
+} from "../addons/alienware_aw768/protocol.js";
+import { typingBitmap } from "../addons/my2k/typing-preview.js";
 const fixtures = JSON.parse(
   readFileSync(new URL("./fixtures/protocols.json", import.meta.url)),
 );
@@ -83,7 +79,7 @@ test("AW768 complete save matches the captured Dell DLL packets", () => {
   const old = JSON.parse(
     readFileSync(
       new URL(
-        "../../tests/alienware_aw768/fixtures/legacy-lighting.json",
+        "./fixtures/alienware_aw768/legacy-lighting.json",
         import.meta.url,
       ),
     ),
@@ -91,7 +87,7 @@ test("AW768 complete save matches the captured Dell DLL packets", () => {
   const golden = JSON.parse(
     readFileSync(
       new URL(
-        "../../tests/alienware_aw768/fixtures/vendor-two-pass-red.json",
+        "./fixtures/alienware_aw768/vendor-two-pass-red.json",
         import.meta.url,
       ),
     ),

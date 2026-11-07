@@ -34,6 +34,7 @@ src/main/python/                Core Vial application
   addon_runtime/                Shared installer, loader and add-on API
 util/packaging/                 Builds, release packaging and add-on templates
 tests/                          Optional focused regression tests, grouped by add-on
+web/                            Self-contained browser app, browser add-ons and tests
 ```
 
 Every package follows this layout:

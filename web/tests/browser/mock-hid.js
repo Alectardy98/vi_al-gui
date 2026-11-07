@@ -6,7 +6,7 @@ export const fixture = JSON.parse(
 const aw = JSON.parse(
   readFileSync(
     new URL(
-      "../../../tests/alienware_aw768/fixtures/legacy-lighting.json",
+      "../fixtures/alienware_aw768/legacy-lighting.json",
       import.meta.url,
     ),
   ),

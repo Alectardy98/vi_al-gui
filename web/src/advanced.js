@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-import qmkSettings from "../../src/main/resources/base/qmk_settings.json" with { type: "json" };
+import qmkSettings from "./data/qmk_settings.json" with { type: "json" };
 import { bytes, equal, integer, u16, word } from "./binary.js";
 import {
   button,

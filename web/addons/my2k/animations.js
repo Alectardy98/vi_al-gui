@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 import { My2k } from "./protocol.js";
 import { UsbFiles, parseCrs } from "./files.js";
-import { bytes, dword, word } from "../../../web/src/binary.js";
+import { bytes, dword, word } from "../../src/binary.js";
 import {
   button,
   download,
@@ -11,7 +11,7 @@ import {
   range,
   section,
   select,
-} from "../../../web/src/ui.js";
+} from "../../src/ui.js";
 
 export async function convertGif(file, crop) {
   if (

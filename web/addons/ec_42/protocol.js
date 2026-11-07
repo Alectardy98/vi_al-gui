@@ -12,7 +12,7 @@ import {
   u32,
   word,
   delay,
-} from "../../../web/src/binary.js";
+} from "../../src/binary.js";
 
 export const profiles = [
   {

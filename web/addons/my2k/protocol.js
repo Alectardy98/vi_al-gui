@@ -12,7 +12,7 @@ import {
   u32,
   verifyCrc,
   word,
-} from "../../../web/src/binary.js";
+} from "../../src/binary.js";
 
 export function touchRecord(values) {
   const { mode, sensitivity, tap_jitter, left, right, tap } = values;

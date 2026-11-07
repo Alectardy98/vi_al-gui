@@ -10,8 +10,8 @@ import {
   text,
   u16,
   u32,
-} from "../../../web/src/binary.js";
-import cp437 from "../../../web/src/data/cp437.json" with { type: "json" };
+} from "../../src/binary.js";
+import cp437 from "../../src/data/cp437.json" with { type: "json" };
 export function encodeRle(raw) {
   if (raw.length % 2) return raw;
   const out = [],

@@ -1,0 +1,3046 @@
+{
+  "5": [
+    { "code": 0, "id": "KC_NO", "label": "", "title": "" },
+    { "code": 1, "id": "KC_TRNS", "label": "▽", "title": "" },
+    { "code": 4, "id": "KC_A", "label": "A", "title": "" },
+    { "code": 5, "id": "KC_B", "label": "B", "title": "" },
+    { "code": 6, "id": "KC_C", "label": "C", "title": "" },
+    { "code": 7, "id": "KC_D", "label": "D", "title": "" },
+    { "code": 8, "id": "KC_E", "label": "E", "title": "" },
+    { "code": 9, "id": "KC_F", "label": "F", "title": "" },
+    { "code": 10, "id": "KC_G", "label": "G", "title": "" },
+    { "code": 11, "id": "KC_H", "label": "H", "title": "" },
+    { "code": 12, "id": "KC_I", "label": "I", "title": "" },
+    { "code": 13, "id": "KC_J", "label": "J", "title": "" },
+    { "code": 14, "id": "KC_K", "label": "K", "title": "" },
+    { "code": 15, "id": "KC_L", "label": "L", "title": "" },
+    { "code": 16, "id": "KC_M", "label": "M", "title": "" },
+    { "code": 17, "id": "KC_N", "label": "N", "title": "" },
+    { "code": 18, "id": "KC_O", "label": "O", "title": "" },
+    { "code": 19, "id": "KC_P", "label": "P", "title": "" },
+    { "code": 20, "id": "KC_Q", "label": "Q", "title": "" },
+    { "code": 21, "id": "KC_R", "label": "R", "title": "" },
+    { "code": 22, "id": "KC_S", "label": "S", "title": "" },
+    { "code": 23, "id": "KC_T", "label": "T", "title": "" },
+    { "code": 24, "id": "KC_U", "label": "U", "title": "" },
+    { "code": 25, "id": "KC_V", "label": "V", "title": "" },
+    { "code": 26, "id": "KC_W", "label": "W", "title": "" },
+    { "code": 27, "id": "KC_X", "label": "X", "title": "" },
+    { "code": 28, "id": "KC_Y", "label": "Y", "title": "" },
+    { "code": 29, "id": "KC_Z", "label": "Z", "title": "" },
+    { "code": 30, "id": "KC_1", "label": "! 1", "title": "" },
+    { "code": 31, "id": "KC_2", "label": "@ 2", "title": "" },
+    { "code": 32, "id": "KC_3", "label": "# 3", "title": "" },
+    { "code": 33, "id": "KC_4", "label": "$ 4", "title": "" },
+    { "code": 34, "id": "KC_5", "label": "% 5", "title": "" },
+    { "code": 35, "id": "KC_6", "label": "^ 6", "title": "" },
+    { "code": 36, "id": "KC_7", "label": "& 7", "title": "" },
+    { "code": 37, "id": "KC_8", "label": "* 8", "title": "" },
+    { "code": 38, "id": "KC_9", "label": "( 9", "title": "" },
+    { "code": 39, "id": "KC_0", "label": ") 0", "title": "" },
+    { "code": 40, "id": "KC_ENTER", "label": "Enter", "title": "" },
+    { "code": 41, "id": "KC_ESCAPE", "label": "Esc", "title": "" },
+    { "code": 42, "id": "KC_BSPACE", "label": "Bksp", "title": "" },
+    { "code": 43, "id": "KC_TAB", "label": "Tab", "title": "" },
+    { "code": 44, "id": "KC_SPACE", "label": "Space", "title": "" },
+    { "code": 45, "id": "KC_MINUS", "label": "_ -", "title": "" },
+    { "code": 46, "id": "KC_EQUAL", "label": "+ =", "title": "" },
+    { "code": 47, "id": "KC_LBRACKET", "label": "{ [", "title": "" },
+    { "code": 48, "id": "KC_RBRACKET", "label": "} ]", "title": "" },
+    { "code": 49, "id": "KC_BSLASH", "label": "| \\", "title": "" },
+    { "code": 51, "id": "KC_SCOLON", "label": ": ;", "title": "" },
+    { "code": 52, "id": "KC_QUOTE", "label": "\" '", "title": "" },
+    { "code": 53, "id": "KC_GRAVE", "label": "~ `", "title": "" },
+    { "code": 54, "id": "KC_COMMA", "label": "< ,", "title": "" },
+    { "code": 55, "id": "KC_DOT", "label": "> .", "title": "" },
+    { "code": 56, "id": "KC_SLASH", "label": "? /", "title": "" },
+    { "code": 57, "id": "KC_CAPSLOCK", "label": "Caps Lock", "title": "" },
+    { "code": 58, "id": "KC_F1", "label": "F1", "title": "" },
+    { "code": 59, "id": "KC_F2", "label": "F2", "title": "" },
+    { "code": 60, "id": "KC_F3", "label": "F3", "title": "" },
+    { "code": 61, "id": "KC_F4", "label": "F4", "title": "" },
+    { "code": 62, "id": "KC_F5", "label": "F5", "title": "" },
+    { "code": 63, "id": "KC_F6", "label": "F6", "title": "" },
+    { "code": 64, "id": "KC_F7", "label": "F7", "title": "" },
+    { "code": 65, "id": "KC_F8", "label": "F8", "title": "" },
+    { "code": 66, "id": "KC_F9", "label": "F9", "title": "" },
+    { "code": 67, "id": "KC_F10", "label": "F10", "title": "" },
+    { "code": 68, "id": "KC_F11", "label": "F11", "title": "" },
+    { "code": 69, "id": "KC_F12", "label": "F12", "title": "" },
+    { "code": 101, "id": "KC_APPLICATION", "label": "Menu", "title": "Menu" },
+    {
+      "code": 224,
+      "id": "KC_LCTRL",
+      "label": "LCtrl",
+      "title": "Left Control"
+    },
+    {
+      "code": 225,
+      "id": "KC_LSHIFT",
+      "label": "LShift",
+      "title": "Left Shift"
+    },
+    {
+      "code": 226,
+      "id": "KC_LALT",
+      "label": "LAlt",
+      "title": "Left Alt/Left Mac Option"
+    },
+    {
+      "code": 227,
+      "id": "KC_LGUI",
+      "label": "LGui",
+      "title": "Left Gui/Left Mac Command"
+    },
+    {
+      "code": 228,
+      "id": "KC_RCTRL",
+      "label": "RCtrl",
+      "title": "Right Control"
+    },
+    {
+      "code": 229,
+      "id": "KC_RSHIFT",
+      "label": "RShift",
+      "title": "Right Shift"
+    },
+    {
+      "code": 230,
+      "id": "KC_RALT",
+      "label": "RAlt",
+      "title": "Right Alt/Right Mac Option"
+    },
+    {
+      "code": 231,
+      "id": "KC_RGUI",
+      "label": "RGui",
+      "title": "Right Gui/Right Mac Command"
+    },
+    { "code": 83, "id": "KC_NUMLOCK", "label": "Num Lock", "title": "" },
+    { "code": 84, "id": "KC_KP_SLASH", "label": "/", "title": "" },
+    { "code": 85, "id": "KC_KP_ASTERISK", "label": "*", "title": "" },
+    { "code": 86, "id": "KC_KP_MINUS", "label": "-", "title": "" },
+    { "code": 87, "id": "KC_KP_PLUS", "label": "+", "title": "" },
+    { "code": 88, "id": "KC_KP_ENTER", "label": "Num Enter", "title": "" },
+    { "code": 89, "id": "KC_KP_1", "label": "1", "title": "" },
+    { "code": 90, "id": "KC_KP_2", "label": "2", "title": "" },
+    { "code": 91, "id": "KC_KP_3", "label": "3", "title": "" },
+    { "code": 92, "id": "KC_KP_4", "label": "4", "title": "" },
+    { "code": 93, "id": "KC_KP_5", "label": "5", "title": "" },
+    { "code": 94, "id": "KC_KP_6", "label": "6", "title": "" },
+    { "code": 95, "id": "KC_KP_7", "label": "7", "title": "" },
+    { "code": 96, "id": "KC_KP_8", "label": "8", "title": "" },
+    { "code": 97, "id": "KC_KP_9", "label": "9", "title": "" },
+    { "code": 98, "id": "KC_KP_0", "label": "0", "title": "" },
+    { "code": 99, "id": "KC_KP_DOT", "label": ".", "title": "" },
+    { "code": 103, "id": "KC_KP_EQUAL", "label": "=", "title": "" },
+    { "code": 133, "id": "KC_KP_COMMA", "label": ",", "title": "" },
+    { "code": 70, "id": "KC_PSCREEN", "label": "Print Screen", "title": "" },
+    { "code": 71, "id": "KC_SCROLLLOCK", "label": "Scroll Lock", "title": "" },
+    { "code": 72, "id": "KC_PAUSE", "label": "Pause", "title": "" },
+    { "code": 73, "id": "KC_INSERT", "label": "Insert", "title": "" },
+    { "code": 74, "id": "KC_HOME", "label": "Home", "title": "" },
+    { "code": 75, "id": "KC_PGUP", "label": "Page Up", "title": "" },
+    { "code": 76, "id": "KC_DELETE", "label": "Del", "title": "" },
+    { "code": 77, "id": "KC_END", "label": "End", "title": "" },
+    { "code": 78, "id": "KC_PGDOWN", "label": "Page Down", "title": "" },
+    { "code": 79, "id": "KC_RIGHT", "label": "Right", "title": "" },
+    { "code": 80, "id": "KC_LEFT", "label": "Left", "title": "" },
+    { "code": 81, "id": "KC_DOWN", "label": "Down", "title": "" },
+    { "code": 82, "id": "KC_UP", "label": "Up", "title": "" },
+    { "code": 565, "id": "KC_TILD", "label": "~", "title": "" },
+    { "code": 542, "id": "KC_EXLM", "label": "!", "title": "" },
+    { "code": 543, "id": "KC_AT", "label": "@", "title": "" },
+    { "code": 544, "id": "KC_HASH", "label": "#", "title": "" },
+    { "code": 545, "id": "KC_DLR", "label": "$", "title": "" },
+    { "code": 546, "id": "KC_PERC", "label": "%", "title": "" },
+    { "code": 547, "id": "KC_CIRC", "label": "^", "title": "" },
+    { "code": 548, "id": "KC_AMPR", "label": "&", "title": "" },
+    { "code": 549, "id": "KC_ASTR", "label": "*", "title": "" },
+    { "code": 550, "id": "KC_LPRN", "label": "(", "title": "" },
+    { "code": 551, "id": "KC_RPRN", "label": ")", "title": "" },
+    { "code": 557, "id": "KC_UNDS", "label": "_", "title": "" },
+    { "code": 558, "id": "KC_PLUS", "label": "+", "title": "" },
+    { "code": 559, "id": "KC_LCBR", "label": "{", "title": "" },
+    { "code": 560, "id": "KC_RCBR", "label": "}", "title": "" },
+    { "code": 566, "id": "KC_LT", "label": "<", "title": "" },
+    { "code": 567, "id": "KC_GT", "label": ">", "title": "" },
+    { "code": 563, "id": "KC_COLN", "label": ":", "title": "" },
+    { "code": 561, "id": "KC_PIPE", "label": "|", "title": "" },
+    { "code": 568, "id": "KC_QUES", "label": "?", "title": "" },
+    { "code": 564, "id": "KC_DQUO", "label": "\"", "title": "" },
+    {
+      "code": 50,
+      "id": "KC_NONUS_HASH",
+      "label": "~ #",
+      "title": "Non-US # and ~"
+    },
+    {
+      "code": 100,
+      "id": "KC_NONUS_BSLASH",
+      "label": "| \\",
+      "title": "Non-US \\ and |"
+    },
+    { "code": 135, "id": "KC_RO", "label": "_ \\", "title": "JIS \\ and _" },
+    {
+      "code": 136,
+      "id": "KC_KANA",
+      "label": "Kana",
+      "title": "JIS Katakana/Hiragana"
+    },
+    { "code": 137, "id": "KC_JYEN", "label": "| ¥", "title": "" },
+    { "code": 138, "id": "KC_HENK", "label": "Henkan", "title": "JIS Henkan" },
+    {
+      "code": 139,
+      "id": "KC_MHEN",
+      "label": "Muhenkan",
+      "title": "JIS Muhenkan"
+    },
+    {
+      "code": 144,
+      "id": "KC_LANG1",
+      "label": "Hangul Kana",
+      "title": "Korean Han/Yeong / JP Mac Kana"
+    },
+    {
+      "code": 145,
+      "id": "KC_LANG2",
+      "label": "Hanja Eisu",
+      "title": "Korean Hanja / JP Mac Eisu"
+    },
+    {
+      "code": 23552,
+      "id": "QK_BOOT",
+      "label": "Boot- loader",
+      "title": "Put the keyboard into bootloader mode for flashing"
+    },
+    {
+      "code": 39325,
+      "id": "QK_REBOOT",
+      "label": "Reboot",
+      "title": "Reboots the keyboard. Does not load the bootloader"
+    },
+    {
+      "code": 23775,
+      "id": "QK_CLEAR_EEPROM",
+      "label": "Clear EEPROM",
+      "title": "Reinitializes the keyboard's EEPROM (persistent memory)"
+    },
+    {
+      "code": 21762,
+      "id": "OSM(MOD_LSFT)",
+      "label": "OSM LSft",
+      "title": "Enable Left Shift for one keypress"
+    },
+    {
+      "code": 21761,
+      "id": "OSM(MOD_LCTL)",
+      "label": "OSM LCtl",
+      "title": "Enable Left Control for one keypress"
+    },
+    {
+      "code": 21764,
+      "id": "OSM(MOD_LALT)",
+      "label": "OSM LAlt",
+      "title": "Enable Left Alt for one keypress"
+    },
+    {
+      "code": 21768,
+      "id": "OSM(MOD_LGUI)",
+      "label": "OSM LGUI",
+      "title": "Enable Left GUI for one keypress"
+    },
+    {
+      "code": 21778,
+      "id": "OSM(MOD_RSFT)",
+      "label": "OSM RSft",
+      "title": "Enable Right Shift for one keypress"
+    },
+    {
+      "code": 21777,
+      "id": "OSM(MOD_RCTL)",
+      "label": "OSM RCtl",
+      "title": "Enable Right Control for one keypress"
+    },
+    {
+      "code": 21780,
+      "id": "OSM(MOD_RALT)",
+      "label": "OSM RAlt",
+      "title": "Enable Right Alt for one keypress"
+    },
+    {
+      "code": 21784,
+      "id": "OSM(MOD_RGUI)",
+      "label": "OSM RGUI",
+      "title": "Enable Right GUI for one keypress"
+    },
+    {
+      "code": 21763,
+      "id": "OSM(MOD_LCTL|MOD_LSFT)",
+      "label": "OSM CS",
+      "title": "Enable Left Control and Shift for one keypress"
+    },
+    {
+      "code": 21765,
+      "id": "OSM(MOD_LCTL|MOD_LALT)",
+      "label": "OSM CA",
+      "title": "Enable Left Control and Alt for one keypress"
+    },
+    {
+      "code": 21769,
+      "id": "OSM(MOD_LCTL|MOD_LGUI)",
+      "label": "OSM CG",
+      "title": "Enable Left Control and GUI for one keypress"
+    },
+    {
+      "code": 21766,
+      "id": "OSM(MOD_LSFT|MOD_LALT)",
+      "label": "OSM SA",
+      "title": "Enable Left Shift and Alt for one keypress"
+    },
+    {
+      "code": 21770,
+      "id": "OSM(MOD_LSFT|MOD_LGUI)",
+      "label": "OSM SG",
+      "title": "Enable Left Shift and GUI for one keypress"
+    },
+    {
+      "code": 21772,
+      "id": "OSM(MOD_LALT|MOD_LGUI)",
+      "label": "OSM AG",
+      "title": "Enable Left Alt and GUI for one keypress"
+    },
+    {
+      "code": 21779,
+      "id": "OSM(MOD_RCTL|MOD_RSFT)",
+      "label": "OSM RCS",
+      "title": "Enable Right Control and Shift for one keypress"
+    },
+    {
+      "code": 21781,
+      "id": "OSM(MOD_RCTL|MOD_RALT)",
+      "label": "OSM RCA",
+      "title": "Enable Right Control and Alt for one keypress"
+    },
+    {
+      "code": 21785,
+      "id": "OSM(MOD_RCTL|MOD_RGUI)",
+      "label": "OSM RCG",
+      "title": "Enable Right Control and GUI for one keypress"
+    },
+    {
+      "code": 21782,
+      "id": "OSM(MOD_RSFT|MOD_RALT)",
+      "label": "OSM RSA",
+      "title": "Enable Right Shift and Alt for one keypress"
+    },
+    {
+      "code": 21786,
+      "id": "OSM(MOD_RSFT|MOD_RGUI)",
+      "label": "OSM RSG",
+      "title": "Enable Right Shift and GUI for one keypress"
+    },
+    {
+      "code": 21788,
+      "id": "OSM(MOD_RALT|MOD_RGUI)",
+      "label": "OSM RAG",
+      "title": "Enable Right Alt and GUI for one keypress"
+    },
+    {
+      "code": 21771,
+      "id": "OSM(MOD_LCTL|MOD_LSFT|MOD_LGUI)",
+      "label": "OSM CSG",
+      "title": "Enable Left Control, Shift, and GUI for one keypress"
+    },
+    {
+      "code": 21773,
+      "id": "OSM(MOD_LCTL|MOD_LALT|MOD_LGUI)",
+      "label": "OSM CAG",
+      "title": "Enable Left Control, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21774,
+      "id": "OSM(MOD_LSFT|MOD_LALT|MOD_LGUI)",
+      "label": "OSM SAG",
+      "title": "Enable Left Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21787,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RGUI)",
+      "label": "OSM RCSG",
+      "title": "Enable Right Control, Shift, and GUI for one keypress"
+    },
+    {
+      "code": 21789,
+      "id": "OSM(MOD_RCTL|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RCAG",
+      "title": "Enable Right Control, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21790,
+      "id": "OSM(MOD_RSFT|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RSAG",
+      "title": "Enable Right Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21767,
+      "id": "OSM(MOD_MEH)",
+      "label": "OSM Meh",
+      "title": "Enable Left Control, Shift, and Alt for one keypress"
+    },
+    {
+      "code": 21775,
+      "id": "OSM(MOD_HYPR)",
+      "label": "OSM Hyper",
+      "title": "Enable Left Control, Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21783,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RALT)",
+      "label": "OSM RMeh",
+      "title": "Enable Right Control, Shift, and Alt for one keypress"
+    },
+    {
+      "code": 21791,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RHyp",
+      "title": "Enable Right Control, Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 23574,
+      "id": "KC_GESC",
+      "label": "~ Esc",
+      "title": "Esc normally, but ~ when Shift or GUI is pressed"
+    },
+    {
+      "code": 23767,
+      "id": "KC_LSPO",
+      "label": "LS (",
+      "title": "Left Shift when held, ( when tapped"
+    },
+    {
+      "code": 23768,
+      "id": "KC_RSPC",
+      "label": "RS )",
+      "title": "Right Shift when held, ) when tapped"
+    },
+    {
+      "code": 23795,
+      "id": "KC_LCPO",
+      "label": "LC (",
+      "title": "Left Control when held, ( when tapped"
+    },
+    {
+      "code": 23796,
+      "id": "KC_RCPC",
+      "label": "RC )",
+      "title": "Right Control when held, ) when tapped"
+    },
+    {
+      "code": 23797,
+      "id": "KC_LAPO",
+      "label": "LA (",
+      "title": "Left Alt when held, ( when tapped"
+    },
+    {
+      "code": 23798,
+      "id": "KC_RAPC",
+      "label": "RA )",
+      "title": "Right Alt when held, ) when tapped"
+    },
+    {
+      "code": 23769,
+      "id": "KC_SFTENT",
+      "label": "RS Enter",
+      "title": "Right Shift when held, Enter when tapped"
+    },
+    {
+      "code": 23554,
+      "id": "MAGIC_SWAP_CONTROL_CAPSLOCK",
+      "label": "Swap Ctrl Caps",
+      "title": "Swap Caps Lock and Left Control"
+    },
+    {
+      "code": 23563,
+      "id": "MAGIC_UNSWAP_CONTROL_CAPSLOCK",
+      "label": "Unswap Ctrl Caps",
+      "title": "Unswap Caps Lock and Left Control"
+    },
+    {
+      "code": 23555,
+      "id": "MAGIC_CAPSLOCK_TO_CONTROL",
+      "label": "Caps to Ctrl",
+      "title": "Treat Caps Lock as Control"
+    },
+    {
+      "code": 23564,
+      "id": "MAGIC_UNCAPSLOCK_TO_CONTROL",
+      "label": "Caps not to Ctrl",
+      "title": "Stop treating Caps Lock as Control"
+    },
+    {
+      "code": 23802,
+      "id": "MAGIC_SWAP_LCTL_LGUI",
+      "label": "Swap LCtl LGui",
+      "title": "Swap Left Control and GUI"
+    },
+    {
+      "code": 23804,
+      "id": "MAGIC_UNSWAP_LCTL_LGUI",
+      "label": "Unswap LCtl LGui",
+      "title": "Unswap Left Control and GUI"
+    },
+    {
+      "code": 23803,
+      "id": "MAGIC_SWAP_RCTL_RGUI",
+      "label": "Swap RCtl RGui",
+      "title": "Swap Right Control and GUI"
+    },
+    {
+      "code": 23805,
+      "id": "MAGIC_UNSWAP_RCTL_RGUI",
+      "label": "Unswap RCtl RGui",
+      "title": "Unswap Right Control and GUI"
+    },
+    {
+      "code": 23806,
+      "id": "MAGIC_SWAP_CTL_GUI",
+      "label": "Swap Ctl Gui",
+      "title": "Swap Control and GUI on both sides"
+    },
+    {
+      "code": 23807,
+      "id": "MAGIC_UNSWAP_CTL_GUI",
+      "label": "Unswap Ctl Gui",
+      "title": "Unswap Control and GUI on both sides"
+    },
+    {
+      "code": 23808,
+      "id": "MAGIC_TOGGLE_CTL_GUI",
+      "label": "Toggle Ctl Gui",
+      "title": "Toggle Control and GUI swap on both sides"
+    },
+    {
+      "code": 23556,
+      "id": "MAGIC_SWAP_LALT_LGUI",
+      "label": "Swap LAlt LGui",
+      "title": "Swap Left Alt and GUI"
+    },
+    {
+      "code": 23565,
+      "id": "MAGIC_UNSWAP_LALT_LGUI",
+      "label": "Unswap LAlt LGui",
+      "title": "Unswap Left Alt and GUI"
+    },
+    {
+      "code": 23557,
+      "id": "MAGIC_SWAP_RALT_RGUI",
+      "label": "Swap RAlt RGui",
+      "title": "Swap Right Alt and GUI"
+    },
+    {
+      "code": 23566,
+      "id": "MAGIC_UNSWAP_RALT_RGUI",
+      "label": "Unswap RAlt RGui",
+      "title": "Unswap Right Alt and GUI"
+    },
+    {
+      "code": 23562,
+      "id": "MAGIC_SWAP_ALT_GUI",
+      "label": "Swap Alt Gui",
+      "title": "Swap Alt and GUI on both sides"
+    },
+    {
+      "code": 23571,
+      "id": "MAGIC_UNSWAP_ALT_GUI",
+      "label": "Unswap Alt Gui",
+      "title": "Unswap Alt and GUI on both sides"
+    },
+    {
+      "code": 23573,
+      "id": "MAGIC_TOGGLE_ALT_GUI",
+      "label": "Toggle Alt Gui",
+      "title": "Toggle Alt and GUI swap on both sides"
+    },
+    {
+      "code": 23558,
+      "id": "MAGIC_NO_GUI",
+      "label": "GUI Off",
+      "title": "Disable the GUI keys"
+    },
+    {
+      "code": 23567,
+      "id": "MAGIC_UNNO_GUI",
+      "label": "GUI On",
+      "title": "Enable the GUI keys"
+    },
+    {
+      "code": 23559,
+      "id": "MAGIC_SWAP_GRAVE_ESC",
+      "label": "Swap ` Esc",
+      "title": "Swap ` and Escape"
+    },
+    {
+      "code": 23568,
+      "id": "MAGIC_UNSWAP_GRAVE_ESC",
+      "label": "Unswap ` Esc",
+      "title": "Unswap ` and Escape"
+    },
+    {
+      "code": 23560,
+      "id": "MAGIC_SWAP_BACKSLASH_BACKSPACE",
+      "label": "Swap \\ BS",
+      "title": "Swap \\ and Backspace"
+    },
+    {
+      "code": 23569,
+      "id": "MAGIC_UNSWAP_BACKSLASH_BACKSPACE",
+      "label": "Unswap \\ BS",
+      "title": "Unswap \\ and Backspace"
+    },
+    {
+      "code": 23561,
+      "id": "MAGIC_HOST_NKRO",
+      "label": "NKRO On",
+      "title": "Enable N-key rollover"
+    },
+    {
+      "code": 23570,
+      "id": "MAGIC_UNHOST_NKRO",
+      "label": "NKRO Off",
+      "title": "Disable N-key rollover"
+    },
+    {
+      "code": 23572,
+      "id": "MAGIC_TOGGLE_NKRO",
+      "label": "NKRO Toggle",
+      "title": "Toggle N-key rollover"
+    },
+    {
+      "code": 23809,
+      "id": "MAGIC_EE_HANDS_LEFT",
+      "label": "EEH Left",
+      "title": "Set the master half of a split keyboard as the left hand (for EE_HANDS)"
+    },
+    {
+      "code": 23810,
+      "id": "MAGIC_EE_HANDS_RIGHT",
+      "label": "EEH Right",
+      "title": "Set the master half of a split keyboard as the right hand (for EE_HANDS)"
+    },
+    {
+      "code": 23581,
+      "id": "AU_ON",
+      "label": "Audio ON",
+      "title": "Audio mode on"
+    },
+    {
+      "code": 23582,
+      "id": "AU_OFF",
+      "label": "Audio OFF",
+      "title": "Audio mode off"
+    },
+    {
+      "code": 23583,
+      "id": "AU_TOG",
+      "label": "Audio Toggle",
+      "title": "Toggles Audio mode"
+    },
+    {
+      "code": 23584,
+      "id": "CLICKY_TOGGLE",
+      "label": "Clicky Toggle",
+      "title": "Toggles Audio clicky mode"
+    },
+    {
+      "code": 23587,
+      "id": "CLICKY_UP",
+      "label": "Clicky Up",
+      "title": "Increases frequency of the clicks"
+    },
+    {
+      "code": 23588,
+      "id": "CLICKY_DOWN",
+      "label": "Clicky Down",
+      "title": "Decreases frequency of the clicks"
+    },
+    {
+      "code": 23589,
+      "id": "CLICKY_RESET",
+      "label": "Clicky Reset",
+      "title": "Resets frequency to default"
+    },
+    {
+      "code": 23590,
+      "id": "MU_ON",
+      "label": "Music On",
+      "title": "Turns on Music Mode"
+    },
+    {
+      "code": 23591,
+      "id": "MU_OFF",
+      "label": "Music Off",
+      "title": "Turns off Music Mode"
+    },
+    {
+      "code": 23592,
+      "id": "MU_TOG",
+      "label": "Music Toggle",
+      "title": "Toggles Music Mode"
+    },
+    {
+      "code": 23593,
+      "id": "MU_MOD",
+      "label": "Music Cycle",
+      "title": "Cycles through the music modes"
+    },
+    {
+      "code": 23782,
+      "id": "HPT_ON",
+      "label": "Haptic On",
+      "title": "Turn haptic feedback on"
+    },
+    {
+      "code": 23783,
+      "id": "HPT_OFF",
+      "label": "Haptic Off",
+      "title": "Turn haptic feedback off"
+    },
+    {
+      "code": 23784,
+      "id": "HPT_TOG",
+      "label": "Haptic Toggle",
+      "title": "Toggle haptic feedback on/off"
+    },
+    {
+      "code": 23785,
+      "id": "HPT_RST",
+      "label": "Haptic Reset",
+      "title": "Reset haptic feedback config to default"
+    },
+    {
+      "code": 23786,
+      "id": "HPT_FBK",
+      "label": "Haptic Feed back",
+      "title": "Toggle feedback to occur on keypress, release or both"
+    },
+    {
+      "code": 23787,
+      "id": "HPT_BUZ",
+      "label": "Haptic Buzz",
+      "title": "Toggle solenoid buzz on/off"
+    },
+    {
+      "code": 23788,
+      "id": "HPT_MODI",
+      "label": "Haptic Next",
+      "title": "Go to next DRV2605L waveform"
+    },
+    {
+      "code": 23789,
+      "id": "HPT_MODD",
+      "label": "Haptic Prev",
+      "title": "Go to previous DRV2605L waveform"
+    },
+    {
+      "code": 23790,
+      "id": "HPT_CONT",
+      "label": "Haptic Cont.",
+      "title": "Toggle continuous haptic mode on/off"
+    },
+    {
+      "code": 23791,
+      "id": "HPT_CONI",
+      "label": "Haptic +",
+      "title": "Increase DRV2605L continous haptic strength"
+    },
+    {
+      "code": 23792,
+      "id": "HPT_COND",
+      "label": "Haptic -",
+      "title": "Decrease DRV2605L continous haptic strength"
+    },
+    {
+      "code": 23793,
+      "id": "HPT_DWLI",
+      "label": "Haptic Dwell+",
+      "title": "Increase Solenoid dwell time"
+    },
+    {
+      "code": 23794,
+      "id": "HPT_DWLD",
+      "label": "Haptic Dwell-",
+      "title": "Decrease Solenoid dwell time"
+    },
+    {
+      "code": 23576,
+      "id": "KC_ASDN",
+      "label": "Auto- shift Down",
+      "title": "Lower the Auto Shift timeout variable (down)"
+    },
+    {
+      "code": 23575,
+      "id": "KC_ASUP",
+      "label": "Auto- shift Up",
+      "title": "Raise the Auto Shift timeout variable (up)"
+    },
+    {
+      "code": 23577,
+      "id": "KC_ASRP",
+      "label": "Auto- shift Report",
+      "title": "Report your current Auto Shift timeout value"
+    },
+    {
+      "code": 23579,
+      "id": "KC_ASON",
+      "label": "Auto- shift On",
+      "title": "Turns on the Auto Shift Function"
+    },
+    {
+      "code": 23580,
+      "id": "KC_ASOFF",
+      "label": "Auto- shift Off",
+      "title": "Turns off the Auto Shift Function"
+    },
+    {
+      "code": 23578,
+      "id": "KC_ASTG",
+      "label": "Auto- shift Toggle",
+      "title": "Toggles the state of the Auto Shift feature"
+    },
+    {
+      "code": 23799,
+      "id": "CMB_ON",
+      "label": "Combo On",
+      "title": "Turns on Combo feature"
+    },
+    {
+      "code": 23800,
+      "id": "CMB_OFF",
+      "label": "Combo Off",
+      "title": "Turns off Combo feature"
+    },
+    {
+      "code": 23801,
+      "id": "CMB_TOG",
+      "label": "Combo Toggle",
+      "title": "Toggles Combo feature on and off"
+    },
+    {
+      "code": 39326,
+      "id": "QK_CAPS_WORD_TOGGLE",
+      "label": "Caps Word",
+      "title": "Capitalizes until end of current word"
+    },
+    {
+      "code": 23746,
+      "id": "RGB_TOG",
+      "label": "RGB Toggle",
+      "title": "Toggle RGB lighting on or off"
+    },
+    {
+      "code": 23747,
+      "id": "RGB_MOD",
+      "label": "RGB Mode +",
+      "title": "Next RGB mode"
+    },
+    {
+      "code": 23748,
+      "id": "RGB_RMOD",
+      "label": "RGB Mode -",
+      "title": "Previous RGB mode"
+    },
+    {
+      "code": 23749,
+      "id": "RGB_HUI",
+      "label": "Hue +",
+      "title": "Increase hue"
+    },
+    {
+      "code": 23750,
+      "id": "RGB_HUD",
+      "label": "Hue -",
+      "title": "Decrease hue"
+    },
+    {
+      "code": 23751,
+      "id": "RGB_SAI",
+      "label": "Sat +",
+      "title": "Increase saturation"
+    },
+    {
+      "code": 23752,
+      "id": "RGB_SAD",
+      "label": "Sat -",
+      "title": "Decrease saturation"
+    },
+    {
+      "code": 23753,
+      "id": "RGB_VAI",
+      "label": "Bright +",
+      "title": "Increase value"
+    },
+    {
+      "code": 23754,
+      "id": "RGB_VAD",
+      "label": "Bright -",
+      "title": "Decrease value"
+    },
+    {
+      "code": 23755,
+      "id": "RGB_SPI",
+      "label": "Effect +",
+      "title": "Increase RGB effect speed"
+    },
+    {
+      "code": 23756,
+      "id": "RGB_SPD",
+      "label": "Effect -",
+      "title": "Decrease RGB effect speed"
+    },
+    {
+      "code": 39312,
+      "id": "RM_ON",
+      "label": "RGBM On",
+      "title": "Turn on RGB Matrix"
+    },
+    {
+      "code": 39313,
+      "id": "RM_OFF",
+      "label": "RGBM Off",
+      "title": "Turn off RGB Matrix"
+    },
+    {
+      "code": 39314,
+      "id": "RM_TOGG",
+      "label": "RGBM Togg",
+      "title": "Toggle RGB Matrix on or off"
+    },
+    {
+      "code": 39315,
+      "id": "RM_NEXT",
+      "label": "RGBM Next",
+      "title": "Cycle through animations"
+    },
+    {
+      "code": 39316,
+      "id": "RM_PREV",
+      "label": "RGBM Prev",
+      "title": "Cycle through animations in reverse"
+    },
+    {
+      "code": 39317,
+      "id": "RM_HUEU",
+      "label": "RGBM Hue +",
+      "title": "Cycle through hue"
+    },
+    {
+      "code": 39318,
+      "id": "RM_HUED",
+      "label": "RGBM Hue -",
+      "title": "Cycle through hue in reverse"
+    },
+    {
+      "code": 39319,
+      "id": "RM_SATU",
+      "label": "RGBM Sat +",
+      "title": "Increase the saturation"
+    },
+    {
+      "code": 39320,
+      "id": "RM_SATD",
+      "label": "RGBM Sat -",
+      "title": "Decrease the saturation"
+    },
+    {
+      "code": 39321,
+      "id": "RM_VALU",
+      "label": "RGBM Bright +",
+      "title": "Increase the brightness level"
+    },
+    {
+      "code": 39322,
+      "id": "RM_VALD",
+      "label": "RGBM Bright -",
+      "title": "Decrease the brightness level"
+    },
+    {
+      "code": 39323,
+      "id": "RM_SPDU",
+      "label": "RGBM Speed +",
+      "title": "Increase the animation speed"
+    },
+    {
+      "code": 39324,
+      "id": "RM_SPDD",
+      "label": "RGBM Speed -",
+      "title": "Decrease the animation speed"
+    },
+    { "code": 104, "id": "KC_F13", "label": "F13", "title": "" },
+    { "code": 105, "id": "KC_F14", "label": "F14", "title": "" },
+    { "code": 106, "id": "KC_F15", "label": "F15", "title": "" },
+    { "code": 107, "id": "KC_F16", "label": "F16", "title": "" },
+    { "code": 108, "id": "KC_F17", "label": "F17", "title": "" },
+    { "code": 109, "id": "KC_F18", "label": "F18", "title": "" },
+    { "code": 110, "id": "KC_F19", "label": "F19", "title": "" },
+    { "code": 111, "id": "KC_F20", "label": "F20", "title": "" },
+    { "code": 112, "id": "KC_F21", "label": "F21", "title": "" },
+    { "code": 113, "id": "KC_F22", "label": "F22", "title": "" },
+    { "code": 114, "id": "KC_F23", "label": "F23", "title": "" },
+    { "code": 115, "id": "KC_F24", "label": "F24", "title": "" },
+    {
+      "code": 165,
+      "id": "KC_PWR",
+      "label": "Power",
+      "title": "System Power Down"
+    },
+    { "code": 166, "id": "KC_SLEP", "label": "Sleep", "title": "System Sleep" },
+    { "code": 167, "id": "KC_WAKE", "label": "Wake", "title": "System Wake" },
+    { "code": 116, "id": "KC_EXEC", "label": "Exec", "title": "Execute" },
+    { "code": 117, "id": "KC_HELP", "label": "Help", "title": "" },
+    { "code": 119, "id": "KC_SLCT", "label": "Select", "title": "" },
+    { "code": 120, "id": "KC_STOP", "label": "Stop", "title": "" },
+    { "code": 121, "id": "KC_AGIN", "label": "Again", "title": "" },
+    { "code": 122, "id": "KC_UNDO", "label": "Undo", "title": "" },
+    { "code": 123, "id": "KC_CUT", "label": "Cut", "title": "" },
+    { "code": 124, "id": "KC_COPY", "label": "Copy", "title": "" },
+    { "code": 125, "id": "KC_PSTE", "label": "Paste", "title": "" },
+    { "code": 126, "id": "KC_FIND", "label": "Find", "title": "" },
+    {
+      "code": 178,
+      "id": "KC_CALC",
+      "label": "Calc",
+      "title": "Launch Calculator (Windows)"
+    },
+    {
+      "code": 177,
+      "id": "KC_MAIL",
+      "label": "Mail",
+      "title": "Launch Mail (Windows)"
+    },
+    {
+      "code": 175,
+      "id": "KC_MSEL",
+      "label": "Media Player",
+      "title": "Launch Media Player (Windows)"
+    },
+    {
+      "code": 179,
+      "id": "KC_MYCM",
+      "label": "My PC",
+      "title": "Launch My Computer (Windows)"
+    },
+    {
+      "code": 180,
+      "id": "KC_WSCH",
+      "label": "Browser Search",
+      "title": "Browser Search (Windows)"
+    },
+    {
+      "code": 181,
+      "id": "KC_WHOM",
+      "label": "Browser Home",
+      "title": "Browser Home (Windows)"
+    },
+    {
+      "code": 182,
+      "id": "KC_WBAK",
+      "label": "Browser Back",
+      "title": "Browser Back (Windows)"
+    },
+    {
+      "code": 183,
+      "id": "KC_WFWD",
+      "label": "Browser Forward",
+      "title": "Browser Forward (Windows)"
+    },
+    {
+      "code": 184,
+      "id": "KC_WSTP",
+      "label": "Browser Stop",
+      "title": "Browser Stop (Windows)"
+    },
+    {
+      "code": 185,
+      "id": "KC_WREF",
+      "label": "Browser Refresh",
+      "title": "Browser Refresh (Windows)"
+    },
+    {
+      "code": 186,
+      "id": "KC_WFAV",
+      "label": "Browser Fav.",
+      "title": "Browser Favorites (Windows)"
+    },
+    {
+      "code": 189,
+      "id": "KC_BRIU",
+      "label": "Bright. Up",
+      "title": "Increase the brightness of screen (Laptop)"
+    },
+    {
+      "code": 190,
+      "id": "KC_BRID",
+      "label": "Bright. Down",
+      "title": "Decrease the brightness of screen (Laptop)"
+    },
+    {
+      "code": 172,
+      "id": "KC_MPRV",
+      "label": "Media Prev",
+      "title": "Previous Track"
+    },
+    {
+      "code": 171,
+      "id": "KC_MNXT",
+      "label": "Media Next",
+      "title": "Next Track"
+    },
+    { "code": 168, "id": "KC_MUTE", "label": "Mute", "title": "Mute Audio" },
+    { "code": 170, "id": "KC_VOLD", "label": "Vol -", "title": "Volume Down" },
+    { "code": 169, "id": "KC_VOLU", "label": "Vol +", "title": "Volume Up" },
+    {
+      "code": 129,
+      "id": "KC__VOLDOWN",
+      "label": "Vol - Alt",
+      "title": "Volume Down Alternate"
+    },
+    {
+      "code": 128,
+      "id": "KC__VOLUP",
+      "label": "Vol + Alt",
+      "title": "Volume Up Alternate"
+    },
+    {
+      "code": 173,
+      "id": "KC_MSTP",
+      "label": "Media Stop",
+      "title": "Stop playback"
+    },
+    {
+      "code": 174,
+      "id": "KC_MPLY",
+      "label": "Media Play",
+      "title": "Play/Pause"
+    },
+    {
+      "code": 188,
+      "id": "KC_MRWD",
+      "label": "Prev Track (macOS)",
+      "title": "Previous Track / Rewind (macOS)"
+    },
+    {
+      "code": 187,
+      "id": "KC_MFFD",
+      "label": "Next Track (macOS)",
+      "title": "Next Track / Fast Forward (macOS)"
+    },
+    {
+      "code": 176,
+      "id": "KC_EJCT",
+      "label": "Eject",
+      "title": "Eject (macOS)"
+    },
+    {
+      "code": 240,
+      "id": "KC_MS_U",
+      "label": "Mouse Up",
+      "title": "Mouse Cursor Up"
+    },
+    {
+      "code": 241,
+      "id": "KC_MS_D",
+      "label": "Mouse Down",
+      "title": "Mouse Cursor Down"
+    },
+    {
+      "code": 242,
+      "id": "KC_MS_L",
+      "label": "Mouse Left",
+      "title": "Mouse Cursor Left"
+    },
+    {
+      "code": 243,
+      "id": "KC_MS_R",
+      "label": "Mouse Right",
+      "title": "Mouse Cursor Right"
+    },
+    {
+      "code": 244,
+      "id": "KC_BTN1",
+      "label": "Mouse 1",
+      "title": "Mouse Button 1"
+    },
+    {
+      "code": 245,
+      "id": "KC_BTN2",
+      "label": "Mouse 2",
+      "title": "Mouse Button 2"
+    },
+    {
+      "code": 246,
+      "id": "KC_BTN3",
+      "label": "Mouse 3",
+      "title": "Mouse Button 3"
+    },
+    {
+      "code": 247,
+      "id": "KC_BTN4",
+      "label": "Mouse 4",
+      "title": "Mouse Button 4"
+    },
+    {
+      "code": 248,
+      "id": "KC_BTN5",
+      "label": "Mouse 5",
+      "title": "Mouse Button 5"
+    },
+    {
+      "code": 249,
+      "id": "KC_WH_U",
+      "label": "Mouse Wheel Up",
+      "title": "Wheel Up"
+    },
+    {
+      "code": 250,
+      "id": "KC_WH_D",
+      "label": "Mouse Wheel Down",
+      "title": "Wheel Down"
+    },
+    {
+      "code": 251,
+      "id": "KC_WH_L",
+      "label": "Mouse Wheel Left",
+      "title": "Wheel Left"
+    },
+    {
+      "code": 252,
+      "id": "KC_WH_R",
+      "label": "Mouse Wheel Right",
+      "title": "wheel Right"
+    },
+    {
+      "code": 253,
+      "id": "KC_ACL0",
+      "label": "Mouse Accel 0",
+      "title": "Set mouse acceleration to 0"
+    },
+    {
+      "code": 254,
+      "id": "KC_ACL1",
+      "label": "Mouse Accel 1",
+      "title": "Set mouse acceleration to 1"
+    },
+    {
+      "code": 255,
+      "id": "KC_ACL2",
+      "label": "Mouse Accel 2",
+      "title": "Set mouse acceleration to 2"
+    },
+    {
+      "code": 130,
+      "id": "KC_LCAP",
+      "label": "Locking Caps",
+      "title": "Locking Caps Lock"
+    },
+    {
+      "code": 131,
+      "id": "KC_LNUM",
+      "label": "Locking Num",
+      "title": "Locking Num Lock"
+    },
+    {
+      "code": 132,
+      "id": "KC_LSCR",
+      "label": "Locking Scroll",
+      "title": "Locking Scroll Lock"
+    },
+    { "code": 22272, "id": "TD(0)", "label": "TD(0)", "title": "" },
+    { "code": 22273, "id": "TD(1)", "label": "TD(1)", "title": "" },
+    { "code": 22274, "id": "TD(2)", "label": "TD(2)", "title": "" },
+    { "code": 22275, "id": "TD(3)", "label": "TD(3)", "title": "" },
+    { "code": 22276, "id": "TD(4)", "label": "TD(4)", "title": "" },
+    { "code": 22277, "id": "TD(5)", "label": "TD(5)", "title": "" },
+    { "code": 22278, "id": "TD(6)", "label": "TD(6)", "title": "" },
+    { "code": 22279, "id": "TD(7)", "label": "TD(7)", "title": "" },
+    { "code": 22280, "id": "TD(8)", "label": "TD(8)", "title": "" },
+    { "code": 22281, "id": "TD(9)", "label": "TD(9)", "title": "" },
+    { "code": 22282, "id": "TD(10)", "label": "TD(10)", "title": "" },
+    { "code": 22283, "id": "TD(11)", "label": "TD(11)", "title": "" },
+    { "code": 22284, "id": "TD(12)", "label": "TD(12)", "title": "" },
+    { "code": 22285, "id": "TD(13)", "label": "TD(13)", "title": "" },
+    { "code": 22286, "id": "TD(14)", "label": "TD(14)", "title": "" },
+    { "code": 22287, "id": "TD(15)", "label": "TD(15)", "title": "" },
+    { "code": 22288, "id": "TD(16)", "label": "TD(16)", "title": "" },
+    { "code": 22289, "id": "TD(17)", "label": "TD(17)", "title": "" },
+    { "code": 22290, "id": "TD(18)", "label": "TD(18)", "title": "" },
+    { "code": 22291, "id": "TD(19)", "label": "TD(19)", "title": "" },
+    { "code": 22292, "id": "TD(20)", "label": "TD(20)", "title": "" },
+    { "code": 22293, "id": "TD(21)", "label": "TD(21)", "title": "" },
+    { "code": 22294, "id": "TD(22)", "label": "TD(22)", "title": "" },
+    { "code": 22295, "id": "TD(23)", "label": "TD(23)", "title": "" },
+    { "code": 22296, "id": "TD(24)", "label": "TD(24)", "title": "" },
+    { "code": 22297, "id": "TD(25)", "label": "TD(25)", "title": "" },
+    { "code": 22298, "id": "TD(26)", "label": "TD(26)", "title": "" },
+    { "code": 22299, "id": "TD(27)", "label": "TD(27)", "title": "" },
+    { "code": 22300, "id": "TD(28)", "label": "TD(28)", "title": "" },
+    { "code": 22301, "id": "TD(29)", "label": "TD(29)", "title": "" },
+    { "code": 22302, "id": "TD(30)", "label": "TD(30)", "title": "" },
+    { "code": 22303, "id": "TD(31)", "label": "TD(31)", "title": "" },
+    { "code": 22304, "id": "TD(32)", "label": "TD(32)", "title": "" },
+    { "code": 22305, "id": "TD(33)", "label": "TD(33)", "title": "" },
+    { "code": 22306, "id": "TD(34)", "label": "TD(34)", "title": "" },
+    { "code": 22307, "id": "TD(35)", "label": "TD(35)", "title": "" },
+    { "code": 22308, "id": "TD(36)", "label": "TD(36)", "title": "" },
+    { "code": 22309, "id": "TD(37)", "label": "TD(37)", "title": "" },
+    { "code": 22310, "id": "TD(38)", "label": "TD(38)", "title": "" },
+    { "code": 22311, "id": "TD(39)", "label": "TD(39)", "title": "" },
+    { "code": 22312, "id": "TD(40)", "label": "TD(40)", "title": "" },
+    { "code": 22313, "id": "TD(41)", "label": "TD(41)", "title": "" },
+    { "code": 22314, "id": "TD(42)", "label": "TD(42)", "title": "" },
+    { "code": 22315, "id": "TD(43)", "label": "TD(43)", "title": "" },
+    { "code": 22316, "id": "TD(44)", "label": "TD(44)", "title": "" },
+    { "code": 22317, "id": "TD(45)", "label": "TD(45)", "title": "" },
+    { "code": 22318, "id": "TD(46)", "label": "TD(46)", "title": "" },
+    { "code": 22319, "id": "TD(47)", "label": "TD(47)", "title": "" },
+    { "code": 22320, "id": "TD(48)", "label": "TD(48)", "title": "" },
+    { "code": 22321, "id": "TD(49)", "label": "TD(49)", "title": "" },
+    { "code": 22322, "id": "TD(50)", "label": "TD(50)", "title": "" },
+    { "code": 22323, "id": "TD(51)", "label": "TD(51)", "title": "" },
+    { "code": 22324, "id": "TD(52)", "label": "TD(52)", "title": "" },
+    { "code": 22325, "id": "TD(53)", "label": "TD(53)", "title": "" },
+    { "code": 22326, "id": "TD(54)", "label": "TD(54)", "title": "" },
+    { "code": 22327, "id": "TD(55)", "label": "TD(55)", "title": "" },
+    { "code": 22328, "id": "TD(56)", "label": "TD(56)", "title": "" },
+    { "code": 22329, "id": "TD(57)", "label": "TD(57)", "title": "" },
+    { "code": 22330, "id": "TD(58)", "label": "TD(58)", "title": "" },
+    { "code": 22331, "id": "TD(59)", "label": "TD(59)", "title": "" },
+    { "code": 22332, "id": "TD(60)", "label": "TD(60)", "title": "" },
+    { "code": 22333, "id": "TD(61)", "label": "TD(61)", "title": "" },
+    { "code": 22334, "id": "TD(62)", "label": "TD(62)", "title": "" },
+    { "code": 22335, "id": "TD(63)", "label": "TD(63)", "title": "" },
+    { "code": 22336, "id": "TD(64)", "label": "TD(64)", "title": "" },
+    { "code": 22337, "id": "TD(65)", "label": "TD(65)", "title": "" },
+    { "code": 22338, "id": "TD(66)", "label": "TD(66)", "title": "" },
+    { "code": 22339, "id": "TD(67)", "label": "TD(67)", "title": "" },
+    { "code": 22340, "id": "TD(68)", "label": "TD(68)", "title": "" },
+    { "code": 22341, "id": "TD(69)", "label": "TD(69)", "title": "" },
+    { "code": 22342, "id": "TD(70)", "label": "TD(70)", "title": "" },
+    { "code": 22343, "id": "TD(71)", "label": "TD(71)", "title": "" },
+    { "code": 22344, "id": "TD(72)", "label": "TD(72)", "title": "" },
+    { "code": 22345, "id": "TD(73)", "label": "TD(73)", "title": "" },
+    { "code": 22346, "id": "TD(74)", "label": "TD(74)", "title": "" },
+    { "code": 22347, "id": "TD(75)", "label": "TD(75)", "title": "" },
+    { "code": 22348, "id": "TD(76)", "label": "TD(76)", "title": "" },
+    { "code": 22349, "id": "TD(77)", "label": "TD(77)", "title": "" },
+    { "code": 22350, "id": "TD(78)", "label": "TD(78)", "title": "" },
+    { "code": 22351, "id": "TD(79)", "label": "TD(79)", "title": "" },
+    { "code": 22352, "id": "TD(80)", "label": "TD(80)", "title": "" },
+    { "code": 22353, "id": "TD(81)", "label": "TD(81)", "title": "" },
+    { "code": 22354, "id": "TD(82)", "label": "TD(82)", "title": "" },
+    { "code": 22355, "id": "TD(83)", "label": "TD(83)", "title": "" },
+    { "code": 22356, "id": "TD(84)", "label": "TD(84)", "title": "" },
+    { "code": 22357, "id": "TD(85)", "label": "TD(85)", "title": "" },
+    { "code": 22358, "id": "TD(86)", "label": "TD(86)", "title": "" },
+    { "code": 22359, "id": "TD(87)", "label": "TD(87)", "title": "" },
+    { "code": 22360, "id": "TD(88)", "label": "TD(88)", "title": "" },
+    { "code": 22361, "id": "TD(89)", "label": "TD(89)", "title": "" },
+    { "code": 22362, "id": "TD(90)", "label": "TD(90)", "title": "" },
+    { "code": 22363, "id": "TD(91)", "label": "TD(91)", "title": "" },
+    { "code": 22364, "id": "TD(92)", "label": "TD(92)", "title": "" },
+    { "code": 22365, "id": "TD(93)", "label": "TD(93)", "title": "" },
+    { "code": 22366, "id": "TD(94)", "label": "TD(94)", "title": "" },
+    { "code": 22367, "id": "TD(95)", "label": "TD(95)", "title": "" },
+    { "code": 22368, "id": "TD(96)", "label": "TD(96)", "title": "" },
+    { "code": 22369, "id": "TD(97)", "label": "TD(97)", "title": "" },
+    { "code": 22370, "id": "TD(98)", "label": "TD(98)", "title": "" },
+    { "code": 22371, "id": "TD(99)", "label": "TD(99)", "title": "" },
+    { "code": 22372, "id": "TD(100)", "label": "TD(100)", "title": "" },
+    { "code": 22373, "id": "TD(101)", "label": "TD(101)", "title": "" },
+    { "code": 22374, "id": "TD(102)", "label": "TD(102)", "title": "" },
+    { "code": 22375, "id": "TD(103)", "label": "TD(103)", "title": "" },
+    { "code": 22376, "id": "TD(104)", "label": "TD(104)", "title": "" },
+    { "code": 22377, "id": "TD(105)", "label": "TD(105)", "title": "" },
+    { "code": 22378, "id": "TD(106)", "label": "TD(106)", "title": "" },
+    { "code": 22379, "id": "TD(107)", "label": "TD(107)", "title": "" },
+    { "code": 22380, "id": "TD(108)", "label": "TD(108)", "title": "" },
+    { "code": 22381, "id": "TD(109)", "label": "TD(109)", "title": "" },
+    { "code": 22382, "id": "TD(110)", "label": "TD(110)", "title": "" },
+    { "code": 22383, "id": "TD(111)", "label": "TD(111)", "title": "" },
+    { "code": 22384, "id": "TD(112)", "label": "TD(112)", "title": "" },
+    { "code": 22385, "id": "TD(113)", "label": "TD(113)", "title": "" },
+    { "code": 22386, "id": "TD(114)", "label": "TD(114)", "title": "" },
+    { "code": 22387, "id": "TD(115)", "label": "TD(115)", "title": "" },
+    { "code": 22388, "id": "TD(116)", "label": "TD(116)", "title": "" },
+    { "code": 22389, "id": "TD(117)", "label": "TD(117)", "title": "" },
+    { "code": 22390, "id": "TD(118)", "label": "TD(118)", "title": "" },
+    { "code": 22391, "id": "TD(119)", "label": "TD(119)", "title": "" },
+    { "code": 22392, "id": "TD(120)", "label": "TD(120)", "title": "" },
+    { "code": 22393, "id": "TD(121)", "label": "TD(121)", "title": "" },
+    { "code": 22394, "id": "TD(122)", "label": "TD(122)", "title": "" },
+    { "code": 22395, "id": "TD(123)", "label": "TD(123)", "title": "" },
+    { "code": 22396, "id": "TD(124)", "label": "TD(124)", "title": "" },
+    { "code": 22397, "id": "TD(125)", "label": "TD(125)", "title": "" },
+    { "code": 22398, "id": "TD(126)", "label": "TD(126)", "title": "" },
+    { "code": 22399, "id": "TD(127)", "label": "TD(127)", "title": "" },
+    { "code": 22400, "id": "TD(128)", "label": "TD(128)", "title": "" },
+    { "code": 22401, "id": "TD(129)", "label": "TD(129)", "title": "" },
+    { "code": 22402, "id": "TD(130)", "label": "TD(130)", "title": "" },
+    { "code": 22403, "id": "TD(131)", "label": "TD(131)", "title": "" },
+    { "code": 22404, "id": "TD(132)", "label": "TD(132)", "title": "" },
+    { "code": 22405, "id": "TD(133)", "label": "TD(133)", "title": "" },
+    { "code": 22406, "id": "TD(134)", "label": "TD(134)", "title": "" },
+    { "code": 22407, "id": "TD(135)", "label": "TD(135)", "title": "" },
+    { "code": 22408, "id": "TD(136)", "label": "TD(136)", "title": "" },
+    { "code": 22409, "id": "TD(137)", "label": "TD(137)", "title": "" },
+    { "code": 22410, "id": "TD(138)", "label": "TD(138)", "title": "" },
+    { "code": 22411, "id": "TD(139)", "label": "TD(139)", "title": "" },
+    { "code": 22412, "id": "TD(140)", "label": "TD(140)", "title": "" },
+    { "code": 22413, "id": "TD(141)", "label": "TD(141)", "title": "" },
+    { "code": 22414, "id": "TD(142)", "label": "TD(142)", "title": "" },
+    { "code": 22415, "id": "TD(143)", "label": "TD(143)", "title": "" },
+    { "code": 22416, "id": "TD(144)", "label": "TD(144)", "title": "" },
+    { "code": 22417, "id": "TD(145)", "label": "TD(145)", "title": "" },
+    { "code": 22418, "id": "TD(146)", "label": "TD(146)", "title": "" },
+    { "code": 22419, "id": "TD(147)", "label": "TD(147)", "title": "" },
+    { "code": 22420, "id": "TD(148)", "label": "TD(148)", "title": "" },
+    { "code": 22421, "id": "TD(149)", "label": "TD(149)", "title": "" },
+    { "code": 22422, "id": "TD(150)", "label": "TD(150)", "title": "" },
+    { "code": 22423, "id": "TD(151)", "label": "TD(151)", "title": "" },
+    { "code": 22424, "id": "TD(152)", "label": "TD(152)", "title": "" },
+    { "code": 22425, "id": "TD(153)", "label": "TD(153)", "title": "" },
+    { "code": 22426, "id": "TD(154)", "label": "TD(154)", "title": "" },
+    { "code": 22427, "id": "TD(155)", "label": "TD(155)", "title": "" },
+    { "code": 22428, "id": "TD(156)", "label": "TD(156)", "title": "" },
+    { "code": 22429, "id": "TD(157)", "label": "TD(157)", "title": "" },
+    { "code": 22430, "id": "TD(158)", "label": "TD(158)", "title": "" },
+    { "code": 22431, "id": "TD(159)", "label": "TD(159)", "title": "" },
+    { "code": 22432, "id": "TD(160)", "label": "TD(160)", "title": "" },
+    { "code": 22433, "id": "TD(161)", "label": "TD(161)", "title": "" },
+    { "code": 22434, "id": "TD(162)", "label": "TD(162)", "title": "" },
+    { "code": 22435, "id": "TD(163)", "label": "TD(163)", "title": "" },
+    { "code": 22436, "id": "TD(164)", "label": "TD(164)", "title": "" },
+    { "code": 22437, "id": "TD(165)", "label": "TD(165)", "title": "" },
+    { "code": 22438, "id": "TD(166)", "label": "TD(166)", "title": "" },
+    { "code": 22439, "id": "TD(167)", "label": "TD(167)", "title": "" },
+    { "code": 22440, "id": "TD(168)", "label": "TD(168)", "title": "" },
+    { "code": 22441, "id": "TD(169)", "label": "TD(169)", "title": "" },
+    { "code": 22442, "id": "TD(170)", "label": "TD(170)", "title": "" },
+    { "code": 22443, "id": "TD(171)", "label": "TD(171)", "title": "" },
+    { "code": 22444, "id": "TD(172)", "label": "TD(172)", "title": "" },
+    { "code": 22445, "id": "TD(173)", "label": "TD(173)", "title": "" },
+    { "code": 22446, "id": "TD(174)", "label": "TD(174)", "title": "" },
+    { "code": 22447, "id": "TD(175)", "label": "TD(175)", "title": "" },
+    { "code": 22448, "id": "TD(176)", "label": "TD(176)", "title": "" },
+    { "code": 22449, "id": "TD(177)", "label": "TD(177)", "title": "" },
+    { "code": 22450, "id": "TD(178)", "label": "TD(178)", "title": "" },
+    { "code": 22451, "id": "TD(179)", "label": "TD(179)", "title": "" },
+    { "code": 22452, "id": "TD(180)", "label": "TD(180)", "title": "" },
+    { "code": 22453, "id": "TD(181)", "label": "TD(181)", "title": "" },
+    { "code": 22454, "id": "TD(182)", "label": "TD(182)", "title": "" },
+    { "code": 22455, "id": "TD(183)", "label": "TD(183)", "title": "" },
+    { "code": 22456, "id": "TD(184)", "label": "TD(184)", "title": "" },
+    { "code": 22457, "id": "TD(185)", "label": "TD(185)", "title": "" },
+    { "code": 22458, "id": "TD(186)", "label": "TD(186)", "title": "" },
+    { "code": 22459, "id": "TD(187)", "label": "TD(187)", "title": "" },
+    { "code": 22460, "id": "TD(188)", "label": "TD(188)", "title": "" },
+    { "code": 22461, "id": "TD(189)", "label": "TD(189)", "title": "" },
+    { "code": 22462, "id": "TD(190)", "label": "TD(190)", "title": "" },
+    { "code": 22463, "id": "TD(191)", "label": "TD(191)", "title": "" },
+    { "code": 22464, "id": "TD(192)", "label": "TD(192)", "title": "" },
+    { "code": 22465, "id": "TD(193)", "label": "TD(193)", "title": "" },
+    { "code": 22466, "id": "TD(194)", "label": "TD(194)", "title": "" },
+    { "code": 22467, "id": "TD(195)", "label": "TD(195)", "title": "" },
+    { "code": 22468, "id": "TD(196)", "label": "TD(196)", "title": "" },
+    { "code": 22469, "id": "TD(197)", "label": "TD(197)", "title": "" },
+    { "code": 22470, "id": "TD(198)", "label": "TD(198)", "title": "" },
+    { "code": 22471, "id": "TD(199)", "label": "TD(199)", "title": "" },
+    { "code": 22472, "id": "TD(200)", "label": "TD(200)", "title": "" },
+    { "code": 22473, "id": "TD(201)", "label": "TD(201)", "title": "" },
+    { "code": 22474, "id": "TD(202)", "label": "TD(202)", "title": "" },
+    { "code": 22475, "id": "TD(203)", "label": "TD(203)", "title": "" },
+    { "code": 22476, "id": "TD(204)", "label": "TD(204)", "title": "" },
+    { "code": 22477, "id": "TD(205)", "label": "TD(205)", "title": "" },
+    { "code": 22478, "id": "TD(206)", "label": "TD(206)", "title": "" },
+    { "code": 22479, "id": "TD(207)", "label": "TD(207)", "title": "" },
+    { "code": 22480, "id": "TD(208)", "label": "TD(208)", "title": "" },
+    { "code": 22481, "id": "TD(209)", "label": "TD(209)", "title": "" },
+    { "code": 22482, "id": "TD(210)", "label": "TD(210)", "title": "" },
+    { "code": 22483, "id": "TD(211)", "label": "TD(211)", "title": "" },
+    { "code": 22484, "id": "TD(212)", "label": "TD(212)", "title": "" },
+    { "code": 22485, "id": "TD(213)", "label": "TD(213)", "title": "" },
+    { "code": 22486, "id": "TD(214)", "label": "TD(214)", "title": "" },
+    { "code": 22487, "id": "TD(215)", "label": "TD(215)", "title": "" },
+    { "code": 22488, "id": "TD(216)", "label": "TD(216)", "title": "" },
+    { "code": 22489, "id": "TD(217)", "label": "TD(217)", "title": "" },
+    { "code": 22490, "id": "TD(218)", "label": "TD(218)", "title": "" },
+    { "code": 22491, "id": "TD(219)", "label": "TD(219)", "title": "" },
+    { "code": 22492, "id": "TD(220)", "label": "TD(220)", "title": "" },
+    { "code": 22493, "id": "TD(221)", "label": "TD(221)", "title": "" },
+    { "code": 22494, "id": "TD(222)", "label": "TD(222)", "title": "" },
+    { "code": 22495, "id": "TD(223)", "label": "TD(223)", "title": "" },
+    { "code": 22496, "id": "TD(224)", "label": "TD(224)", "title": "" },
+    { "code": 22497, "id": "TD(225)", "label": "TD(225)", "title": "" },
+    { "code": 22498, "id": "TD(226)", "label": "TD(226)", "title": "" },
+    { "code": 22499, "id": "TD(227)", "label": "TD(227)", "title": "" },
+    { "code": 22500, "id": "TD(228)", "label": "TD(228)", "title": "" },
+    { "code": 22501, "id": "TD(229)", "label": "TD(229)", "title": "" },
+    { "code": 22502, "id": "TD(230)", "label": "TD(230)", "title": "" },
+    { "code": 22503, "id": "TD(231)", "label": "TD(231)", "title": "" },
+    { "code": 22504, "id": "TD(232)", "label": "TD(232)", "title": "" },
+    { "code": 22505, "id": "TD(233)", "label": "TD(233)", "title": "" },
+    { "code": 22506, "id": "TD(234)", "label": "TD(234)", "title": "" },
+    { "code": 22507, "id": "TD(235)", "label": "TD(235)", "title": "" },
+    { "code": 22508, "id": "TD(236)", "label": "TD(236)", "title": "" },
+    { "code": 22509, "id": "TD(237)", "label": "TD(237)", "title": "" },
+    { "code": 22510, "id": "TD(238)", "label": "TD(238)", "title": "" },
+    { "code": 22511, "id": "TD(239)", "label": "TD(239)", "title": "" },
+    { "code": 22512, "id": "TD(240)", "label": "TD(240)", "title": "" },
+    { "code": 22513, "id": "TD(241)", "label": "TD(241)", "title": "" },
+    { "code": 22514, "id": "TD(242)", "label": "TD(242)", "title": "" },
+    { "code": 22515, "id": "TD(243)", "label": "TD(243)", "title": "" },
+    { "code": 22516, "id": "TD(244)", "label": "TD(244)", "title": "" },
+    { "code": 22517, "id": "TD(245)", "label": "TD(245)", "title": "" },
+    { "code": 22518, "id": "TD(246)", "label": "TD(246)", "title": "" },
+    { "code": 22519, "id": "TD(247)", "label": "TD(247)", "title": "" },
+    { "code": 22520, "id": "TD(248)", "label": "TD(248)", "title": "" },
+    { "code": 22521, "id": "TD(249)", "label": "TD(249)", "title": "" },
+    { "code": 22522, "id": "TD(250)", "label": "TD(250)", "title": "" },
+    { "code": 22523, "id": "TD(251)", "label": "TD(251)", "title": "" },
+    { "code": 22524, "id": "TD(252)", "label": "TD(252)", "title": "" },
+    { "code": 22525, "id": "TD(253)", "label": "TD(253)", "title": "" },
+    { "code": 22526, "id": "TD(254)", "label": "TD(254)", "title": "" },
+    { "code": 22527, "id": "TD(255)", "label": "TD(255)", "title": "" }
+  ],
+  "6": [
+    { "code": 0, "id": "KC_NO", "label": "", "title": "" },
+    { "code": 1, "id": "KC_TRNS", "label": "▽", "title": "" },
+    { "code": 4, "id": "KC_A", "label": "A", "title": "" },
+    { "code": 5, "id": "KC_B", "label": "B", "title": "" },
+    { "code": 6, "id": "KC_C", "label": "C", "title": "" },
+    { "code": 7, "id": "KC_D", "label": "D", "title": "" },
+    { "code": 8, "id": "KC_E", "label": "E", "title": "" },
+    { "code": 9, "id": "KC_F", "label": "F", "title": "" },
+    { "code": 10, "id": "KC_G", "label": "G", "title": "" },
+    { "code": 11, "id": "KC_H", "label": "H", "title": "" },
+    { "code": 12, "id": "KC_I", "label": "I", "title": "" },
+    { "code": 13, "id": "KC_J", "label": "J", "title": "" },
+    { "code": 14, "id": "KC_K", "label": "K", "title": "" },
+    { "code": 15, "id": "KC_L", "label": "L", "title": "" },
+    { "code": 16, "id": "KC_M", "label": "M", "title": "" },
+    { "code": 17, "id": "KC_N", "label": "N", "title": "" },
+    { "code": 18, "id": "KC_O", "label": "O", "title": "" },
+    { "code": 19, "id": "KC_P", "label": "P", "title": "" },
+    { "code": 20, "id": "KC_Q", "label": "Q", "title": "" },
+    { "code": 21, "id": "KC_R", "label": "R", "title": "" },
+    { "code": 22, "id": "KC_S", "label": "S", "title": "" },
+    { "code": 23, "id": "KC_T", "label": "T", "title": "" },
+    { "code": 24, "id": "KC_U", "label": "U", "title": "" },
+    { "code": 25, "id": "KC_V", "label": "V", "title": "" },
+    { "code": 26, "id": "KC_W", "label": "W", "title": "" },
+    { "code": 27, "id": "KC_X", "label": "X", "title": "" },
+    { "code": 28, "id": "KC_Y", "label": "Y", "title": "" },
+    { "code": 29, "id": "KC_Z", "label": "Z", "title": "" },
+    { "code": 30, "id": "KC_1", "label": "! 1", "title": "" },
+    { "code": 31, "id": "KC_2", "label": "@ 2", "title": "" },
+    { "code": 32, "id": "KC_3", "label": "# 3", "title": "" },
+    { "code": 33, "id": "KC_4", "label": "$ 4", "title": "" },
+    { "code": 34, "id": "KC_5", "label": "% 5", "title": "" },
+    { "code": 35, "id": "KC_6", "label": "^ 6", "title": "" },
+    { "code": 36, "id": "KC_7", "label": "& 7", "title": "" },
+    { "code": 37, "id": "KC_8", "label": "* 8", "title": "" },
+    { "code": 38, "id": "KC_9", "label": "( 9", "title": "" },
+    { "code": 39, "id": "KC_0", "label": ") 0", "title": "" },
+    { "code": 40, "id": "KC_ENTER", "label": "Enter", "title": "" },
+    { "code": 41, "id": "KC_ESCAPE", "label": "Esc", "title": "" },
+    { "code": 42, "id": "KC_BSPACE", "label": "Bksp", "title": "" },
+    { "code": 43, "id": "KC_TAB", "label": "Tab", "title": "" },
+    { "code": 44, "id": "KC_SPACE", "label": "Space", "title": "" },
+    { "code": 45, "id": "KC_MINUS", "label": "_ -", "title": "" },
+    { "code": 46, "id": "KC_EQUAL", "label": "+ =", "title": "" },
+    { "code": 47, "id": "KC_LBRACKET", "label": "{ [", "title": "" },
+    { "code": 48, "id": "KC_RBRACKET", "label": "} ]", "title": "" },
+    { "code": 49, "id": "KC_BSLASH", "label": "| \\", "title": "" },
+    { "code": 51, "id": "KC_SCOLON", "label": ": ;", "title": "" },
+    { "code": 52, "id": "KC_QUOTE", "label": "\" '", "title": "" },
+    { "code": 53, "id": "KC_GRAVE", "label": "~ `", "title": "" },
+    { "code": 54, "id": "KC_COMMA", "label": "< ,", "title": "" },
+    { "code": 55, "id": "KC_DOT", "label": "> .", "title": "" },
+    { "code": 56, "id": "KC_SLASH", "label": "? /", "title": "" },
+    { "code": 57, "id": "KC_CAPSLOCK", "label": "Caps Lock", "title": "" },
+    { "code": 58, "id": "KC_F1", "label": "F1", "title": "" },
+    { "code": 59, "id": "KC_F2", "label": "F2", "title": "" },
+    { "code": 60, "id": "KC_F3", "label": "F3", "title": "" },
+    { "code": 61, "id": "KC_F4", "label": "F4", "title": "" },
+    { "code": 62, "id": "KC_F5", "label": "F5", "title": "" },
+    { "code": 63, "id": "KC_F6", "label": "F6", "title": "" },
+    { "code": 64, "id": "KC_F7", "label": "F7", "title": "" },
+    { "code": 65, "id": "KC_F8", "label": "F8", "title": "" },
+    { "code": 66, "id": "KC_F9", "label": "F9", "title": "" },
+    { "code": 67, "id": "KC_F10", "label": "F10", "title": "" },
+    { "code": 68, "id": "KC_F11", "label": "F11", "title": "" },
+    { "code": 69, "id": "KC_F12", "label": "F12", "title": "" },
+    { "code": 101, "id": "KC_APPLICATION", "label": "Menu", "title": "Menu" },
+    {
+      "code": 224,
+      "id": "KC_LCTRL",
+      "label": "LCtrl",
+      "title": "Left Control"
+    },
+    {
+      "code": 225,
+      "id": "KC_LSHIFT",
+      "label": "LShift",
+      "title": "Left Shift"
+    },
+    {
+      "code": 226,
+      "id": "KC_LALT",
+      "label": "LAlt",
+      "title": "Left Alt/Left Mac Option"
+    },
+    {
+      "code": 227,
+      "id": "KC_LGUI",
+      "label": "LGui",
+      "title": "Left Gui/Left Mac Command"
+    },
+    {
+      "code": 228,
+      "id": "KC_RCTRL",
+      "label": "RCtrl",
+      "title": "Right Control"
+    },
+    {
+      "code": 229,
+      "id": "KC_RSHIFT",
+      "label": "RShift",
+      "title": "Right Shift"
+    },
+    {
+      "code": 230,
+      "id": "KC_RALT",
+      "label": "RAlt",
+      "title": "Right Alt/Right Mac Option"
+    },
+    {
+      "code": 231,
+      "id": "KC_RGUI",
+      "label": "RGui",
+      "title": "Right Gui/Right Mac Command"
+    },
+    { "code": 83, "id": "KC_NUMLOCK", "label": "Num Lock", "title": "" },
+    { "code": 84, "id": "KC_KP_SLASH", "label": "/", "title": "" },
+    { "code": 85, "id": "KC_KP_ASTERISK", "label": "*", "title": "" },
+    { "code": 86, "id": "KC_KP_MINUS", "label": "-", "title": "" },
+    { "code": 87, "id": "KC_KP_PLUS", "label": "+", "title": "" },
+    { "code": 88, "id": "KC_KP_ENTER", "label": "Num Enter", "title": "" },
+    { "code": 89, "id": "KC_KP_1", "label": "1", "title": "" },
+    { "code": 90, "id": "KC_KP_2", "label": "2", "title": "" },
+    { "code": 91, "id": "KC_KP_3", "label": "3", "title": "" },
+    { "code": 92, "id": "KC_KP_4", "label": "4", "title": "" },
+    { "code": 93, "id": "KC_KP_5", "label": "5", "title": "" },
+    { "code": 94, "id": "KC_KP_6", "label": "6", "title": "" },
+    { "code": 95, "id": "KC_KP_7", "label": "7", "title": "" },
+    { "code": 96, "id": "KC_KP_8", "label": "8", "title": "" },
+    { "code": 97, "id": "KC_KP_9", "label": "9", "title": "" },
+    { "code": 98, "id": "KC_KP_0", "label": "0", "title": "" },
+    { "code": 99, "id": "KC_KP_DOT", "label": ".", "title": "" },
+    { "code": 103, "id": "KC_KP_EQUAL", "label": "=", "title": "" },
+    { "code": 133, "id": "KC_KP_COMMA", "label": ",", "title": "" },
+    { "code": 70, "id": "KC_PSCREEN", "label": "Print Screen", "title": "" },
+    { "code": 71, "id": "KC_SCROLLLOCK", "label": "Scroll Lock", "title": "" },
+    { "code": 72, "id": "KC_PAUSE", "label": "Pause", "title": "" },
+    { "code": 73, "id": "KC_INSERT", "label": "Insert", "title": "" },
+    { "code": 74, "id": "KC_HOME", "label": "Home", "title": "" },
+    { "code": 75, "id": "KC_PGUP", "label": "Page Up", "title": "" },
+    { "code": 76, "id": "KC_DELETE", "label": "Del", "title": "" },
+    { "code": 77, "id": "KC_END", "label": "End", "title": "" },
+    { "code": 78, "id": "KC_PGDOWN", "label": "Page Down", "title": "" },
+    { "code": 79, "id": "KC_RIGHT", "label": "Right", "title": "" },
+    { "code": 80, "id": "KC_LEFT", "label": "Left", "title": "" },
+    { "code": 81, "id": "KC_DOWN", "label": "Down", "title": "" },
+    { "code": 82, "id": "KC_UP", "label": "Up", "title": "" },
+    { "code": 565, "id": "KC_TILD", "label": "~", "title": "" },
+    { "code": 542, "id": "KC_EXLM", "label": "!", "title": "" },
+    { "code": 543, "id": "KC_AT", "label": "@", "title": "" },
+    { "code": 544, "id": "KC_HASH", "label": "#", "title": "" },
+    { "code": 545, "id": "KC_DLR", "label": "$", "title": "" },
+    { "code": 546, "id": "KC_PERC", "label": "%", "title": "" },
+    { "code": 547, "id": "KC_CIRC", "label": "^", "title": "" },
+    { "code": 548, "id": "KC_AMPR", "label": "&", "title": "" },
+    { "code": 549, "id": "KC_ASTR", "label": "*", "title": "" },
+    { "code": 550, "id": "KC_LPRN", "label": "(", "title": "" },
+    { "code": 551, "id": "KC_RPRN", "label": ")", "title": "" },
+    { "code": 557, "id": "KC_UNDS", "label": "_", "title": "" },
+    { "code": 558, "id": "KC_PLUS", "label": "+", "title": "" },
+    { "code": 559, "id": "KC_LCBR", "label": "{", "title": "" },
+    { "code": 560, "id": "KC_RCBR", "label": "}", "title": "" },
+    { "code": 566, "id": "KC_LT", "label": "<", "title": "" },
+    { "code": 567, "id": "KC_GT", "label": ">", "title": "" },
+    { "code": 563, "id": "KC_COLN", "label": ":", "title": "" },
+    { "code": 561, "id": "KC_PIPE", "label": "|", "title": "" },
+    { "code": 568, "id": "KC_QUES", "label": "?", "title": "" },
+    { "code": 564, "id": "KC_DQUO", "label": "\"", "title": "" },
+    {
+      "code": 50,
+      "id": "KC_NONUS_HASH",
+      "label": "~ #",
+      "title": "Non-US # and ~"
+    },
+    {
+      "code": 100,
+      "id": "KC_NONUS_BSLASH",
+      "label": "| \\",
+      "title": "Non-US \\ and |"
+    },
+    { "code": 135, "id": "KC_RO", "label": "_ \\", "title": "JIS \\ and _" },
+    {
+      "code": 136,
+      "id": "KC_KANA",
+      "label": "Kana",
+      "title": "JIS Katakana/Hiragana"
+    },
+    { "code": 137, "id": "KC_JYEN", "label": "| ¥", "title": "" },
+    { "code": 138, "id": "KC_HENK", "label": "Henkan", "title": "JIS Henkan" },
+    {
+      "code": 139,
+      "id": "KC_MHEN",
+      "label": "Muhenkan",
+      "title": "JIS Muhenkan"
+    },
+    {
+      "code": 144,
+      "id": "KC_LANG1",
+      "label": "Hangul Kana",
+      "title": "Korean Han/Yeong / JP Mac Kana"
+    },
+    {
+      "code": 145,
+      "id": "KC_LANG2",
+      "label": "Hanja Eisu",
+      "title": "Korean Hanja / JP Mac Eisu"
+    },
+    {
+      "code": 31744,
+      "id": "QK_BOOT",
+      "label": "Boot- loader",
+      "title": "Put the keyboard into bootloader mode for flashing"
+    },
+    {
+      "code": 31745,
+      "id": "QK_REBOOT",
+      "label": "Reboot",
+      "title": "Reboots the keyboard. Does not load the bootloader"
+    },
+    {
+      "code": 31747,
+      "id": "QK_CLEAR_EEPROM",
+      "label": "Clear EEPROM",
+      "title": "Reinitializes the keyboard's EEPROM (persistent memory)"
+    },
+    {
+      "code": 21154,
+      "id": "OSM(MOD_LSFT)",
+      "label": "OSM LSft",
+      "title": "Enable Left Shift for one keypress"
+    },
+    {
+      "code": 21153,
+      "id": "OSM(MOD_LCTL)",
+      "label": "OSM LCtl",
+      "title": "Enable Left Control for one keypress"
+    },
+    {
+      "code": 21156,
+      "id": "OSM(MOD_LALT)",
+      "label": "OSM LAlt",
+      "title": "Enable Left Alt for one keypress"
+    },
+    {
+      "code": 21160,
+      "id": "OSM(MOD_LGUI)",
+      "label": "OSM LGUI",
+      "title": "Enable Left GUI for one keypress"
+    },
+    {
+      "code": 21170,
+      "id": "OSM(MOD_RSFT)",
+      "label": "OSM RSft",
+      "title": "Enable Right Shift for one keypress"
+    },
+    {
+      "code": 21169,
+      "id": "OSM(MOD_RCTL)",
+      "label": "OSM RCtl",
+      "title": "Enable Right Control for one keypress"
+    },
+    {
+      "code": 21172,
+      "id": "OSM(MOD_RALT)",
+      "label": "OSM RAlt",
+      "title": "Enable Right Alt for one keypress"
+    },
+    {
+      "code": 21176,
+      "id": "OSM(MOD_RGUI)",
+      "label": "OSM RGUI",
+      "title": "Enable Right GUI for one keypress"
+    },
+    {
+      "code": 21155,
+      "id": "OSM(MOD_LCTL|MOD_LSFT)",
+      "label": "OSM CS",
+      "title": "Enable Left Control and Shift for one keypress"
+    },
+    {
+      "code": 21157,
+      "id": "OSM(MOD_LCTL|MOD_LALT)",
+      "label": "OSM CA",
+      "title": "Enable Left Control and Alt for one keypress"
+    },
+    {
+      "code": 21161,
+      "id": "OSM(MOD_LCTL|MOD_LGUI)",
+      "label": "OSM CG",
+      "title": "Enable Left Control and GUI for one keypress"
+    },
+    {
+      "code": 21158,
+      "id": "OSM(MOD_LSFT|MOD_LALT)",
+      "label": "OSM SA",
+      "title": "Enable Left Shift and Alt for one keypress"
+    },
+    {
+      "code": 21162,
+      "id": "OSM(MOD_LSFT|MOD_LGUI)",
+      "label": "OSM SG",
+      "title": "Enable Left Shift and GUI for one keypress"
+    },
+    {
+      "code": 21164,
+      "id": "OSM(MOD_LALT|MOD_LGUI)",
+      "label": "OSM AG",
+      "title": "Enable Left Alt and GUI for one keypress"
+    },
+    {
+      "code": 21171,
+      "id": "OSM(MOD_RCTL|MOD_RSFT)",
+      "label": "OSM RCS",
+      "title": "Enable Right Control and Shift for one keypress"
+    },
+    {
+      "code": 21173,
+      "id": "OSM(MOD_RCTL|MOD_RALT)",
+      "label": "OSM RCA",
+      "title": "Enable Right Control and Alt for one keypress"
+    },
+    {
+      "code": 21177,
+      "id": "OSM(MOD_RCTL|MOD_RGUI)",
+      "label": "OSM RCG",
+      "title": "Enable Right Control and GUI for one keypress"
+    },
+    {
+      "code": 21174,
+      "id": "OSM(MOD_RSFT|MOD_RALT)",
+      "label": "OSM RSA",
+      "title": "Enable Right Shift and Alt for one keypress"
+    },
+    {
+      "code": 21178,
+      "id": "OSM(MOD_RSFT|MOD_RGUI)",
+      "label": "OSM RSG",
+      "title": "Enable Right Shift and GUI for one keypress"
+    },
+    {
+      "code": 21180,
+      "id": "OSM(MOD_RALT|MOD_RGUI)",
+      "label": "OSM RAG",
+      "title": "Enable Right Alt and GUI for one keypress"
+    },
+    {
+      "code": 21163,
+      "id": "OSM(MOD_LCTL|MOD_LSFT|MOD_LGUI)",
+      "label": "OSM CSG",
+      "title": "Enable Left Control, Shift, and GUI for one keypress"
+    },
+    {
+      "code": 21165,
+      "id": "OSM(MOD_LCTL|MOD_LALT|MOD_LGUI)",
+      "label": "OSM CAG",
+      "title": "Enable Left Control, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21166,
+      "id": "OSM(MOD_LSFT|MOD_LALT|MOD_LGUI)",
+      "label": "OSM SAG",
+      "title": "Enable Left Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21179,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RGUI)",
+      "label": "OSM RCSG",
+      "title": "Enable Right Control, Shift, and GUI for one keypress"
+    },
+    {
+      "code": 21181,
+      "id": "OSM(MOD_RCTL|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RCAG",
+      "title": "Enable Right Control, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21182,
+      "id": "OSM(MOD_RSFT|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RSAG",
+      "title": "Enable Right Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21159,
+      "id": "OSM(MOD_MEH)",
+      "label": "OSM Meh",
+      "title": "Enable Left Control, Shift, and Alt for one keypress"
+    },
+    {
+      "code": 21167,
+      "id": "OSM(MOD_HYPR)",
+      "label": "OSM Hyper",
+      "title": "Enable Left Control, Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 21175,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RALT)",
+      "label": "OSM RMeh",
+      "title": "Enable Right Control, Shift, and Alt for one keypress"
+    },
+    {
+      "code": 21183,
+      "id": "OSM(MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)",
+      "label": "OSM RHyp",
+      "title": "Enable Right Control, Shift, Alt, and GUI for one keypress"
+    },
+    {
+      "code": 31766,
+      "id": "KC_GESC",
+      "label": "~ Esc",
+      "title": "Esc normally, but ~ when Shift or GUI is pressed"
+    },
+    {
+      "code": 31770,
+      "id": "KC_LSPO",
+      "label": "LS (",
+      "title": "Left Shift when held, ( when tapped"
+    },
+    {
+      "code": 31771,
+      "id": "KC_RSPC",
+      "label": "RS )",
+      "title": "Right Shift when held, ) when tapped"
+    },
+    {
+      "code": 31768,
+      "id": "KC_LCPO",
+      "label": "LC (",
+      "title": "Left Control when held, ( when tapped"
+    },
+    {
+      "code": 31769,
+      "id": "KC_RCPC",
+      "label": "RC )",
+      "title": "Right Control when held, ) when tapped"
+    },
+    {
+      "code": 31772,
+      "id": "KC_LAPO",
+      "label": "LA (",
+      "title": "Left Alt when held, ( when tapped"
+    },
+    {
+      "code": 31773,
+      "id": "KC_RAPC",
+      "label": "RA )",
+      "title": "Right Alt when held, ) when tapped"
+    },
+    {
+      "code": 31774,
+      "id": "KC_SFTENT",
+      "label": "RS Enter",
+      "title": "Right Shift when held, Enter when tapped"
+    },
+    {
+      "code": 28672,
+      "id": "MAGIC_SWAP_CONTROL_CAPSLOCK",
+      "label": "Swap Ctrl Caps",
+      "title": "Swap Caps Lock and Left Control"
+    },
+    {
+      "code": 28673,
+      "id": "MAGIC_UNSWAP_CONTROL_CAPSLOCK",
+      "label": "Unswap Ctrl Caps",
+      "title": "Unswap Caps Lock and Left Control"
+    },
+    {
+      "code": 28676,
+      "id": "MAGIC_CAPSLOCK_TO_CONTROL",
+      "label": "Caps to Ctrl",
+      "title": "Treat Caps Lock as Control"
+    },
+    {
+      "code": 28675,
+      "id": "MAGIC_UNCAPSLOCK_TO_CONTROL",
+      "label": "Caps not to Ctrl",
+      "title": "Stop treating Caps Lock as Control"
+    },
+    {
+      "code": 28695,
+      "id": "MAGIC_SWAP_LCTL_LGUI",
+      "label": "Swap LCtl LGui",
+      "title": "Swap Left Control and GUI"
+    },
+    {
+      "code": 28696,
+      "id": "MAGIC_UNSWAP_LCTL_LGUI",
+      "label": "Unswap LCtl LGui",
+      "title": "Unswap Left Control and GUI"
+    },
+    {
+      "code": 28697,
+      "id": "MAGIC_SWAP_RCTL_RGUI",
+      "label": "Swap RCtl RGui",
+      "title": "Swap Right Control and GUI"
+    },
+    {
+      "code": 28698,
+      "id": "MAGIC_UNSWAP_RCTL_RGUI",
+      "label": "Unswap RCtl RGui",
+      "title": "Unswap Right Control and GUI"
+    },
+    {
+      "code": 28699,
+      "id": "MAGIC_SWAP_CTL_GUI",
+      "label": "Swap Ctl Gui",
+      "title": "Swap Control and GUI on both sides"
+    },
+    {
+      "code": 28700,
+      "id": "MAGIC_UNSWAP_CTL_GUI",
+      "label": "Unswap Ctl Gui",
+      "title": "Unswap Control and GUI on both sides"
+    },
+    {
+      "code": 28701,
+      "id": "MAGIC_TOGGLE_CTL_GUI",
+      "label": "Toggle Ctl Gui",
+      "title": "Toggle Control and GUI swap on both sides"
+    },
+    {
+      "code": 28677,
+      "id": "MAGIC_SWAP_LALT_LGUI",
+      "label": "Swap LAlt LGui",
+      "title": "Swap Left Alt and GUI"
+    },
+    {
+      "code": 28678,
+      "id": "MAGIC_UNSWAP_LALT_LGUI",
+      "label": "Unswap LAlt LGui",
+      "title": "Unswap Left Alt and GUI"
+    },
+    {
+      "code": 28679,
+      "id": "MAGIC_SWAP_RALT_RGUI",
+      "label": "Swap RAlt RGui",
+      "title": "Swap Right Alt and GUI"
+    },
+    {
+      "code": 28680,
+      "id": "MAGIC_UNSWAP_RALT_RGUI",
+      "label": "Unswap RAlt RGui",
+      "title": "Unswap Right Alt and GUI"
+    },
+    {
+      "code": 28692,
+      "id": "MAGIC_SWAP_ALT_GUI",
+      "label": "Swap Alt Gui",
+      "title": "Swap Alt and GUI on both sides"
+    },
+    {
+      "code": 28693,
+      "id": "MAGIC_UNSWAP_ALT_GUI",
+      "label": "Unswap Alt Gui",
+      "title": "Unswap Alt and GUI on both sides"
+    },
+    {
+      "code": 28694,
+      "id": "MAGIC_TOGGLE_ALT_GUI",
+      "label": "Toggle Alt Gui",
+      "title": "Toggle Alt and GUI swap on both sides"
+    },
+    {
+      "code": 28682,
+      "id": "MAGIC_NO_GUI",
+      "label": "GUI Off",
+      "title": "Disable the GUI keys"
+    },
+    {
+      "code": 28681,
+      "id": "MAGIC_UNNO_GUI",
+      "label": "GUI On",
+      "title": "Enable the GUI keys"
+    },
+    {
+      "code": 28683,
+      "id": "MAGIC_TOGGLE_GUI",
+      "label": "GUI Toggle",
+      "title": "Toggle the GUI keys on and off"
+    },
+    {
+      "code": 28684,
+      "id": "MAGIC_SWAP_GRAVE_ESC",
+      "label": "Swap ` Esc",
+      "title": "Swap ` and Escape"
+    },
+    {
+      "code": 28685,
+      "id": "MAGIC_UNSWAP_GRAVE_ESC",
+      "label": "Unswap ` Esc",
+      "title": "Unswap ` and Escape"
+    },
+    {
+      "code": 28686,
+      "id": "MAGIC_SWAP_BACKSLASH_BACKSPACE",
+      "label": "Swap \\ BS",
+      "title": "Swap \\ and Backspace"
+    },
+    {
+      "code": 28687,
+      "id": "MAGIC_UNSWAP_BACKSLASH_BACKSPACE",
+      "label": "Unswap \\ BS",
+      "title": "Unswap \\ and Backspace"
+    },
+    {
+      "code": 28689,
+      "id": "MAGIC_HOST_NKRO",
+      "label": "NKRO On",
+      "title": "Enable N-key rollover"
+    },
+    {
+      "code": 28690,
+      "id": "MAGIC_UNHOST_NKRO",
+      "label": "NKRO Off",
+      "title": "Disable N-key rollover"
+    },
+    {
+      "code": 28691,
+      "id": "MAGIC_TOGGLE_NKRO",
+      "label": "NKRO Toggle",
+      "title": "Toggle N-key rollover"
+    },
+    {
+      "code": 28702,
+      "id": "MAGIC_EE_HANDS_LEFT",
+      "label": "EEH Left",
+      "title": "Set the master half of a split keyboard as the left hand (for EE_HANDS)"
+    },
+    {
+      "code": 28703,
+      "id": "MAGIC_EE_HANDS_RIGHT",
+      "label": "EEH Right",
+      "title": "Set the master half of a split keyboard as the right hand (for EE_HANDS)"
+    },
+    {
+      "code": 29824,
+      "id": "AU_ON",
+      "label": "Audio ON",
+      "title": "Audio mode on"
+    },
+    {
+      "code": 29825,
+      "id": "AU_OFF",
+      "label": "Audio OFF",
+      "title": "Audio mode off"
+    },
+    {
+      "code": 29826,
+      "id": "AU_TOG",
+      "label": "Audio Toggle",
+      "title": "Toggles Audio mode"
+    },
+    {
+      "code": 29834,
+      "id": "CLICKY_TOGGLE",
+      "label": "Clicky Toggle",
+      "title": "Toggles Audio clicky mode"
+    },
+    {
+      "code": 29837,
+      "id": "CLICKY_UP",
+      "label": "Clicky Up",
+      "title": "Increases frequency of the clicks"
+    },
+    {
+      "code": 29838,
+      "id": "CLICKY_DOWN",
+      "label": "Clicky Down",
+      "title": "Decreases frequency of the clicks"
+    },
+    {
+      "code": 29839,
+      "id": "CLICKY_RESET",
+      "label": "Clicky Reset",
+      "title": "Resets frequency to default"
+    },
+    {
+      "code": 29840,
+      "id": "MU_ON",
+      "label": "Music On",
+      "title": "Turns on Music Mode"
+    },
+    {
+      "code": 29841,
+      "id": "MU_OFF",
+      "label": "Music Off",
+      "title": "Turns off Music Mode"
+    },
+    {
+      "code": 29842,
+      "id": "MU_TOG",
+      "label": "Music Toggle",
+      "title": "Toggles Music Mode"
+    },
+    {
+      "code": 29843,
+      "id": "MU_MOD",
+      "label": "Music Cycle",
+      "title": "Cycles through the music modes"
+    },
+    {
+      "code": 31808,
+      "id": "HPT_ON",
+      "label": "Haptic On",
+      "title": "Turn haptic feedback on"
+    },
+    {
+      "code": 31809,
+      "id": "HPT_OFF",
+      "label": "Haptic Off",
+      "title": "Turn haptic feedback off"
+    },
+    {
+      "code": 31810,
+      "id": "HPT_TOG",
+      "label": "Haptic Toggle",
+      "title": "Toggle haptic feedback on/off"
+    },
+    {
+      "code": 31811,
+      "id": "HPT_RST",
+      "label": "Haptic Reset",
+      "title": "Reset haptic feedback config to default"
+    },
+    {
+      "code": 31812,
+      "id": "HPT_FBK",
+      "label": "Haptic Feed back",
+      "title": "Toggle feedback to occur on keypress, release or both"
+    },
+    {
+      "code": 31813,
+      "id": "HPT_BUZ",
+      "label": "Haptic Buzz",
+      "title": "Toggle solenoid buzz on/off"
+    },
+    {
+      "code": 31814,
+      "id": "HPT_MODI",
+      "label": "Haptic Next",
+      "title": "Go to next DRV2605L waveform"
+    },
+    {
+      "code": 31815,
+      "id": "HPT_MODD",
+      "label": "Haptic Prev",
+      "title": "Go to previous DRV2605L waveform"
+    },
+    {
+      "code": 31816,
+      "id": "HPT_CONT",
+      "label": "Haptic Cont.",
+      "title": "Toggle continuous haptic mode on/off"
+    },
+    {
+      "code": 31817,
+      "id": "HPT_CONI",
+      "label": "Haptic +",
+      "title": "Increase DRV2605L continous haptic strength"
+    },
+    {
+      "code": 31818,
+      "id": "HPT_COND",
+      "label": "Haptic -",
+      "title": "Decrease DRV2605L continous haptic strength"
+    },
+    {
+      "code": 31819,
+      "id": "HPT_DWLI",
+      "label": "Haptic Dwell+",
+      "title": "Increase Solenoid dwell time"
+    },
+    {
+      "code": 31820,
+      "id": "HPT_DWLD",
+      "label": "Haptic Dwell-",
+      "title": "Decrease Solenoid dwell time"
+    },
+    {
+      "code": 31760,
+      "id": "KC_ASDN",
+      "label": "Auto- shift Down",
+      "title": "Lower the Auto Shift timeout variable (down)"
+    },
+    {
+      "code": 31761,
+      "id": "KC_ASUP",
+      "label": "Auto- shift Up",
+      "title": "Raise the Auto Shift timeout variable (up)"
+    },
+    {
+      "code": 31762,
+      "id": "KC_ASRP",
+      "label": "Auto- shift Report",
+      "title": "Report your current Auto Shift timeout value"
+    },
+    {
+      "code": 31763,
+      "id": "KC_ASON",
+      "label": "Auto- shift On",
+      "title": "Turns on the Auto Shift Function"
+    },
+    {
+      "code": 31764,
+      "id": "KC_ASOFF",
+      "label": "Auto- shift Off",
+      "title": "Turns off the Auto Shift Function"
+    },
+    {
+      "code": 31765,
+      "id": "KC_ASTG",
+      "label": "Auto- shift Toggle",
+      "title": "Toggles the state of the Auto Shift feature"
+    },
+    {
+      "code": 31824,
+      "id": "CMB_ON",
+      "label": "Combo On",
+      "title": "Turns on Combo feature"
+    },
+    {
+      "code": 31825,
+      "id": "CMB_OFF",
+      "label": "Combo Off",
+      "title": "Turns off Combo feature"
+    },
+    {
+      "code": 31826,
+      "id": "CMB_TOG",
+      "label": "Combo Toggle",
+      "title": "Toggles Combo feature on and off"
+    },
+    {
+      "code": 31859,
+      "id": "QK_CAPS_WORD_TOGGLE",
+      "label": "Caps Word",
+      "title": "Capitalizes until end of current word"
+    },
+    {
+      "code": 31865,
+      "id": "QK_REPEAT_KEY",
+      "label": "Repeat",
+      "title": "Repeats the last pressed key"
+    },
+    {
+      "code": 31866,
+      "id": "QK_ALT_REPEAT_KEY",
+      "label": "Alt Repeat",
+      "title": "Alt repeats the last pressed key"
+    },
+    {
+      "code": 30752,
+      "id": "RGB_TOG",
+      "label": "RGB Toggle",
+      "title": "Toggle RGB lighting on or off"
+    },
+    {
+      "code": 30753,
+      "id": "RGB_MOD",
+      "label": "RGB Mode +",
+      "title": "Next RGB mode"
+    },
+    {
+      "code": 30754,
+      "id": "RGB_RMOD",
+      "label": "RGB Mode -",
+      "title": "Previous RGB mode"
+    },
+    {
+      "code": 30755,
+      "id": "RGB_HUI",
+      "label": "Hue +",
+      "title": "Increase hue"
+    },
+    {
+      "code": 30756,
+      "id": "RGB_HUD",
+      "label": "Hue -",
+      "title": "Decrease hue"
+    },
+    {
+      "code": 30757,
+      "id": "RGB_SAI",
+      "label": "Sat +",
+      "title": "Increase saturation"
+    },
+    {
+      "code": 30758,
+      "id": "RGB_SAD",
+      "label": "Sat -",
+      "title": "Decrease saturation"
+    },
+    {
+      "code": 30759,
+      "id": "RGB_VAI",
+      "label": "Bright +",
+      "title": "Increase value"
+    },
+    {
+      "code": 30760,
+      "id": "RGB_VAD",
+      "label": "Bright -",
+      "title": "Decrease value"
+    },
+    {
+      "code": 30761,
+      "id": "RGB_SPI",
+      "label": "Effect +",
+      "title": "Increase RGB effect speed"
+    },
+    {
+      "code": 30762,
+      "id": "RGB_SPD",
+      "label": "Effect -",
+      "title": "Decrease RGB effect speed"
+    },
+    {
+      "code": 30784,
+      "id": "RM_ON",
+      "label": "RGBM On",
+      "title": "Turn on RGB Matrix"
+    },
+    {
+      "code": 30785,
+      "id": "RM_OFF",
+      "label": "RGBM Off",
+      "title": "Turn off RGB Matrix"
+    },
+    {
+      "code": 30786,
+      "id": "RM_TOGG",
+      "label": "RGBM Togg",
+      "title": "Toggle RGB Matrix on or off"
+    },
+    {
+      "code": 30787,
+      "id": "RM_NEXT",
+      "label": "RGBM Next",
+      "title": "Cycle through animations"
+    },
+    {
+      "code": 30788,
+      "id": "RM_PREV",
+      "label": "RGBM Prev",
+      "title": "Cycle through animations in reverse"
+    },
+    {
+      "code": 30789,
+      "id": "RM_HUEU",
+      "label": "RGBM Hue +",
+      "title": "Cycle through hue"
+    },
+    {
+      "code": 30790,
+      "id": "RM_HUED",
+      "label": "RGBM Hue -",
+      "title": "Cycle through hue in reverse"
+    },
+    {
+      "code": 30791,
+      "id": "RM_SATU",
+      "label": "RGBM Sat +",
+      "title": "Increase the saturation"
+    },
+    {
+      "code": 30792,
+      "id": "RM_SATD",
+      "label": "RGBM Sat -",
+      "title": "Decrease the saturation"
+    },
+    {
+      "code": 30793,
+      "id": "RM_VALU",
+      "label": "RGBM Bright +",
+      "title": "Increase the brightness level"
+    },
+    {
+      "code": 30794,
+      "id": "RM_VALD",
+      "label": "RGBM Bright -",
+      "title": "Decrease the brightness level"
+    },
+    {
+      "code": 30795,
+      "id": "RM_SPDU",
+      "label": "RGBM Speed +",
+      "title": "Increase the animation speed"
+    },
+    {
+      "code": 30796,
+      "id": "RM_SPDD",
+      "label": "RGBM Speed -",
+      "title": "Decrease the animation speed"
+    },
+    { "code": 104, "id": "KC_F13", "label": "F13", "title": "" },
+    { "code": 105, "id": "KC_F14", "label": "F14", "title": "" },
+    { "code": 106, "id": "KC_F15", "label": "F15", "title": "" },
+    { "code": 107, "id": "KC_F16", "label": "F16", "title": "" },
+    { "code": 108, "id": "KC_F17", "label": "F17", "title": "" },
+    { "code": 109, "id": "KC_F18", "label": "F18", "title": "" },
+    { "code": 110, "id": "KC_F19", "label": "F19", "title": "" },
+    { "code": 111, "id": "KC_F20", "label": "F20", "title": "" },
+    { "code": 112, "id": "KC_F21", "label": "F21", "title": "" },
+    { "code": 113, "id": "KC_F22", "label": "F22", "title": "" },
+    { "code": 114, "id": "KC_F23", "label": "F23", "title": "" },
+    { "code": 115, "id": "KC_F24", "label": "F24", "title": "" },
+    {
+      "code": 165,
+      "id": "KC_PWR",
+      "label": "Power",
+      "title": "System Power Down"
+    },
+    { "code": 166, "id": "KC_SLEP", "label": "Sleep", "title": "System Sleep" },
+    { "code": 167, "id": "KC_WAKE", "label": "Wake", "title": "System Wake" },
+    { "code": 116, "id": "KC_EXEC", "label": "Exec", "title": "Execute" },
+    { "code": 117, "id": "KC_HELP", "label": "Help", "title": "" },
+    { "code": 119, "id": "KC_SLCT", "label": "Select", "title": "" },
+    { "code": 120, "id": "KC_STOP", "label": "Stop", "title": "" },
+    { "code": 121, "id": "KC_AGIN", "label": "Again", "title": "" },
+    { "code": 122, "id": "KC_UNDO", "label": "Undo", "title": "" },
+    { "code": 123, "id": "KC_CUT", "label": "Cut", "title": "" },
+    { "code": 124, "id": "KC_COPY", "label": "Copy", "title": "" },
+    { "code": 125, "id": "KC_PSTE", "label": "Paste", "title": "" },
+    { "code": 126, "id": "KC_FIND", "label": "Find", "title": "" },
+    {
+      "code": 178,
+      "id": "KC_CALC",
+      "label": "Calc",
+      "title": "Launch Calculator (Windows)"
+    },
+    {
+      "code": 177,
+      "id": "KC_MAIL",
+      "label": "Mail",
+      "title": "Launch Mail (Windows)"
+    },
+    {
+      "code": 175,
+      "id": "KC_MSEL",
+      "label": "Media Player",
+      "title": "Launch Media Player (Windows)"
+    },
+    {
+      "code": 179,
+      "id": "KC_MYCM",
+      "label": "My PC",
+      "title": "Launch My Computer (Windows)"
+    },
+    {
+      "code": 180,
+      "id": "KC_WSCH",
+      "label": "Browser Search",
+      "title": "Browser Search (Windows)"
+    },
+    {
+      "code": 181,
+      "id": "KC_WHOM",
+      "label": "Browser Home",
+      "title": "Browser Home (Windows)"
+    },
+    {
+      "code": 182,
+      "id": "KC_WBAK",
+      "label": "Browser Back",
+      "title": "Browser Back (Windows)"
+    },
+    {
+      "code": 183,
+      "id": "KC_WFWD",
+      "label": "Browser Forward",
+      "title": "Browser Forward (Windows)"
+    },
+    {
+      "code": 184,
+      "id": "KC_WSTP",
+      "label": "Browser Stop",
+      "title": "Browser Stop (Windows)"
+    },
+    {
+      "code": 185,
+      "id": "KC_WREF",
+      "label": "Browser Refresh",
+      "title": "Browser Refresh (Windows)"
+    },
+    {
+      "code": 186,
+      "id": "KC_WFAV",
+      "label": "Browser Fav.",
+      "title": "Browser Favorites (Windows)"
+    },
+    {
+      "code": 189,
+      "id": "KC_BRIU",
+      "label": "Bright. Up",
+      "title": "Increase the brightness of screen (Laptop)"
+    },
+    {
+      "code": 190,
+      "id": "KC_BRID",
+      "label": "Bright. Down",
+      "title": "Decrease the brightness of screen (Laptop)"
+    },
+    {
+      "code": 172,
+      "id": "KC_MPRV",
+      "label": "Media Prev",
+      "title": "Previous Track"
+    },
+    {
+      "code": 171,
+      "id": "KC_MNXT",
+      "label": "Media Next",
+      "title": "Next Track"
+    },
+    { "code": 168, "id": "KC_MUTE", "label": "Mute", "title": "Mute Audio" },
+    { "code": 170, "id": "KC_VOLD", "label": "Vol -", "title": "Volume Down" },
+    { "code": 169, "id": "KC_VOLU", "label": "Vol +", "title": "Volume Up" },
+    {
+      "code": 129,
+      "id": "KC__VOLDOWN",
+      "label": "Vol - Alt",
+      "title": "Volume Down Alternate"
+    },
+    {
+      "code": 128,
+      "id": "KC__VOLUP",
+      "label": "Vol + Alt",
+      "title": "Volume Up Alternate"
+    },
+    {
+      "code": 173,
+      "id": "KC_MSTP",
+      "label": "Media Stop",
+      "title": "Stop playback"
+    },
+    {
+      "code": 174,
+      "id": "KC_MPLY",
+      "label": "Media Play",
+      "title": "Play/Pause"
+    },
+    {
+      "code": 188,
+      "id": "KC_MRWD",
+      "label": "Prev Track (macOS)",
+      "title": "Previous Track / Rewind (macOS)"
+    },
+    {
+      "code": 187,
+      "id": "KC_MFFD",
+      "label": "Next Track (macOS)",
+      "title": "Next Track / Fast Forward (macOS)"
+    },
+    {
+      "code": 176,
+      "id": "KC_EJCT",
+      "label": "Eject",
+      "title": "Eject (macOS)"
+    },
+    {
+      "code": 205,
+      "id": "KC_MS_U",
+      "label": "Mouse Up",
+      "title": "Mouse Cursor Up"
+    },
+    {
+      "code": 206,
+      "id": "KC_MS_D",
+      "label": "Mouse Down",
+      "title": "Mouse Cursor Down"
+    },
+    {
+      "code": 207,
+      "id": "KC_MS_L",
+      "label": "Mouse Left",
+      "title": "Mouse Cursor Left"
+    },
+    {
+      "code": 208,
+      "id": "KC_MS_R",
+      "label": "Mouse Right",
+      "title": "Mouse Cursor Right"
+    },
+    {
+      "code": 209,
+      "id": "KC_BTN1",
+      "label": "Mouse 1",
+      "title": "Mouse Button 1"
+    },
+    {
+      "code": 210,
+      "id": "KC_BTN2",
+      "label": "Mouse 2",
+      "title": "Mouse Button 2"
+    },
+    {
+      "code": 211,
+      "id": "KC_BTN3",
+      "label": "Mouse 3",
+      "title": "Mouse Button 3"
+    },
+    {
+      "code": 212,
+      "id": "KC_BTN4",
+      "label": "Mouse 4",
+      "title": "Mouse Button 4"
+    },
+    {
+      "code": 213,
+      "id": "KC_BTN5",
+      "label": "Mouse 5",
+      "title": "Mouse Button 5"
+    },
+    {
+      "code": 217,
+      "id": "KC_WH_U",
+      "label": "Mouse Wheel Up",
+      "title": "Wheel Up"
+    },
+    {
+      "code": 218,
+      "id": "KC_WH_D",
+      "label": "Mouse Wheel Down",
+      "title": "Wheel Down"
+    },
+    {
+      "code": 219,
+      "id": "KC_WH_L",
+      "label": "Mouse Wheel Left",
+      "title": "Wheel Left"
+    },
+    {
+      "code": 220,
+      "id": "KC_WH_R",
+      "label": "Mouse Wheel Right",
+      "title": "wheel Right"
+    },
+    {
+      "code": 221,
+      "id": "KC_ACL0",
+      "label": "Mouse Accel 0",
+      "title": "Set mouse acceleration to 0"
+    },
+    {
+      "code": 222,
+      "id": "KC_ACL1",
+      "label": "Mouse Accel 1",
+      "title": "Set mouse acceleration to 1"
+    },
+    {
+      "code": 223,
+      "id": "KC_ACL2",
+      "label": "Mouse Accel 2",
+      "title": "Set mouse acceleration to 2"
+    },
+    {
+      "code": 130,
+      "id": "KC_LCAP",
+      "label": "Locking Caps",
+      "title": "Locking Caps Lock"
+    },
+    {
+      "code": 131,
+      "id": "KC_LNUM",
+      "label": "Locking Num",
+      "title": "Locking Num Lock"
+    },
+    {
+      "code": 132,
+      "id": "KC_LSCR",
+      "label": "Locking Scroll",
+      "title": "Locking Scroll Lock"
+    },
+    { "code": 22272, "id": "TD(0)", "label": "TD(0)", "title": "" },
+    { "code": 22273, "id": "TD(1)", "label": "TD(1)", "title": "" },
+    { "code": 22274, "id": "TD(2)", "label": "TD(2)", "title": "" },
+    { "code": 22275, "id": "TD(3)", "label": "TD(3)", "title": "" },
+    { "code": 22276, "id": "TD(4)", "label": "TD(4)", "title": "" },
+    { "code": 22277, "id": "TD(5)", "label": "TD(5)", "title": "" },
+    { "code": 22278, "id": "TD(6)", "label": "TD(6)", "title": "" },
+    { "code": 22279, "id": "TD(7)", "label": "TD(7)", "title": "" },
+    { "code": 22280, "id": "TD(8)", "label": "TD(8)", "title": "" },
+    { "code": 22281, "id": "TD(9)", "label": "TD(9)", "title": "" },
+    { "code": 22282, "id": "TD(10)", "label": "TD(10)", "title": "" },
+    { "code": 22283, "id": "TD(11)", "label": "TD(11)", "title": "" },
+    { "code": 22284, "id": "TD(12)", "label": "TD(12)", "title": "" },
+    { "code": 22285, "id": "TD(13)", "label": "TD(13)", "title": "" },
+    { "code": 22286, "id": "TD(14)", "label": "TD(14)", "title": "" },
+    { "code": 22287, "id": "TD(15)", "label": "TD(15)", "title": "" },
+    { "code": 22288, "id": "TD(16)", "label": "TD(16)", "title": "" },
+    { "code": 22289, "id": "TD(17)", "label": "TD(17)", "title": "" },
+    { "code": 22290, "id": "TD(18)", "label": "TD(18)", "title": "" },
+    { "code": 22291, "id": "TD(19)", "label": "TD(19)", "title": "" },
+    { "code": 22292, "id": "TD(20)", "label": "TD(20)", "title": "" },
+    { "code": 22293, "id": "TD(21)", "label": "TD(21)", "title": "" },
+    { "code": 22294, "id": "TD(22)", "label": "TD(22)", "title": "" },
+    { "code": 22295, "id": "TD(23)", "label": "TD(23)", "title": "" },
+    { "code": 22296, "id": "TD(24)", "label": "TD(24)", "title": "" },
+    { "code": 22297, "id": "TD(25)", "label": "TD(25)", "title": "" },
+    { "code": 22298, "id": "TD(26)", "label": "TD(26)", "title": "" },
+    { "code": 22299, "id": "TD(27)", "label": "TD(27)", "title": "" },
+    { "code": 22300, "id": "TD(28)", "label": "TD(28)", "title": "" },
+    { "code": 22301, "id": "TD(29)", "label": "TD(29)", "title": "" },
+    { "code": 22302, "id": "TD(30)", "label": "TD(30)", "title": "" },
+    { "code": 22303, "id": "TD(31)", "label": "TD(31)", "title": "" },
+    { "code": 22304, "id": "TD(32)", "label": "TD(32)", "title": "" },
+    { "code": 22305, "id": "TD(33)", "label": "TD(33)", "title": "" },
+    { "code": 22306, "id": "TD(34)", "label": "TD(34)", "title": "" },
+    { "code": 22307, "id": "TD(35)", "label": "TD(35)", "title": "" },
+    { "code": 22308, "id": "TD(36)", "label": "TD(36)", "title": "" },
+    { "code": 22309, "id": "TD(37)", "label": "TD(37)", "title": "" },
+    { "code": 22310, "id": "TD(38)", "label": "TD(38)", "title": "" },
+    { "code": 22311, "id": "TD(39)", "label": "TD(39)", "title": "" },
+    { "code": 22312, "id": "TD(40)", "label": "TD(40)", "title": "" },
+    { "code": 22313, "id": "TD(41)", "label": "TD(41)", "title": "" },
+    { "code": 22314, "id": "TD(42)", "label": "TD(42)", "title": "" },
+    { "code": 22315, "id": "TD(43)", "label": "TD(43)", "title": "" },
+    { "code": 22316, "id": "TD(44)", "label": "TD(44)", "title": "" },
+    { "code": 22317, "id": "TD(45)", "label": "TD(45)", "title": "" },
+    { "code": 22318, "id": "TD(46)", "label": "TD(46)", "title": "" },
+    { "code": 22319, "id": "TD(47)", "label": "TD(47)", "title": "" },
+    { "code": 22320, "id": "TD(48)", "label": "TD(48)", "title": "" },
+    { "code": 22321, "id": "TD(49)", "label": "TD(49)", "title": "" },
+    { "code": 22322, "id": "TD(50)", "label": "TD(50)", "title": "" },
+    { "code": 22323, "id": "TD(51)", "label": "TD(51)", "title": "" },
+    { "code": 22324, "id": "TD(52)", "label": "TD(52)", "title": "" },
+    { "code": 22325, "id": "TD(53)", "label": "TD(53)", "title": "" },
+    { "code": 22326, "id": "TD(54)", "label": "TD(54)", "title": "" },
+    { "code": 22327, "id": "TD(55)", "label": "TD(55)", "title": "" },
+    { "code": 22328, "id": "TD(56)", "label": "TD(56)", "title": "" },
+    { "code": 22329, "id": "TD(57)", "label": "TD(57)", "title": "" },
+    { "code": 22330, "id": "TD(58)", "label": "TD(58)", "title": "" },
+    { "code": 22331, "id": "TD(59)", "label": "TD(59)", "title": "" },
+    { "code": 22332, "id": "TD(60)", "label": "TD(60)", "title": "" },
+    { "code": 22333, "id": "TD(61)", "label": "TD(61)", "title": "" },
+    { "code": 22334, "id": "TD(62)", "label": "TD(62)", "title": "" },
+    { "code": 22335, "id": "TD(63)", "label": "TD(63)", "title": "" },
+    { "code": 22336, "id": "TD(64)", "label": "TD(64)", "title": "" },
+    { "code": 22337, "id": "TD(65)", "label": "TD(65)", "title": "" },
+    { "code": 22338, "id": "TD(66)", "label": "TD(66)", "title": "" },
+    { "code": 22339, "id": "TD(67)", "label": "TD(67)", "title": "" },
+    { "code": 22340, "id": "TD(68)", "label": "TD(68)", "title": "" },
+    { "code": 22341, "id": "TD(69)", "label": "TD(69)", "title": "" },
+    { "code": 22342, "id": "TD(70)", "label": "TD(70)", "title": "" },
+    { "code": 22343, "id": "TD(71)", "label": "TD(71)", "title": "" },
+    { "code": 22344, "id": "TD(72)", "label": "TD(72)", "title": "" },
+    { "code": 22345, "id": "TD(73)", "label": "TD(73)", "title": "" },
+    { "code": 22346, "id": "TD(74)", "label": "TD(74)", "title": "" },
+    { "code": 22347, "id": "TD(75)", "label": "TD(75)", "title": "" },
+    { "code": 22348, "id": "TD(76)", "label": "TD(76)", "title": "" },
+    { "code": 22349, "id": "TD(77)", "label": "TD(77)", "title": "" },
+    { "code": 22350, "id": "TD(78)", "label": "TD(78)", "title": "" },
+    { "code": 22351, "id": "TD(79)", "label": "TD(79)", "title": "" },
+    { "code": 22352, "id": "TD(80)", "label": "TD(80)", "title": "" },
+    { "code": 22353, "id": "TD(81)", "label": "TD(81)", "title": "" },
+    { "code": 22354, "id": "TD(82)", "label": "TD(82)", "title": "" },
+    { "code": 22355, "id": "TD(83)", "label": "TD(83)", "title": "" },
+    { "code": 22356, "id": "TD(84)", "label": "TD(84)", "title": "" },
+    { "code": 22357, "id": "TD(85)", "label": "TD(85)", "title": "" },
+    { "code": 22358, "id": "TD(86)", "label": "TD(86)", "title": "" },
+    { "code": 22359, "id": "TD(87)", "label": "TD(87)", "title": "" },
+    { "code": 22360, "id": "TD(88)", "label": "TD(88)", "title": "" },
+    { "code": 22361, "id": "TD(89)", "label": "TD(89)", "title": "" },
+    { "code": 22362, "id": "TD(90)", "label": "TD(90)", "title": "" },
+    { "code": 22363, "id": "TD(91)", "label": "TD(91)", "title": "" },
+    { "code": 22364, "id": "TD(92)", "label": "TD(92)", "title": "" },
+    { "code": 22365, "id": "TD(93)", "label": "TD(93)", "title": "" },
+    { "code": 22366, "id": "TD(94)", "label": "TD(94)", "title": "" },
+    { "code": 22367, "id": "TD(95)", "label": "TD(95)", "title": "" },
+    { "code": 22368, "id": "TD(96)", "label": "TD(96)", "title": "" },
+    { "code": 22369, "id": "TD(97)", "label": "TD(97)", "title": "" },
+    { "code": 22370, "id": "TD(98)", "label": "TD(98)", "title": "" },
+    { "code": 22371, "id": "TD(99)", "label": "TD(99)", "title": "" },
+    { "code": 22372, "id": "TD(100)", "label": "TD(100)", "title": "" },
+    { "code": 22373, "id": "TD(101)", "label": "TD(101)", "title": "" },
+    { "code": 22374, "id": "TD(102)", "label": "TD(102)", "title": "" },
+    { "code": 22375, "id": "TD(103)", "label": "TD(103)", "title": "" },
+    { "code": 22376, "id": "TD(104)", "label": "TD(104)", "title": "" },
+    { "code": 22377, "id": "TD(105)", "label": "TD(105)", "title": "" },
+    { "code": 22378, "id": "TD(106)", "label": "TD(106)", "title": "" },
+    { "code": 22379, "id": "TD(107)", "label": "TD(107)", "title": "" },
+    { "code": 22380, "id": "TD(108)", "label": "TD(108)", "title": "" },
+    { "code": 22381, "id": "TD(109)", "label": "TD(109)", "title": "" },
+    { "code": 22382, "id": "TD(110)", "label": "TD(110)", "title": "" },
+    { "code": 22383, "id": "TD(111)", "label": "TD(111)", "title": "" },
+    { "code": 22384, "id": "TD(112)", "label": "TD(112)", "title": "" },
+    { "code": 22385, "id": "TD(113)", "label": "TD(113)", "title": "" },
+    { "code": 22386, "id": "TD(114)", "label": "TD(114)", "title": "" },
+    { "code": 22387, "id": "TD(115)", "label": "TD(115)", "title": "" },
+    { "code": 22388, "id": "TD(116)", "label": "TD(116)", "title": "" },
+    { "code": 22389, "id": "TD(117)", "label": "TD(117)", "title": "" },
+    { "code": 22390, "id": "TD(118)", "label": "TD(118)", "title": "" },
+    { "code": 22391, "id": "TD(119)", "label": "TD(119)", "title": "" },
+    { "code": 22392, "id": "TD(120)", "label": "TD(120)", "title": "" },
+    { "code": 22393, "id": "TD(121)", "label": "TD(121)", "title": "" },
+    { "code": 22394, "id": "TD(122)", "label": "TD(122)", "title": "" },
+    { "code": 22395, "id": "TD(123)", "label": "TD(123)", "title": "" },
+    { "code": 22396, "id": "TD(124)", "label": "TD(124)", "title": "" },
+    { "code": 22397, "id": "TD(125)", "label": "TD(125)", "title": "" },
+    { "code": 22398, "id": "TD(126)", "label": "TD(126)", "title": "" },
+    { "code": 22399, "id": "TD(127)", "label": "TD(127)", "title": "" },
+    { "code": 22400, "id": "TD(128)", "label": "TD(128)", "title": "" },
+    { "code": 22401, "id": "TD(129)", "label": "TD(129)", "title": "" },
+    { "code": 22402, "id": "TD(130)", "label": "TD(130)", "title": "" },
+    { "code": 22403, "id": "TD(131)", "label": "TD(131)", "title": "" },
+    { "code": 22404, "id": "TD(132)", "label": "TD(132)", "title": "" },
+    { "code": 22405, "id": "TD(133)", "label": "TD(133)", "title": "" },
+    { "code": 22406, "id": "TD(134)", "label": "TD(134)", "title": "" },
+    { "code": 22407, "id": "TD(135)", "label": "TD(135)", "title": "" },
+    { "code": 22408, "id": "TD(136)", "label": "TD(136)", "title": "" },
+    { "code": 22409, "id": "TD(137)", "label": "TD(137)", "title": "" },
+    { "code": 22410, "id": "TD(138)", "label": "TD(138)", "title": "" },
+    { "code": 22411, "id": "TD(139)", "label": "TD(139)", "title": "" },
+    { "code": 22412, "id": "TD(140)", "label": "TD(140)", "title": "" },
+    { "code": 22413, "id": "TD(141)", "label": "TD(141)", "title": "" },
+    { "code": 22414, "id": "TD(142)", "label": "TD(142)", "title": "" },
+    { "code": 22415, "id": "TD(143)", "label": "TD(143)", "title": "" },
+    { "code": 22416, "id": "TD(144)", "label": "TD(144)", "title": "" },
+    { "code": 22417, "id": "TD(145)", "label": "TD(145)", "title": "" },
+    { "code": 22418, "id": "TD(146)", "label": "TD(146)", "title": "" },
+    { "code": 22419, "id": "TD(147)", "label": "TD(147)", "title": "" },
+    { "code": 22420, "id": "TD(148)", "label": "TD(148)", "title": "" },
+    { "code": 22421, "id": "TD(149)", "label": "TD(149)", "title": "" },
+    { "code": 22422, "id": "TD(150)", "label": "TD(150)", "title": "" },
+    { "code": 22423, "id": "TD(151)", "label": "TD(151)", "title": "" },
+    { "code": 22424, "id": "TD(152)", "label": "TD(152)", "title": "" },
+    { "code": 22425, "id": "TD(153)", "label": "TD(153)", "title": "" },
+    { "code": 22426, "id": "TD(154)", "label": "TD(154)", "title": "" },
+    { "code": 22427, "id": "TD(155)", "label": "TD(155)", "title": "" },
+    { "code": 22428, "id": "TD(156)", "label": "TD(156)", "title": "" },
+    { "code": 22429, "id": "TD(157)", "label": "TD(157)", "title": "" },
+    { "code": 22430, "id": "TD(158)", "label": "TD(158)", "title": "" },
+    { "code": 22431, "id": "TD(159)", "label": "TD(159)", "title": "" },
+    { "code": 22432, "id": "TD(160)", "label": "TD(160)", "title": "" },
+    { "code": 22433, "id": "TD(161)", "label": "TD(161)", "title": "" },
+    { "code": 22434, "id": "TD(162)", "label": "TD(162)", "title": "" },
+    { "code": 22435, "id": "TD(163)", "label": "TD(163)", "title": "" },
+    { "code": 22436, "id": "TD(164)", "label": "TD(164)", "title": "" },
+    { "code": 22437, "id": "TD(165)", "label": "TD(165)", "title": "" },
+    { "code": 22438, "id": "TD(166)", "label": "TD(166)", "title": "" },
+    { "code": 22439, "id": "TD(167)", "label": "TD(167)", "title": "" },
+    { "code": 22440, "id": "TD(168)", "label": "TD(168)", "title": "" },
+    { "code": 22441, "id": "TD(169)", "label": "TD(169)", "title": "" },
+    { "code": 22442, "id": "TD(170)", "label": "TD(170)", "title": "" },
+    { "code": 22443, "id": "TD(171)", "label": "TD(171)", "title": "" },
+    { "code": 22444, "id": "TD(172)", "label": "TD(172)", "title": "" },
+    { "code": 22445, "id": "TD(173)", "label": "TD(173)", "title": "" },
+    { "code": 22446, "id": "TD(174)", "label": "TD(174)", "title": "" },
+    { "code": 22447, "id": "TD(175)", "label": "TD(175)", "title": "" },
+    { "code": 22448, "id": "TD(176)", "label": "TD(176)", "title": "" },
+    { "code": 22449, "id": "TD(177)", "label": "TD(177)", "title": "" },
+    { "code": 22450, "id": "TD(178)", "label": "TD(178)", "title": "" },
+    { "code": 22451, "id": "TD(179)", "label": "TD(179)", "title": "" },
+    { "code": 22452, "id": "TD(180)", "label": "TD(180)", "title": "" },
+    { "code": 22453, "id": "TD(181)", "label": "TD(181)", "title": "" },
+    { "code": 22454, "id": "TD(182)", "label": "TD(182)", "title": "" },
+    { "code": 22455, "id": "TD(183)", "label": "TD(183)", "title": "" },
+    { "code": 22456, "id": "TD(184)", "label": "TD(184)", "title": "" },
+    { "code": 22457, "id": "TD(185)", "label": "TD(185)", "title": "" },
+    { "code": 22458, "id": "TD(186)", "label": "TD(186)", "title": "" },
+    { "code": 22459, "id": "TD(187)", "label": "TD(187)", "title": "" },
+    { "code": 22460, "id": "TD(188)", "label": "TD(188)", "title": "" },
+    { "code": 22461, "id": "TD(189)", "label": "TD(189)", "title": "" },
+    { "code": 22462, "id": "TD(190)", "label": "TD(190)", "title": "" },
+    { "code": 22463, "id": "TD(191)", "label": "TD(191)", "title": "" },
+    { "code": 22464, "id": "TD(192)", "label": "TD(192)", "title": "" },
+    { "code": 22465, "id": "TD(193)", "label": "TD(193)", "title": "" },
+    { "code": 22466, "id": "TD(194)", "label": "TD(194)", "title": "" },
+    { "code": 22467, "id": "TD(195)", "label": "TD(195)", "title": "" },
+    { "code": 22468, "id": "TD(196)", "label": "TD(196)", "title": "" },
+    { "code": 22469, "id": "TD(197)", "label": "TD(197)", "title": "" },
+    { "code": 22470, "id": "TD(198)", "label": "TD(198)", "title": "" },
+    { "code": 22471, "id": "TD(199)", "label": "TD(199)", "title": "" },
+    { "code": 22472, "id": "TD(200)", "label": "TD(200)", "title": "" },
+    { "code": 22473, "id": "TD(201)", "label": "TD(201)", "title": "" },
+    { "code": 22474, "id": "TD(202)", "label": "TD(202)", "title": "" },
+    { "code": 22475, "id": "TD(203)", "label": "TD(203)", "title": "" },
+    { "code": 22476, "id": "TD(204)", "label": "TD(204)", "title": "" },
+    { "code": 22477, "id": "TD(205)", "label": "TD(205)", "title": "" },
+    { "code": 22478, "id": "TD(206)", "label": "TD(206)", "title": "" },
+    { "code": 22479, "id": "TD(207)", "label": "TD(207)", "title": "" },
+    { "code": 22480, "id": "TD(208)", "label": "TD(208)", "title": "" },
+    { "code": 22481, "id": "TD(209)", "label": "TD(209)", "title": "" },
+    { "code": 22482, "id": "TD(210)", "label": "TD(210)", "title": "" },
+    { "code": 22483, "id": "TD(211)", "label": "TD(211)", "title": "" },
+    { "code": 22484, "id": "TD(212)", "label": "TD(212)", "title": "" },
+    { "code": 22485, "id": "TD(213)", "label": "TD(213)", "title": "" },
+    { "code": 22486, "id": "TD(214)", "label": "TD(214)", "title": "" },
+    { "code": 22487, "id": "TD(215)", "label": "TD(215)", "title": "" },
+    { "code": 22488, "id": "TD(216)", "label": "TD(216)", "title": "" },
+    { "code": 22489, "id": "TD(217)", "label": "TD(217)", "title": "" },
+    { "code": 22490, "id": "TD(218)", "label": "TD(218)", "title": "" },
+    { "code": 22491, "id": "TD(219)", "label": "TD(219)", "title": "" },
+    { "code": 22492, "id": "TD(220)", "label": "TD(220)", "title": "" },
+    { "code": 22493, "id": "TD(221)", "label": "TD(221)", "title": "" },
+    { "code": 22494, "id": "TD(222)", "label": "TD(222)", "title": "" },
+    { "code": 22495, "id": "TD(223)", "label": "TD(223)", "title": "" },
+    { "code": 22496, "id": "TD(224)", "label": "TD(224)", "title": "" },
+    { "code": 22497, "id": "TD(225)", "label": "TD(225)", "title": "" },
+    { "code": 22498, "id": "TD(226)", "label": "TD(226)", "title": "" },
+    { "code": 22499, "id": "TD(227)", "label": "TD(227)", "title": "" },
+    { "code": 22500, "id": "TD(228)", "label": "TD(228)", "title": "" },
+    { "code": 22501, "id": "TD(229)", "label": "TD(229)", "title": "" },
+    { "code": 22502, "id": "TD(230)", "label": "TD(230)", "title": "" },
+    { "code": 22503, "id": "TD(231)", "label": "TD(231)", "title": "" },
+    { "code": 22504, "id": "TD(232)", "label": "TD(232)", "title": "" },
+    { "code": 22505, "id": "TD(233)", "label": "TD(233)", "title": "" },
+    { "code": 22506, "id": "TD(234)", "label": "TD(234)", "title": "" },
+    { "code": 22507, "id": "TD(235)", "label": "TD(235)", "title": "" },
+    { "code": 22508, "id": "TD(236)", "label": "TD(236)", "title": "" },
+    { "code": 22509, "id": "TD(237)", "label": "TD(237)", "title": "" },
+    { "code": 22510, "id": "TD(238)", "label": "TD(238)", "title": "" },
+    { "code": 22511, "id": "TD(239)", "label": "TD(239)", "title": "" },
+    { "code": 22512, "id": "TD(240)", "label": "TD(240)", "title": "" },
+    { "code": 22513, "id": "TD(241)", "label": "TD(241)", "title": "" },
+    { "code": 22514, "id": "TD(242)", "label": "TD(242)", "title": "" },
+    { "code": 22515, "id": "TD(243)", "label": "TD(243)", "title": "" },
+    { "code": 22516, "id": "TD(244)", "label": "TD(244)", "title": "" },
+    { "code": 22517, "id": "TD(245)", "label": "TD(245)", "title": "" },
+    { "code": 22518, "id": "TD(246)", "label": "TD(246)", "title": "" },
+    { "code": 22519, "id": "TD(247)", "label": "TD(247)", "title": "" },
+    { "code": 22520, "id": "TD(248)", "label": "TD(248)", "title": "" },
+    { "code": 22521, "id": "TD(249)", "label": "TD(249)", "title": "" },
+    { "code": 22522, "id": "TD(250)", "label": "TD(250)", "title": "" },
+    { "code": 22523, "id": "TD(251)", "label": "TD(251)", "title": "" },
+    { "code": 22524, "id": "TD(252)", "label": "TD(252)", "title": "" },
+    { "code": 22525, "id": "TD(253)", "label": "TD(253)", "title": "" },
+    { "code": 22526, "id": "TD(254)", "label": "TD(254)", "title": "" },
+    { "code": 22527, "id": "TD(255)", "label": "TD(255)", "title": "" }
+  ]
+}

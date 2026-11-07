@@ -8,6 +8,9 @@ Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
 automatically on future launches. The bundled release includes all three.
 
+The `web` branch also includes [Vi_al Web](web/README.md): a browser frontend
+with WebHID/WebUSB access and a GitHub Pages deployment workflow.
+
 ## Add-ons
 
 | Package | Features |

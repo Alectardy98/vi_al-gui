@@ -17,6 +17,9 @@ def build(source, output):
     path = output / ('Vi_al-'+metadata['id']+'-'+metadata['version']+'.zip')
     with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
         for item in sorted(source.rglob('*')):
+            # Browser providers are built by Vite, not installed as Python ZIPs.
+            if item.relative_to(source).parts[0] == 'web':
+                continue
             if item.is_file() and '__pycache__' not in item.parts and item.suffix != '.pyc':
                 archive.write(item, item.relative_to(source).as_posix())
     # Bundle only current packages; retain older generated ZIPs outside dist/.

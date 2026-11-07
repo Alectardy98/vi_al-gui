@@ -30,6 +30,7 @@ addons/                         Optional keyboard package sources
 src/main/python/                Core Vial application
   addon_runtime/                Shared installer, loader and add-on API
 util/packaging/                 Builds, release packaging and add-on templates
+util/dev/                       Optional developer capture and validation tools
 tests/                          Optional focused regression tests, grouped by add-on
 ```
 

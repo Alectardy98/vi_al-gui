@@ -1,9 +1,9 @@
 # IBM xwhatsit Vial targets
 
-All 29 IBM board names have a `universal:vial` target. The 22 new ports copy their corresponding `ibm/<board>/universal` wiring and default base keymaps. The older controller revisions and original sources are preserved in QMK Git history; these images are **only** for the Universal controller variant.
+All 29 IBM board names have a `universal:vial` target. The 22 added Vial ports retain their original Universal wiring and default base keymaps. The older controller revisions and original sources are preserved in QMK Git history; these images are **only** for the Universal controller variant.
 
 ```sh
-make xwhatsit/vial/f50/universal:vial
+make xwhatsit/ibm/f50/universal:vial
 ```
 
 Each port includes Vial remapping/macros and the shared live XCAL extension. New ports omit Tap Dance, combos, key overrides and QMK settings to keep AVR flash/EEPROM usage bounded; original mouse/media/solenoid configuration is retained. They use the existing Vial insecure convention. No bootloader image is included.
@@ -58,3 +58,5 @@ The link-time EEPROM assertion also reserves at least 100 bytes beyond the keyma
 All 14 original `vial` / `vial_alec` combinations also compile after these ports
 (36 successful builds in total). No `vial_alec` keymaps were added for the new
 boards. Existing target defaults and dynamic EEPROM layouts are retained.
+
+The firmware folder was renamed from `xwhatsit/vial/` to `xwhatsit/ibm/`. Only build paths changed: Vial UIDs and EEPROM layouts are retained, and IDs must not be regenerated from the new paths.

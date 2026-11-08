@@ -1,6 +1,6 @@
 # Optional live calibration for Vi_al
 
-Board-local extension for the `xwhatsit/vial/*/universal` targets. See `PORTS.md` for the complete IBM port/build table. Existing
+Board-local extension for the `xwhatsit/ibm/*/universal` targets. See `PORTS.md` for the complete IBM port/build table. Existing
 sensing GPIO, DAC format and sampling assembly are retained. The original
 startup calibration still runs; saved tuning parameters are loaded first.
 `matrix.c` now clears assignment masks before every calibration, so runtime
@@ -11,8 +11,8 @@ recalibration cannot retain assignments from earlier groups.
 From the QMK repository root, use the board's normal command, for example:
 
 ```sh
-make xwhatsit/vial/fat/universal:vial_alec
-make xwhatsit/vial/fat/universal:vial
+make xwhatsit/ibm/fat/universal:vial_alec
+make xwhatsit/ibm/fat/universal:vial
 ```
 
 Both requested keymaps enable the extension through each controller folder’s `rules.mk`. Other
@@ -20,7 +20,7 @@ keymaps retain the original constant calibration path. For the original utility
 command set and smaller image:
 
 ```sh
-make xwhatsit/vial/fat/universal:vial_alec XWHATSIT_RUNTIME_CALIBRATION=no
+make xwhatsit/ibm/fat/universal:vial_alec XWHATSIT_RUNTIME_CALIBRATION=no
 ```
 
 All seven boards × both keymaps are build-checked with the installed AVR

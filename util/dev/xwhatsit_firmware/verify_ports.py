@@ -3,7 +3,7 @@
 import argparse,json,re,lzma,subprocess,hashlib,tempfile
 from pathlib import Path
 parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('qmk_root',type=Path);parser.add_argument('--output',type=Path,required=True)
-args=parser.parse_args();root=args.qmk_root.resolve();base=root/'keyboards/xwhatsit/vial'
+args=parser.parse_args();root=args.qmk_root.resolve();base=root/'keyboards/xwhatsit/ibm'
 results=[]
 for row in json.loads(Path(__file__).with_name('ports.json').read_text()):
  name=row['target'].replace('/', '_').replace(':','_');elf=root/'.build'/(name+'.elf');hexfile=root/(name+'.hex')

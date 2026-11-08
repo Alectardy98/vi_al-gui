@@ -1,7 +1,7 @@
 [
   {
     "board": "3101_3727_3278_87key",
-    "target": "xwhatsit/vial/3101_3727_3278_87key/universal:vial",
+    "target": "xwhatsit/ibm/3101_3727_3278_87key/universal:vial",
     "rows": 4,
     "cols": 23,
     "layers": 3,
@@ -11,7 +11,7 @@
   },
   {
     "board": "3277_66key",
-    "target": "xwhatsit/vial/3277_66key/universal:vial",
+    "target": "xwhatsit/ibm/3277_66key/universal:vial",
     "rows": 4,
     "cols": 17,
     "layers": 3,
@@ -21,7 +21,7 @@
   },
   {
     "board": "3277_78key",
-    "target": "xwhatsit/vial/3277_78key/universal:vial",
+    "target": "xwhatsit/ibm/3277_78key/universal:vial",
     "rows": 4,
     "cols": 20,
     "layers": 3,
@@ -31,7 +31,7 @@
   },
   {
     "board": "3277_split_66key",
-    "target": "xwhatsit/vial/3277_split_66key/universal:vial",
+    "target": "xwhatsit/ibm/3277_split_66key/universal:vial",
     "rows": 4,
     "cols": 18,
     "layers": 3,
@@ -41,7 +41,7 @@
   },
   {
     "board": "3278_3279_led_78key",
-    "target": "xwhatsit/vial/3278_3279_led_78key/universal:vial",
+    "target": "xwhatsit/ibm/3278_3279_led_78key/universal:vial",
     "rows": 5,
     "cols": 20,
     "layers": 3,
@@ -51,7 +51,7 @@
   },
   {
     "board": "4978",
-    "target": "xwhatsit/vial/4978/universal:vial",
+    "target": "xwhatsit/ibm/4978/universal:vial",
     "rows": 8,
     "cols": 22,
     "layers": 2,
@@ -63,7 +63,7 @@
   },
   {
     "board": "5251",
-    "target": "xwhatsit/vial/5251/universal:vial",
+    "target": "xwhatsit/ibm/5251/universal:vial",
     "rows": 4,
     "cols": 23,
     "layers": 3,
@@ -73,7 +73,7 @@
   },
   {
     "board": "5251_hebrew",
-    "target": "xwhatsit/vial/5251_hebrew/universal:vial",
+    "target": "xwhatsit/ibm/5251_hebrew/universal:vial",
     "rows": 4,
     "cols": 23,
     "layers": 3,
@@ -83,7 +83,7 @@
   },
   {
     "board": "beamal_badpinout",
-    "target": "xwhatsit/vial/beamal_badpinout/universal:vial",
+    "target": "xwhatsit/ibm/beamal_badpinout/universal:vial",
     "rows": 16,
     "cols": 16,
     "layers": 1,
@@ -93,7 +93,7 @@
   },
   {
     "board": "bigfoot_fxt_type_1",
-    "target": "xwhatsit/vial/bigfoot_fxt_type_1/universal:vial",
+    "target": "xwhatsit/ibm/bigfoot_fxt_type_1/universal:vial",
     "rows": 4,
     "cols": 23,
     "layers": 1,
@@ -103,7 +103,7 @@
   },
   {
     "board": "displaywriter",
-    "target": "xwhatsit/vial/displaywriter/universal:vial",
+    "target": "xwhatsit/ibm/displaywriter/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 3,
@@ -113,7 +113,7 @@
   },
   {
     "board": "f104",
-    "target": "xwhatsit/vial/f104/universal:vial",
+    "target": "xwhatsit/ibm/f104/universal:vial",
     "rows": 8,
     "cols": 14,
     "layers": 3,
@@ -125,7 +125,7 @@
   },
   {
     "board": "f107",
-    "target": "xwhatsit/vial/f107/universal:vial",
+    "target": "xwhatsit/ibm/f107/universal:vial",
     "rows": 8,
     "cols": 15,
     "layers": 3,
@@ -137,7 +137,7 @@
   },
   {
     "board": "f50",
-    "target": "xwhatsit/vial/f50/universal:vial",
+    "target": "xwhatsit/ibm/f50/universal:vial",
     "rows": 8,
     "cols": 7,
     "layers": 3,
@@ -147,7 +147,7 @@
   },
   {
     "board": "f62",
-    "target": "xwhatsit/vial/f62/universal:vial",
+    "target": "xwhatsit/ibm/f62/universal:vial",
     "rows": 8,
     "cols": 8,
     "layers": 3,
@@ -157,7 +157,7 @@
   },
   {
     "board": "fext",
-    "target": "xwhatsit/vial/fext/universal:vial",
+    "target": "xwhatsit/ibm/fext/universal:vial",
     "rows": 8,
     "cols": 15,
     "layers": 1,
@@ -167,7 +167,7 @@
   },
   {
     "board": "fssk",
-    "target": "xwhatsit/vial/fssk/universal:vial",
+    "target": "xwhatsit/ibm/fssk/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 1,
@@ -177,7 +177,7 @@
   },
   {
     "board": "fssk_v1_0b",
-    "target": "xwhatsit/vial/fssk_v1_0b/universal:vial",
+    "target": "xwhatsit/ibm/fssk_v1_0b/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 1,
@@ -187,7 +187,7 @@
   },
   {
     "board": "fxt_type_2",
-    "target": "xwhatsit/vial/fxt_type_2/universal:vial",
+    "target": "xwhatsit/ibm/fxt_type_2/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 1,
@@ -197,7 +197,7 @@
   },
   {
     "board": "test",
-    "target": "xwhatsit/vial/test/universal:vial",
+    "target": "xwhatsit/ibm/test/universal:vial",
     "rows": 16,
     "cols": 16,
     "layers": 1,
@@ -207,7 +207,7 @@
   },
   {
     "board": "test2",
-    "target": "xwhatsit/vial/test2/universal:vial",
+    "target": "xwhatsit/ibm/test2/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 1,
@@ -217,7 +217,7 @@
   },
   {
     "board": "xtant",
-    "target": "xwhatsit/vial/xtant/universal:vial",
+    "target": "xwhatsit/ibm/xtant/universal:vial",
     "rows": 8,
     "cols": 12,
     "layers": 1,

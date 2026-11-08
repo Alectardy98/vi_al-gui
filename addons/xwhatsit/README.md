@@ -12,8 +12,7 @@ The bundled edition installs it automatically when it is not already installed.
   short RAM graph; it does not write logs or record every matrix scan.
 - **General:** enter the existing bootloader, or explicitly erase all EEPROM.
 
-All seven `xwhatsit/vial` boards are recognized by Vial UID and matrix dimensions:
-3178, 3276/3278, Beamspring AL, F122, Model F AT, F XT/AL and Sun FSSK.
+All 29 IBM `xwhatsit/vial` Universal targets are recognized by Vial UID and matrix dimensions. The original seven identities remain unchanged; each of the 22 new targets has a unique UID. New ports provide a `vial` keymap; they do not add `vial_alec` keymaps.
 Geometry and layout options come from the connected keyboard, not bundled pictures.
 
 ## Firmware compatibility

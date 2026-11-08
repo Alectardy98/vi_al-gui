@@ -11,8 +11,23 @@ import keyboard
 
 root=Path(os.environ['VI_AL_VALIDATION_DIR']);root.mkdir(parents=True,exist_ok=True)
 try:
+    assert WINDOW.startup_ready,'Keyboard support is still loading'
+    from app_instance import AppInstance
+    instance=AppInstance(APP,root/'instance-check',name='Vi_al-smoke-'+str(os.getpid()))
+    assert instance.acquire(),'Single-instance IPC could not start'
+    instance.close()
+    assert not WINDOW._startup_timer.isActive(),'Deferred page construction remains'
+    assert len(WINDOW.editors)==len(WINDOW.editor_containers),'An editor lacks a page container'
     assert WINDOW.windowTitle()=='Vi_al 1.0',WINDOW.windowTitle()
     assert APP.applicationDisplayName()=='Vi_al 1.0',APP.applicationDisplayName()
+    from themes import Theme, DEFAULT_THEME
+    from PyQt5.QtGui import QPalette
+    assert Theme.get_theme()==DEFAULT_THEME,Theme.get_theme()
+    assert APP.palette().color(QPalette.Button).name()=='#342e3d','Keyboard surface palette mismatch'
+    assert APP.palette().color(QPalette.Window).name()=='#17151b'
+    assert APP.palette().color(QPalette.Highlight).name()=='#b392f4'
+    assert '#614879' in APP.styleSheet(),'Purple control stylesheet missing'
+    assert WINDOW.grab().save(str(root/'purple-default-window.png'))
     image=APP.windowIcon().pixmap(256,256).toImage()
     color=image.pixelColor(128,64)
     assert color.blue()>color.red()+30 and color.red()>color.green()+15,color.name()
@@ -34,6 +49,7 @@ try:
         mounts=[]
     else:mounts=[]
     result={'passed':True,'platform':sys.platform,'version':APP.applicationVersion(),
+            'theme':Theme.get_theme(),'window_color':APP.palette().color(QPalette.Window).name(),
             'display_name':APP.applicationDisplayName(),'window_title':WINDOW.windowTitle(),
             'purple_sample':color.name(),'addons':len(WINDOW.addon_manager.sessions),
             'image_formats':formats,'verified_mounts':mounts,'path':os.environ.get('PATH'),

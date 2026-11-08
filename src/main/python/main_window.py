@@ -3,7 +3,7 @@ import logging
 import platform
 from json import JSONDecodeError
 
-from PyQt5.QtCore import Qt, QSettings, QStandardPaths, QTimer, QRect, QT_VERSION_STR
+from PyQt5.QtCore import Qt, QSettings, QStandardPaths, QTimer, QRect, QT_VERSION_STR, pyqtSignal
 from PyQt5.QtWidgets import QWidget, QComboBox, QToolButton, QHBoxLayout, QVBoxLayout, QMainWindow, QAction, qApp, \
     QFileDialog, QDialog, QTabWidget, QActionGroup, QMessageBox, QLabel
 
@@ -18,7 +18,7 @@ from constants import WINDOW_WIDTH, WINDOW_HEIGHT
 from widgets.editor_container import EditorContainer
 from editor.firmware_flasher import FirmwareFlasher
 from editor.key_override import KeyOverride
-from protocol.keyboard_comm import ProtocolError
+from protocol.keyboard_comm import ProtocolError, KeyboardDefinitionError
 from editor.keymap_editor import KeymapEditor
 from keymaps import KEYMAPS
 from editor.layout_editor import LayoutEditor
@@ -39,9 +39,13 @@ import themes
 
 class MainWindow(QMainWindow):
 
-    def __init__(self, appctx):
+    startup_completed = pyqtSignal()
+
+    def __init__(self, appctx, staged_startup=False):
         super().__init__()
         self.appctx = appctx
+        self._startup_waiting_for_paint = False
+        self._staged_startup = staged_startup
         self.setWindowTitle("Vi_al 1.0")
         from widgets.combo_popup import install_combo_popup_limits
         install_combo_popup_limits(qApp)
@@ -65,48 +69,57 @@ class MainWindow(QMainWindow):
 
         themes.Theme.set_theme(self.get_theme())
 
+        self.startup_ready = False
+        self._startup_closed = False
+        self._startup_timer = QTimer(self)
+        self._startup_timer.setSingleShot(True)
+        self._startup_timer.timeout.connect(self._initialize_interface)
+        self._create_empty_interface()
+        if staged_startup:
+            # Show the normal disconnected interface first. All editors are
+            # still prepared together before keyboard discovery begins.
+            self._startup_waiting_for_paint = True
+        else:
+            # Embedded callers can request a fully initialized window directly.
+            self._initialize_interface()
+
+    def paintEvent(self, event):
+        super().paintEvent(event)
+        if self._startup_waiting_for_paint and not self._startup_closed:
+            self._startup_waiting_for_paint = False
+            # Starting from __init__ can run before the window is exposed,
+            # especially with a large window or desktop launch animation. Let
+            # the first buffer reach the compositor before doing heavy work.
+            self._startup_timer.start(120)
+
+    def _initialize_interface(self):
+        if self._startup_closed or self.startup_ready:
+            return
+        self._startup_timer.stop()
+        self._build_interface()
+        self.startup_ready = True
+        self.startup_completed.emit()
+
+    def _create_empty_interface(self):
         self.combobox_devices = QComboBox()
         self.combobox_devices.currentIndexChanged.connect(self.on_device_selected)
+        self.combobox_devices.setEnabled(False)
 
         self.btn_refresh_devices = QToolButton()
         self.btn_refresh_devices.setToolButtonStyle(Qt.ToolButtonTextOnly)
         self.btn_refresh_devices.setText(tr("MainWindow", "Refresh"))
         self.btn_refresh_devices.clicked.connect(self.on_click_refresh)
+        self.btn_refresh_devices.setEnabled(False)
 
         layout_combobox = QHBoxLayout()
         layout_combobox.addWidget(self.combobox_devices)
         if sys.platform != "emscripten":
             layout_combobox.addWidget(self.btn_refresh_devices)
 
-        self.layout_editor = LayoutEditor()
-        self.keymap_editor = KeymapEditor(self.layout_editor)
-        self.firmware_flasher = FirmwareFlasher(self)
-        self.macro_recorder = MacroRecorder()
-        self.tap_dance = TapDance()
-        self.combos = Combos()
-        self.key_override = KeyOverride()
-        self.alt_repeat_key = AltRepeatKey()
-        QmkSettings.initialize(appctx)
-        self.qmk_settings = QmkSettings()
-        self.matrix_tester = MatrixTest(self.layout_editor)
-        self.rgb_configurator = RGBConfigurator()
-
-        core_pages = [Page(self.keymap_editor, 'Keymap', 10), Page(self.layout_editor, 'Layout', 20),
-                      Page(self.macro_recorder, 'Macros', 30), Page(self.rgb_configurator, 'Lighting', 230),
-                      Page(self.qmk_settings, 'QMK Settings', 180), Page(self.tap_dance, 'Tap Dance', 190),
-                      Page(self.combos, 'Combos', 200), Page(self.key_override, 'Key Overrides', 210),
-                      Page(self.alt_repeat_key, 'Alt Repeat Key', 220),
-                      Page(self.firmware_flasher, 'Firmware Updater', 270), Page(self.matrix_tester, 'Matrix Tester', 280)]
-        self.addon_manager = AddonManager(self, appctx)
-        pages = sorted(core_pages + self.addon_manager.pages(), key=lambda p: p.order)
-        self.editors = [(page.editor, page.title) for page in pages]
-
-        Unlocker.global_layout_editor = self.layout_editor
-        Unlocker.global_main_window = self
-
         self.current_tab = None
         self.tabs = QTabWidget()
         self.tabs.currentChanged.connect(self.on_tab_changed)
+        self.tabs.hide()
 
         no_devices = 'No devices detected. Connect a Vial-compatible device and press "Refresh"<br>' \
                      'or select "File" → "Download VIA definitions" in order to enable support for VIA keyboards.'
@@ -118,25 +131,57 @@ class MainWindow(QMainWindow):
         self.lbl_no_devices.setTextFormat(Qt.RichText)
         self.lbl_no_devices.setAlignment(Qt.AlignCenter)
 
-        layout = QVBoxLayout()
-        layout.addLayout(layout_combobox)
-        layout.addWidget(self.tabs, 1)
-        layout.addWidget(self.lbl_no_devices)
-        layout.setAlignment(self.lbl_no_devices, Qt.AlignHCenter)
+        self._page_layout = QVBoxLayout()
+        self._page_layout.addLayout(layout_combobox)
+        self._page_layout.addWidget(self.tabs, 1)
+        self._page_layout.addWidget(self.lbl_no_devices)
+        self._page_layout.setAlignment(self.lbl_no_devices, Qt.AlignHCenter)
+        panel = QWidget()
+        panel.setLayout(self._page_layout)
+        self.setCentralWidget(panel)
+        self.init_menu()
+        self.about_keyboard_act.setVisible(False)
+        self.security_menu.menuAction().setVisible(False)
+        self._addon_menu = self.menuBar().addMenu('Add-ons')
+        self.menuBar().setEnabled(False)
+
+    def _build_interface(self):
+        self.layout_editor = LayoutEditor()
+        self.keymap_editor = KeymapEditor(self.layout_editor)
+        self.firmware_flasher = FirmwareFlasher(self)
+        self.macro_recorder = MacroRecorder()
+        self.tap_dance = TapDance()
+        self.combos = Combos()
+        self.key_override = KeyOverride()
+        self.alt_repeat_key = AltRepeatKey()
+        QmkSettings.initialize(self.appctx)
+        self.qmk_settings = QmkSettings()
+        self.matrix_tester = MatrixTest(self.layout_editor)
+        self.rgb_configurator = RGBConfigurator()
+
+        core_pages = [Page(self.keymap_editor, 'Keymap', 10), Page(self.layout_editor, 'Layout', 20),
+                      Page(self.macro_recorder, 'Macros', 30), Page(self.rgb_configurator, 'Lighting', 230),
+                      Page(self.qmk_settings, 'QMK Settings', 180), Page(self.tap_dance, 'Tap Dance', 190),
+                      Page(self.combos, 'Combos', 200), Page(self.key_override, 'Key Overrides', 210),
+                      Page(self.alt_repeat_key, 'Alt Repeat Key', 220),
+                      Page(self.firmware_flasher, 'Firmware Updater', 270), Page(self.matrix_tester, 'Matrix Tester', 280)]
+        self.addon_manager = AddonManager(self, self.appctx)
+        pages = sorted(core_pages + self.addon_manager.pages(), key=lambda p: p.order)
+        self.editors = [(page.editor, page.title) for page in pages]
+
+        Unlocker.global_layout_editor = self.layout_editor
+        Unlocker.global_main_window = self
+
         self.tray_keycodes = TabbedKeycodes()
         self.tray_keycodes.make_tray()
-        layout.addWidget(self.tray_keycodes, 1)
+        self._page_layout.addWidget(self.tray_keycodes, 1)
         self.tray_keycodes.hide()
-        w = QWidget()
-        w.setLayout(layout)
-        self.setCentralWidget(w)
 
         # Attach pages only after the tab widget belongs to the central widget.
         self._create_editor_containers()
         self.refresh_tabs()
 
-        self.init_menu()
-        self.addon_manager.add_menu(self.menuBar())
+        self.addon_manager.add_menu(self.menuBar(), self._addon_menu)
 
         self.autorefresh = Autorefresh()
         self.autorefresh.devices_updated.connect(self.on_devices_updated)
@@ -156,8 +201,14 @@ class MainWindow(QMainWindow):
                 # the saved file is invalid - just ignore this
                 logging.warning("Failed to parse stored via_keyboards.json: {}".format(e))
 
-        # make sure initial state is valid
-        self.on_click_refresh()
+        self.combobox_devices.setEnabled(True)
+        self.btn_refresh_devices.setEnabled(True)
+        self.menuBar().setEnabled(True)
+        # Linux/macOS's discovery thread already scans once when it starts.
+        # A simultaneous forced scan queues two full keyboard loads. Windows
+        # watches device notifications instead, so it still needs this scan.
+        if not self._staged_startup or sys.platform.startswith('win') or sys.platform == 'emscripten':
+            self.on_click_refresh()
 
         if sys.platform == "emscripten":
             import vialglue
@@ -322,6 +373,12 @@ class MainWindow(QMainWindow):
     def on_device_selected(self):
         try:
             self.autorefresh.select_device(self.combobox_devices.currentIndex())
+            self.statusBar().clearMessage()
+            self.statusBar().hide()
+        except KeyboardDefinitionError as error:
+            logging.warning('Keyboard layout read failed: %s', error)
+            self.statusBar().showMessage(str(error))
+            self.statusBar().show()
         except ProtocolError:
             QMessageBox.warning(self, "", "Unsupported protocol version!\n"
                                           "Please download latest Vial from https://get.vial.today/")
@@ -435,14 +492,12 @@ class MainWindow(QMainWindow):
         KeycodeDisplay.set_keymap_override(KEYMAPS[index][1])
 
     def get_theme(self):
-        return self.settings.value("theme", "Dark")
+        return themes.Theme.saved_theme(self.settings)
 
     def set_theme(self, theme):
         themes.Theme.set_theme(theme)
         self.settings.setValue("theme", theme)
-        msg = QMessageBox()
-        msg.setText(tr("MainWindow", "In order to fully apply the theme you should restart the application."))
-        msg.exec_()
+        self.settings.setValue(themes.PURPLE_DEFAULT_APPLIED, True)
 
     def on_tab_changed(self, index):
         TabbedKeycodes.close_tray()
@@ -482,9 +537,12 @@ class MainWindow(QMainWindow):
         self.about_dialog.show()
 
     def closeEvent(self, e):
-        if not self.addon_manager.before_close():
+        manager = getattr(self, "addon_manager", None)
+        if manager is not None and not manager.before_close():
             e.ignore()
             return
+        self._startup_closed = True
+        self._startup_timer.stop()
         self.settings.setValue("size", self.size())
         self.settings.setValue("pos", self.pos())
         self.settings.setValue("maximized", self.isMaximized())

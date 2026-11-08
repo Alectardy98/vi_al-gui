@@ -34,7 +34,3 @@ After building core and bundled packages, run
 `python util/packaging/smoke_packages.py`. It checks the actual frozen application,
 icon, image codecs and bundled libraries while blocking hardware access. CI runs
 these checks on the native build platforms.
-
-For optional page screenshots, device-switch traces and installation through the
-real Add-ons menu, see [the development tools](../util/dev/README.md). Those tools
-use isolated test profiles and are not required to build the application.

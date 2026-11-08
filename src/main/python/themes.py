@@ -2,8 +2,12 @@
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QPalette, QColor
+from purple_theme import NAME as DEFAULT_THEME, COLORS as PURPLE_COLORS, STYLESHEET as PURPLE_STYLESHEET
+
+PURPLE_DEFAULT_APPLIED = "appearance/purpleDefaultApplied"
 
 themes = [
+    (DEFAULT_THEME, PURPLE_COLORS),
     ("Light", {
         QPalette.Window: "#ffefebe7",
         QPalette.WindowText: "#ff000000",
@@ -240,19 +244,52 @@ for name, colors in themes:
 class Theme:
 
     theme = ""
+    _system_palette = None
+    _system_style = None
+    _system_stylesheet = None
+    _applied_palette_key = None
 
     @classmethod
     def set_theme(cls, theme):
+        app = QApplication.instance()
+        if cls._system_palette is None:
+            cls._system_palette = QPalette(app.palette())
+            cls._system_style = app.style().objectName()
+            cls._system_stylesheet = app.styleSheet()
+        if theme not in palettes and theme != "System":
+            theme = DEFAULT_THEME
+        stylesheet = cls._system_stylesheet + ("\n" + PURPLE_STYLESHEET if theme == DEFAULT_THEME else "")
+        if (cls.theme == theme and app.styleSheet() == stylesheet and
+                app.palette().cacheKey() == cls._applied_palette_key):
+            return
         cls.theme = theme
+        # Remove only this theme's application-level styling when switching.
+        # Per-widget add-on styles and physical RGB preview colors are untouched.
+        app.setStyleSheet(cls._system_stylesheet)
         if theme in palettes:
-            QApplication.setPalette(palettes[theme])
-            QApplication.setStyle("Fusion")
-        # For default/system theme, do nothing
-        # User will have to restart the application for it to be applied
+            app.setStyle("Fusion")
+            app.setPalette(palettes[theme])
+            if theme == DEFAULT_THEME:
+                app.setStyleSheet(stylesheet)
+        else:
+            if cls._system_style:
+                app.setStyle(cls._system_style)
+            app.setPalette(cls._system_palette)
+        cls._applied_palette_key = app.palette().cacheKey()
 
     @classmethod
     def get_theme(cls):
         return cls.theme
+
+    @classmethod
+    def saved_theme(cls, settings):
+        # Apply the new default once to existing installations as well as fresh
+        # profiles. Later launches respect explicit choices in the Theme menu.
+        if not settings.value(PURPLE_DEFAULT_APPLIED, False, bool):
+            settings.setValue("theme", DEFAULT_THEME)
+            settings.setValue(PURPLE_DEFAULT_APPLIED, True)
+        value = settings.value("theme", DEFAULT_THEME)
+        return value if value in palettes or value == "System" else DEFAULT_THEME
 
     @classmethod
     def mask_light_factor(cls):

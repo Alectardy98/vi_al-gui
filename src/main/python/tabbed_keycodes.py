@@ -51,14 +51,25 @@ class AlternativeDisplay(QWidget):
         self.setLayout(layout)
 
     def recreate_buttons(self, keycode_filter):
+        keycodes = [keycode for keycode in self.keycodes
+                    if not keycode.hidden and keycode_filter(keycode.qmk_id)]
+        if [button.keycode.qmk_id for button in self.buttons] == [keycode.qmk_id for keycode in keycodes]:
+            # Most keycodes are shared across keyboards. Keep their widgets;
+            # refresh objects/labels because identical User IDs can have new
+            # names and descriptions on the newly selected keyboard.
+            for button, keycode in zip(self.buttons, keycodes):
+                button.keycode = keycode
+                tooltip = Keycode.tooltip(keycode.qmk_id)
+                if button.toolTip() != tooltip:
+                    button.setToolTip(tooltip)
+            self.relabel_buttons()
+            return
         for btn in self.buttons:
             btn.hide()
             btn.deleteLater()
         self.buttons = []
 
-        for keycode in self.keycodes:
-            if keycode.hidden or not keycode_filter(keycode.qmk_id):
-                continue
+        for keycode in keycodes:
             btn = SquareButton()
             btn.setRelSize(KEYCODE_BTN_RATIO)
             btn.setToolTip(Keycode.tooltip(keycode.qmk_id))
@@ -209,15 +220,18 @@ class FilteredTabbedKeycodes(QTabWidget):
 
     def recreate_keycode_buttons(self):
         prev_tab = self.tabText(self.currentIndex()) if self.currentIndex() >= 0 else ""
+        for tab in self.tabs:
+            tab.recreate_buttons(self.keycode_filter)
+        available = [tab for tab in self.tabs if tab.has_buttons()]
+        if [self.widget(index) for index in range(self.count())] == available:
+            return
         while self.count() > 0:
             self.removeTab(0)
 
-        for tab in self.tabs:
-            tab.recreate_buttons(self.keycode_filter)
-            if tab.has_buttons():
-                self.addTab(tab, tr("TabbedKeycodes", tab.label))
-                if tab.label == prev_tab:
-                    self.setCurrentIndex(self.count() - 1)
+        for tab in available:
+            self.addTab(tab, tr("TabbedKeycodes", tab.label))
+            if tab.label == prev_tab:
+                self.setCurrentIndex(self.count() - 1)
 
     def on_keymap_override(self):
         for tab in self.tabs:

@@ -42,8 +42,9 @@ class AddonManager(QObject):
         first = getattr(getattr(old, 'editor', None), 'addon_controller', None)
         return first is not None and first is getattr(getattr(new, 'editor', None), 'addon_controller', None)
 
-    def add_menu(self, bar):
-        menu = bar.addMenu('Add-ons')
+    def add_menu(self, bar, menu=None):
+        if menu is None:
+            menu = bar.addMenu('Add-ons')
         action = QAction('Install from ZIP…', self.window)
         action.triggered.connect(self.install_dialog); menu.addAction(action)
         manage = QAction('Manage Add-ons…', self.window)

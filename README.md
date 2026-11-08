@@ -4,9 +4,20 @@
 
 **Vial keyboard configuration, with optional keyboard add-ons.**
 
+**Vi_al Purple** is the default desktop theme, matching the web edition's dark
+backgrounds and lavender accents. This update selects purple once, including on
+existing installations. Later choices from **Theme** are saved normally.
+
+The window opens directly to the normal disconnected interface. Keyboard discovery starts after
+all pages are prepared, so switching tabs does not trigger deferred page builds.
+Switching keyboards still reads their current device settings. Reopening Vi_al
+activates the existing window, keeping a second instance from competing for HID
+replies. Layout reads validate the compressed data and retry a failed transfer
+once; persistent failures show a connection message with a Refresh action.
+
 Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
-automatically on future launches. The bundled release includes all three.
+automatically on future launches. The bundled release includes all four.
 
 ## Add-ons
 
@@ -15,6 +26,7 @@ automatically on future launches. The bundled release includes all three.
 | `ec_42` | Topre / electrocapacitive calibration, actuation, Rapid Trigger and live sensors |
 | `alienware_aw768` | AW768 zones, effects, macro-area lighting and onboard saving |
 | `my2k` | MY-2K RGB, touch, displays, GIF transfers and gaming controls |
+| `xwhatsit` | Model F / Beamspring calibration, live signals and persistent tuning |
 
 All packages use the same versioned format and appear only for supported devices.
 Add-ons run local Python code; install packages you trust. Installing an add-on
@@ -27,11 +39,10 @@ addons/                         Optional keyboard package sources
   ec_42/
   alienware_aw768/
   my2k/
+  xwhatsit/
 src/main/python/                Core Vial application
   addon_runtime/                Shared installer, loader and add-on API
 util/packaging/                 Builds, release packaging and add-on templates
-util/dev/                       Optional developer capture and validation tools
-tests/                          Optional focused regression tests, grouped by add-on
 ```
 
 Every package follows this layout:
@@ -42,6 +53,8 @@ addons/<id>/
   python/vi_al_addons/<id>/provider.py  Keyboard detection and extra pages
   resources/                          Optional assets
 ```
+
+Testing and capture tools live on the [`dev` branch](../../tree/dev); this branch contains the application, add-ons and release build tools.
 
 The core builds without the `addons/` directory. See the [add-on guide](docs/ADDONS.md)
 for creating new packages.
@@ -133,3 +146,7 @@ See [detailed build instructions](docs/BUILDING.md) and [testing guide](docs/TES
 
 Based on [Vial](https://github.com/vial-kb/vial-gui). Original copyright notices
 and [COPYING](COPYING) are retained.
+
+## Development branch
+
+This branch also contains `tests/`, upstream core tests, package smoke checks and `util/dev/` hardware tools. See [docs/TESTING.md](docs/TESTING.md). Production application code is merged from `main`. Hardware tools do not run automatically.

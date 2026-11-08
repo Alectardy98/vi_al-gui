@@ -1,6 +1,6 @@
 # Vi_al add-on format · API 1
 
-The three shipped keyboard extensions use exactly the same package contract.
+The shipped keyboard extensions use exactly the same package contract.
 Their implementation sizes differ, but none is hardcoded into the host window.
 The repository-level `addons/` directory is optional build input, not a runtime
 Python import path. The bare app never scans that directory.

@@ -93,7 +93,16 @@ if __name__ == '__main__':
 
         init_logger()
         qt_exception_hook = UncaughtHook()
+        # Smoke tests never open HID and may run isolated builds in parallel.
+        instance = None
+        if not os.environ.get('VI_AL_SMOKE_TEST'):
+            from app_instance import AppInstance
+            instance = AppInstance(appctxt.app)
+            if not instance.acquire():
+                sys.exit(0)
         window = MainWindow(appctxt, staged_startup=True)
+        if instance is not None:
+            instance.set_window(window)
         window.show()
         exit_code = appctxt.app.exec_()      # 2. Invoke appctxt.app.exec_()
         sys.exit(exit_code)

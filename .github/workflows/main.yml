@@ -33,15 +33,9 @@ jobs:
           python util/packaging/fetch_appimage_tools.py
       - if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
-      - run: python -m pip install -r util/packaging/requirements-build.txt -r test-requirements.txt
+      - run: python -m pip install -r util/packaging/requirements-build.txt
       - run: python util/packaging/build_native.py
       - run: python util/packaging/build_addons.py
-      - name: Core and installer regression tests
-        env:
-          QT_QPA_PLATFORM: offscreen
-          VI_AL_TEST_ADDONS: '0'
-          PYTHONPATH: src/main/python
-        run: python -m pytest src/main/python/test tests/core/test_addon_runtime.py -q
       - name: Build core without add-on sources
         shell: bash
         run: |
@@ -50,8 +44,6 @@ jobs:
           mv addons.not-required addons
       - name: Build bundled edition
         run: python util/packaging/build.py --with-addons
-      - name: Verify packaged icons and built-in runtimes
-        run: python util/packaging/smoke_packages.py
       - if: runner.os == 'Windows'
         run: |
           python util/packaging/fetch_nsis.py

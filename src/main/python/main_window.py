@@ -18,7 +18,7 @@ from constants import WINDOW_WIDTH, WINDOW_HEIGHT
 from widgets.editor_container import EditorContainer
 from editor.firmware_flasher import FirmwareFlasher
 from editor.key_override import KeyOverride
-from protocol.keyboard_comm import ProtocolError
+from protocol.keyboard_comm import ProtocolError, KeyboardDefinitionError
 from editor.keymap_editor import KeymapEditor
 from keymaps import KEYMAPS
 from editor.layout_editor import LayoutEditor
@@ -373,6 +373,12 @@ class MainWindow(QMainWindow):
     def on_device_selected(self):
         try:
             self.autorefresh.select_device(self.combobox_devices.currentIndex())
+            self.statusBar().clearMessage()
+            self.statusBar().hide()
+        except KeyboardDefinitionError as error:
+            logging.warning('Keyboard layout read failed: %s', error)
+            self.statusBar().showMessage(str(error))
+            self.statusBar().show()
         except ProtocolError:
             QMessageBox.warning(self, "", "Unsupported protocol version!\n"
                                           "Please download latest Vial from https://get.vial.today/")

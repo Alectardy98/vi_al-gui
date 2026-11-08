@@ -1,0 +1,230 @@
+[
+  {
+    "board": "3101_3727_3278_87key",
+    "target": "xwhatsit/vial/3101_3727_3278_87key/universal:vial",
+    "rows": 4,
+    "cols": 23,
+    "layers": 3,
+    "uid": "0a33a73e44c4a277",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "3277_66key",
+    "target": "xwhatsit/vial/3277_66key/universal:vial",
+    "rows": 4,
+    "cols": 17,
+    "layers": 3,
+    "uid": "c76c4517d8be4827",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "3277_78key",
+    "target": "xwhatsit/vial/3277_78key/universal:vial",
+    "rows": 4,
+    "cols": 20,
+    "layers": 3,
+    "uid": "85f8f6c540f2be23",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "3277_split_66key",
+    "target": "xwhatsit/vial/3277_split_66key/universal:vial",
+    "rows": 4,
+    "cols": 18,
+    "layers": 3,
+    "uid": "d33900a4db9256d8",
+    "notes": [],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "3278_3279_led_78key",
+    "target": "xwhatsit/vial/3278_3279_led_78key/universal:vial",
+    "rows": 5,
+    "cols": 20,
+    "layers": 3,
+    "uid": "5d8f24611ec48bd1",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "4978",
+    "target": "xwhatsit/vial/4978/universal:vial",
+    "rows": 8,
+    "cols": 22,
+    "layers": 2,
+    "uid": "52e5ff66a3a00439",
+    "notes": [
+      "FN2 maintenance keys moved directly to FN; transparent intermediate layer removed (2 EEPROM layers)."
+    ],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "5251",
+    "target": "xwhatsit/vial/5251/universal:vial",
+    "rows": 4,
+    "cols": 23,
+    "layers": 3,
+    "uid": "23145a9d293a64d4",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "5251_hebrew",
+    "target": "xwhatsit/vial/5251_hebrew/universal:vial",
+    "rows": 4,
+    "cols": 23,
+    "layers": 3,
+    "uid": "281d2607fc03fefc",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "beamal_badpinout",
+    "target": "xwhatsit/vial/beamal_badpinout/universal:vial",
+    "rows": 16,
+    "cols": 16,
+    "layers": 1,
+    "uid": "e9e24b02da3420f2",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "bigfoot_fxt_type_1",
+    "target": "xwhatsit/vial/bigfoot_fxt_type_1/universal:vial",
+    "rows": 4,
+    "cols": 23,
+    "layers": 1,
+    "uid": "52d823218436994a",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "displaywriter",
+    "target": "xwhatsit/vial/displaywriter/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 3,
+    "uid": "37ac520bff1f1e61",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "f104",
+    "target": "xwhatsit/vial/f104/universal:vial",
+    "rows": 8,
+    "cols": 14,
+    "layers": 3,
+    "uid": "9b9e3ce1a68d9a1b",
+    "notes": [
+      "Empty FN3 consolidated into FN2 (3 EEPROM layers)."
+    ],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "f107",
+    "target": "xwhatsit/vial/f107/universal:vial",
+    "rows": 8,
+    "cols": 15,
+    "layers": 3,
+    "uid": "6c4bcd9c129751eb",
+    "notes": [
+      "Empty FN2/FN3 consolidated; former FN4 maintenance keys are FN2 (3 EEPROM layers)."
+    ],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "f50",
+    "target": "xwhatsit/vial/f50/universal:vial",
+    "rows": 8,
+    "cols": 7,
+    "layers": 3,
+    "uid": "983589163078acd2",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "f62",
+    "target": "xwhatsit/vial/f62/universal:vial",
+    "rows": 8,
+    "cols": 8,
+    "layers": 3,
+    "uid": "cba15c67380aacd7",
+    "notes": [],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "fext",
+    "target": "xwhatsit/vial/fext/universal:vial",
+    "rows": 8,
+    "cols": 15,
+    "layers": 1,
+    "uid": "1f7ee50870dcc4f3",
+    "notes": [],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "fssk",
+    "target": "xwhatsit/vial/fssk/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 1,
+    "uid": "2efe7e7c1a881fb5",
+    "notes": [],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "fssk_v1_0b",
+    "target": "xwhatsit/vial/fssk_v1_0b/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 1,
+    "uid": "176071b5449a926f",
+    "notes": [],
+    "layout": "LAYOUT_all"
+  },
+  {
+    "board": "fxt_type_2",
+    "target": "xwhatsit/vial/fxt_type_2/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 1,
+    "uid": "3e9ebd5b1b9a5c13",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "test",
+    "target": "xwhatsit/vial/test/universal:vial",
+    "rows": 16,
+    "cols": 16,
+    "layers": 1,
+    "uid": "85d67f50479fb3a2",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "test2",
+    "target": "xwhatsit/vial/test2/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 1,
+    "uid": "3ff3bfd3149ed18c",
+    "notes": [],
+    "layout": "LAYOUT"
+  },
+  {
+    "board": "xtant",
+    "target": "xwhatsit/vial/xtant/universal:vial",
+    "rows": 8,
+    "cols": 12,
+    "layers": 1,
+    "uid": "5d5ccfb51cf93812",
+    "notes": [
+      "Only the original base initializer exists; one remappable layer."
+    ],
+    "layout": "LAYOUT_all"
+  }
+]

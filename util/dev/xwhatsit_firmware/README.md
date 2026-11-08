@@ -8,4 +8,8 @@ python util/dev/xwhatsit_firmware/build_ports.py /path/to/vial-qmk --output /tmp
 python util/dev/xwhatsit_firmware/verify_ports.py /path/to/vial-qmk --output /tmp/xwhatsit-verified.json
 ```
 
-The native tests compile the actual settings/protocol/calibration C with simulated GPIO/EEPROM and sanitizers. The build runner compiles all new ports from `keyboards/xwhatsit/vial/ports.json`. The verifier checks ELF usage, Intel HEX checksums, the 0x7000 boot boundary, and embedded Vial layouts. Compiling does not establish physical wiring or typing acceptance.
+The native tests compile the actual settings/protocol/calibration C with simulated GPIO/EEPROM and sanitizers. The build runner compiles all new ports from the adjacent developer-only `ports.json`. The verifier checks ELF usage, Intel HEX checksums, the 0x7000 boot boundary, and embedded Vial layouts. Compiling does not establish physical wiring or typing acceptance.
+
+The QMK `vial/` directory needs only keyboard folders. Each controller folder owns its calibration build rule and user README. `ports.json` and `PORTS.md` here contain developer metadata and cross-board notes; QMK never reads them.
+
+`XCAL.md` documents the shared runtime settings record/protocol; `PORTS.md` records the port history and layer/memory tradeoffs.

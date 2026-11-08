@@ -5,7 +5,7 @@ from pathlib import Path
 parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('qmk_root',type=Path);parser.add_argument('--output',type=Path,required=True)
 args=parser.parse_args();root=args.qmk_root.resolve();base=root/'keyboards/xwhatsit/vial'
 results=[]
-for row in json.loads((base/'ports.json').read_text()):
+for row in json.loads(Path(__file__).with_name('ports.json').read_text()):
  name=row['target'].replace('/', '_').replace(':','_');elf=root/'.build'/(name+'.elf');hexfile=root/(name+'.hex')
  assert elf.exists()and hexfile.exists(),row['board']
  size=subprocess.check_output(['avr-size',str(elf)],text=True).splitlines()[1].split();flash=int(size[0])+int(size[1]);ram=int(size[1])+int(size[2]);assert flash<=28672 and ram<2560

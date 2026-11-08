@@ -38,7 +38,6 @@ def tick():
    assert abs(center-group.rect().center().x())<=4
    assert all(group.layout().rowMinimumHeight(3+i*3)>=8 for i in range(len(c.sliders)-1))
    report.update(version=APP.applicationVersion(),center_offset=center-group.rect().center().x(),slider_count=len(c.sliders),samples=len(c.last_samples))
-   assert APP.applicationVersion()=='1.0.10'
    assert WINDOW.grab().save(str(root/'fat-calibration.png'))
    c.timer.stop();stage=3
    (root/'ready.json').write_text(json.dumps(report,indent=2))

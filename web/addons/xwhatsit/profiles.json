@@ -1,0 +1,176 @@
+[
+  {
+    "name": "IBM Model F 3178",
+    "uid": "f6f743db220116d9",
+    "rows": 9,
+    "cols": 13
+  },
+  {
+    "name": "IBM 3276",
+    "uid": "1e0909a118b415db",
+    "rows": 4,
+    "cols": 20
+  },
+  {
+    "name": "Beamal",
+    "uid": "42cd0361d1fe6038",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "IBM F122",
+    "uid": "1e0909a118b415db",
+    "rows": 8,
+    "cols": 16
+  },
+  {
+    "name": "IBM Model F AT",
+    "uid": "f6f743db220116d9",
+    "rows": 8,
+    "cols": 16
+  },
+  {
+    "name": "IBM Bigfoot FXTAL",
+    "uid": "f6f743db220116d9",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "SUN FSSK",
+    "uid": "1e0909a118b415db",
+    "rows": 8,
+    "cols": 16
+  },
+  {
+    "name": "IBM Beamspring 3101/3727/3728 (87-key)",
+    "uid": "0a33a73e44c4a277",
+    "rows": 4,
+    "cols": 23
+  },
+  {
+    "name": "IBM Beamspring 3277 (66-key)",
+    "uid": "c76c4517d8be4827",
+    "rows": 4,
+    "cols": 17
+  },
+  {
+    "name": "IBM Beamspring 3277 (78-key)",
+    "uid": "85f8f6c540f2be23",
+    "rows": 4,
+    "cols": 20
+  },
+  {
+    "name": "IBM Beamspring 3277 (split 66-key)",
+    "uid": "d33900a4db9256d8",
+    "rows": 4,
+    "cols": 18
+  },
+  {
+    "name": "IBM Beamspring 3278/3279 (78-key)",
+    "uid": "5d8f24611ec48bd1",
+    "rows": 5,
+    "cols": 20
+  },
+  {
+    "name": "IBM Beamspring 4978 \"Beamship\"",
+    "uid": "52e5ff66a3a00439",
+    "rows": 8,
+    "cols": 22
+  },
+  {
+    "name": "IBM Beamspring 5251",
+    "uid": "23145a9d293a64d4",
+    "rows": 4,
+    "cols": 23
+  },
+  {
+    "name": "IBM Beamspring 5251 (Hebrew variant)",
+    "uid": "281d2607fc03fefc",
+    "rows": 4,
+    "cols": 23
+  },
+  {
+    "name": "BEAMal",
+    "uid": "e9e24b02da3420f2",
+    "rows": 16,
+    "cols": 16
+  },
+  {
+    "name": "IBM Model F Bigfoot / FXT type 1",
+    "uid": "52d823218436994a",
+    "rows": 4,
+    "cols": 23
+  },
+  {
+    "name": "IBM Displaywriter Beamspring",
+    "uid": "37ac520bff1f1e61",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "IBM Model F F104 \"Unsaver\"",
+    "uid": "9b9e3ce1a68d9a1b",
+    "rows": 8,
+    "cols": 14
+  },
+  {
+    "name": "IBM Model F 4704 F107",
+    "uid": "6c4bcd9c129751eb",
+    "rows": 8,
+    "cols": 15
+  },
+  {
+    "name": "IBM Model F 4704 F50",
+    "uid": "983589163078acd2",
+    "rows": 8,
+    "cols": 7
+  },
+  {
+    "name": "IBM Model F 4704 F62 \"kishsaver\"",
+    "uid": "cba15c67380aacd7",
+    "rows": 8,
+    "cols": 8
+  },
+  {
+    "name": "FEXT",
+    "uid": "1f7ee50870dcc4f3",
+    "rows": 8,
+    "cols": 15
+  },
+  {
+    "name": "FSSK",
+    "uid": "2efe7e7c1a881fb5",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "FSSK v1.0b",
+    "uid": "176071b5449a926f",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "IBM Model F XT Type 2",
+    "uid": "3e9ebd5b1b9a5c13",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "BEAMal",
+    "uid": "85d67f50479fb3a2",
+    "rows": 16,
+    "cols": 16
+  },
+  {
+    "name": "BEAMal",
+    "uid": "3ff3bfd3149ed18c",
+    "rows": 8,
+    "cols": 12
+  },
+  {
+    "name": "Xtant",
+    "uid": "5d5ccfb51cf93812",
+    "rows": 8,
+    "cols": 12
+  }
+]

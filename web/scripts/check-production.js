@@ -81,18 +81,23 @@ try {
     ["my2k", "Auxiliary Display"],
     ["ec", "Actuation"],
     ["aw", "AW768 lighting"],
+    ["xwhatsit", "Calibration"],
   ]) {
     const page = await context.newPage();
     await mockKeyboard(page, kind);
     await page.goto(origin + prefix);
     await page.getByRole("button", { name: "Connect your keyboard" }).click();
-    await page.locator('[data-key="0:0"]').waitFor();
+    await page.locator(".keycap").first().waitFor();
     await page.getByRole("button", { name: tab, exact: true }).click();
     if (kind === "my2k")
       await page.getByRole("textbox", { name: "Typing label" }).waitFor();
     if (kind === "ec")
       await page
         .getByRole("slider", { name: "Global default", exact: true })
+        .waitFor();
+    if (kind === "xwhatsit")
+      await page
+        .getByRole("slider", { name: "Threshold margin", exact: true })
         .waitFor();
     if (kind === "aw") {
       await page
@@ -117,7 +122,7 @@ try {
     "Unexpected external request",
   );
   console.log(
-    "Production build passed: project subpath, demo, all three bundled providers, XZ decoding, no external requests or page errors. Simulated USB only.",
+    "Production build passed: project subpath, demo, all four bundled providers, XZ decoding, no external requests or page errors. Simulated USB only.",
   );
 } finally {
   await browser?.close();

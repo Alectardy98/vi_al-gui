@@ -17,9 +17,12 @@ const prox = JSON.parse(
 const zenithalLayouts = JSON.parse(
   readFileSync(new URL("../fixtures/zenithal-layouts.json", import.meta.url)),
 );
+const xw = JSON.parse(
+  readFileSync(new URL("../fixtures/xwhatsit-f50.json", import.meta.url)),
+);
 export async function mockKeyboard(page, kind = "my2k") {
   await page.addInitScript(
-    ({ f, kind, aw, prox, zenithal }) => {
+    ({ f, kind, aw, prox, zenithal, xw }) => {
       const unhex = (s) =>
         Uint8Array.from(s.match(/../g).map((x) => parseInt(x, 16)));
       const set16 = (a, i, v, le = false) => {
@@ -50,34 +53,42 @@ export async function mockKeyboard(page, kind = "my2k") {
       const revisions = { touch: 1, sleep: 1, locks: 1, game: 1, ec: 1 };
       const compressed = Uint8Array.from(
         atob(
-          kind.startsWith("zenithal")
-            ? zenithal.compressed
-            : kind === "prox"
-              ? prox.compressed
-              : kind === "ec"
-                ? f.ecCompressed
-                : kind === "aw"
-                  ? f.awCompressed
-                  : kind === "core"
-                    ? f.coreCompressed
-                    : f.compressed,
+          kind === "xwhatsit"
+            ? xw.compressed
+            : kind.startsWith("zenithal")
+              ? zenithal.compressed
+              : kind === "prox"
+                ? prox.compressed
+                : kind === "ec"
+                  ? f.ecCompressed
+                  : kind === "aw"
+                    ? f.awCompressed
+                    : kind === "core"
+                      ? f.coreCompressed
+                      : f.compressed,
         ),
         (c) => c.charCodeAt(0),
       );
-      const rows = kind.startsWith("zenithal")
-          ? 10
-          : kind === "prox"
-            ? 5
-            : kind === "ec"
-              ? 6
-              : 3,
-        cols = kind.startsWith("zenithal")
-          ? 10
-          : kind === "prox"
-            ? 15
-            : kind === "ec"
-              ? 16
-              : 5;
+      const rows =
+          kind === "xwhatsit"
+            ? xw.rows
+            : kind.startsWith("zenithal")
+              ? 10
+              : kind === "prox"
+                ? 5
+                : kind === "ec"
+                  ? 6
+                  : 3,
+        cols =
+          kind === "xwhatsit"
+            ? xw.cols
+            : kind.startsWith("zenithal")
+              ? 10
+              : kind === "prox"
+                ? 15
+                : kind === "ec"
+                  ? 16
+                  : 5;
       const keymap = new Uint8Array(4 * rows * cols * 2);
       const macroBuffer = new Uint8Array(256);
       macroBuffer.set([...ascii("Hello"), 0, 1, 1, 4, 0]);
@@ -149,7 +160,50 @@ export async function mockKeyboard(page, kind = "my2k") {
           const q = new Uint8Array(input),
             r = q.slice();
           window.__hidWrites.push([...q]);
-          if (q[0] === 1) {
+          if (q[0] === 85 && q[1] === 170 && kind === "xwhatsit") {
+            r.fill(0);
+            r.set([85, 170, 34]);
+            const op = q[2];
+            const crc8 = (a) => {
+              let c = 0;
+              for (const v of a) {
+                c ^= v;
+                for (let i = 0; i < 8; i++)
+                  c = ((c << 1) ^ (c & 128 ? 7 : 0)) & 255;
+              }
+              return c;
+            };
+            const defaults = Uint8Array.from([167, 8, 3, 68, 5, 96, 0, 39]);
+            window.__xwSettings ??= [...defaults];
+            if (op === 17) r.set([2, window.__xwLegacy ? 0 : 1, 0, 5], 3);
+            else if (op === 26)
+              r.set([cols, rows, 0, 0, 8, 3, 1, 255, 15, rows], 3);
+            else if (op === 48) {
+              r.set([88, 67, 65, 76, 1, 9, 3, 255, 15], 3);
+              r.set(defaults, 12);
+            } else if (op === 49) r.set(window.__xwSettings, 3);
+            else if (op === 50 || op === 51) {
+              if (window.__xwPressed) r[2] = 36;
+              else {
+                const record = op === 51 ? defaults : q.slice(3, 11);
+                if (crc8(record.slice(0, 7)) !== record[7]) r[2] = 35;
+                else {
+                  window.__xwSettings = [...record];
+                  r.set(record, 3);
+                }
+              }
+            } else if (op === 22) {
+              r[3] = 1;
+              set16(r, 4, 680, true);
+              const bitmap = new Uint8Array(rows);
+              bitmap.fill(127);
+              r.set(bitmap.slice(q[4], q[4] + 26), 6);
+            } else if (op === 25)
+              set16(r, 3, window.__xwPressed ? 900 : 500, true);
+            else if (op === 21 && window.__xwPressed) r[3] = 1;
+            else if (op !== 21)
+              throw Error("Unexpected xwhatsit command " + op);
+          } else if (q[0] === 1) {
             r[1] = 0;
             r[2] = 9;
           } else if (q[0] === 254) {
@@ -158,15 +212,17 @@ export async function mockKeyboard(page, kind = "my2k") {
               r[0] = 6;
               r.set(
                 unhex(
-                  kind.startsWith("zenithal")
-                    ? "e07d62d65aab8883"
-                    : kind === "prox"
-                      ? prox.uid
-                      : kind === "ec"
-                        ? "0ec173239f8f8f2c"
-                        : kind === "aw"
-                          ? "2945ce03248c2c0c"
-                          : "0123456789abcdef",
+                  kind === "xwhatsit"
+                    ? xw.uid
+                    : kind.startsWith("zenithal")
+                      ? "e07d62d65aab8883"
+                      : kind === "prox"
+                        ? prox.uid
+                        : kind === "ec"
+                          ? "0ec173239f8f8f2c"
+                          : kind === "aw"
+                            ? "2945ce03248c2c0c"
+                            : "0123456789abcdef",
                 ),
                 4,
               );
@@ -235,7 +291,7 @@ export async function mockKeyboard(page, kind = "my2k") {
             r.set(macroBuffer.slice(get16(q, 1), get16(q, 1) + q[3]), 4);
           else if (q[0] === 15 && kind === "core")
             macroBuffer.set(q.slice(4, 4 + q[3]), get16(q, 1));
-          else if (q[0] === 17) r[1] = 4;
+          else if (q[0] === 17) r[1] = kind === "xwhatsit" ? 3 : 4;
           else if (q[0] === 18) {
             const offset = get16(q, 1);
             r.set(keymap.slice(offset, offset + q[3]), 4);
@@ -253,6 +309,8 @@ export async function mockKeyboard(page, kind = "my2k") {
             r.fill(0);
             r.set(q.slice(0, 2));
             if (q[1] === 2) set32(r, 2, layoutOptions);
+            if (kind === "xwhatsit" && q[1] === 3 && window.__xwPressed)
+              r[2] = 1;
           } else if (q[0] === 3 && q[1] === 2) {
             layoutOptions = new DataView(q.buffer).getUint32(2);
           } else if (q[0] === 253) {
@@ -535,6 +593,7 @@ export async function mockKeyboard(page, kind = "my2k") {
     },
     {
       f: fixture,
+      xw,
       kind,
       aw,
       prox,

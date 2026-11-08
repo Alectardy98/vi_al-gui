@@ -146,3 +146,23 @@ Protocol references: existing Python modules in the repository's root
 XZ decoding uses [xz-decompress](https://github.com/httptoolkit/xz-decompress);
 layout geometry uses [kle-serial](https://github.com/ijprest/kle-serial).
 Their license notices and existing Vial/EC42 source notices apply.
+
+## xwhatsit keyboards
+
+The `addons/xwhatsit/` browser provider recognizes all 29 IBM Universal Vial
+targets using UID **and** matrix dimensions. It uses the device’s live Vial layout
+for Calibration, with signal numbers on keys, controls below and thresholds on
+the right. Live sensors uses a chart above the matrix and follows pressed keys.
+
+Utility 2.0.2+ firmware supports monitoring, its existing bootloader command and
+EEPROM erase. XCAL v1 / utility 2.1.5 exposes six persistent calibration controls
+with acknowledgement and independent readback. Unsupported sliders stay disabled.
+Each save runs the existing calibration; there is no extra Recalibrate button.
+The browser saves when a slider is released. Release every key before saving;
+commands that fail are not retried. All USB operations use the selected Vial
+transport queue; background sensor samples yield to typing and navigation.
+
+No external program or layout table is needed. Signal charts stay in RAM only.
+Close desktop Vi_al / Cap-Util before connecting. Browser WebHID access requires
+a supported desktop Chromium browser and user permission. New board ports are
+compile-verified; all physical variants still require their own hardware tests.

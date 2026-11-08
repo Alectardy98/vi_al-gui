@@ -136,3 +136,18 @@ and calibration backup pickers remain subject to browser permissions.
   fixed glyphs, with no unsupported independent font control.
 
 The unmodified desktop app remains the fallback for unsupported operations.
+
+## xwhatsit add-on port
+
+- 39 Node tests passed, including XCAL records/CRC/ranges, readback, held-key
+  rejection, legacy firmware, 16-row/wide matrices and no mutation retries.
+- 20 browser tests passed, including F50's actual compiled XZ definition and
+  50-key layout, calibration save/defaults, automatic sensor following and
+  capability-disabled legacy sliders. USB is simulated for these tests.
+- Production build passed under a GitHub Pages-style subpath, loading all four
+  bundled providers without external requests or page errors.
+- The 29 profiles match desktop add-on 1.0.4. The original seven identities are
+  retained (some historical UIDs overlap); new targets have distinct UIDs.
+- Physical WebHID acceptance for each board is still required. This port neither
+  flashes firmware nor changes bootloaders. Close desktop configurators before
+  browser access.

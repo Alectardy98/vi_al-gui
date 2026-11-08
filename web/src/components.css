@@ -81,3 +81,9 @@ progress {
     grid-template-columns: 1fr;
   }
 }
+
+/* xwhatsit calibration controls: spacing stays local to the add-on. */
+.xwhatsit-actions { display:flex; justify-content:center; margin:0 0 20px; }
+.xwhatsit-setting { margin:20px 0 26px; }
+.xwhatsit-setting .field { margin-bottom:6px; }
+.xwhatsit-setting .muted { margin-top:6px; }

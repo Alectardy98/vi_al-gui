@@ -18,8 +18,7 @@ class LeydenJarSession(Session):
         self.controller.busy_changed.connect(self.busy_changed)
         self.pages = (Page(self.controller.general, 'General', 140),
                       Page(self.controller.calibration, 'Calibration', 240),
-                      Page(self.controller.sensors, 'Live Sensors', 260),
-                      Page(self.controller.keypress, 'Keypress Monitor', 265))
+                      Page(self.controller.sensors, 'Live Sensors', 260))
         window.leyden_jar = self.controller
 
     def busy_changed(self, busy):

@@ -8,6 +8,9 @@ from widgets.keyboard_widget import KeyboardWidget
 
 
 class SensorKeyboard(KeyboardWidget):
+    group_positions = frozenset()
+    near_threshold_positions = frozenset()
+
     def sizeHint(self):
         return QSize(1050, 280)
 
@@ -40,7 +43,14 @@ class SensorKeyboard(KeyboardWidget):
             painter.translate(key.rotation_x, key.rotation_y)
             painter.rotate(key.rotation_angle)
             painter.translate(-key.rotation_x, -key.rotation_y)
-            color = QColor('#45ae70') if key.pressed else self.palette().color(QPalette.Button)
+            position = key.desc.row, key.desc.col
+            color = self.palette().color(QPalette.Button)
+            if position in self.group_positions:
+                color = QColor('#345579')
+            if position in self.near_threshold_positions:
+                color = QColor('#b88227')
+            if key.pressed:
+                color = QColor('#45ae70')
             painter.setPen(Qt.NoPen)
             painter.setBrush(color.darker(120))
             painter.drawPath(key.background_draw_path)

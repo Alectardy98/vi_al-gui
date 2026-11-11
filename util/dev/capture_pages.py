@@ -75,6 +75,8 @@ def snapshot():
         if library:workers.append(getattr(library,'worker',None))
         controller=getattr(editor,'ec_controller',None)
         if controller:workers.append(getattr(controller,'worker',None))
+        native=getattr(window,'leyden_jar',None)
+        if native:workers.append(getattr(native,'worker',None))
         if any(w is not None and w.isRunning() for w in workers) and time.monotonic()-last<12:
             QTimer.singleShot(100,snapshot);return
         index=active['at'];title=window.tabs.tabText(index)

@@ -11,7 +11,7 @@ Run from the repository root on Linux:
 python util/dev/run.py runtime --app /path/to/Vi_al.AppImage
 
 # Test installation through the real Add-ons menu; no hardware.
-# Use a core-only app and a directory with our three add-on ZIPs.
+# Use a core-only app and a directory with the desired add-on ZIPs.
 python util/dev/run.py install --app /path/to/Vi_al-core.AppImage --packages /path/to/addons
 
 # Capture every page for connected keyboards using the bundled app.
@@ -37,3 +37,7 @@ check remains in `util/packaging/check_runtime.py`; there is no duplicate copy.
 Native Linux/Windows/macOS packaging is documented in [BUILDING.md](../../docs/BUILDING.md).
 Build environments, captured evidence and old revision-specific tests stay out
 of the source tree. The runner itself needs only Python's standard library.
+
+Native Leyden Jar tests and bounded diagnostics are in
+[leyden_jar/](leyden_jar/README.md). The profile exporter moved here from release
+packaging; no developer tool is required to run a released app.

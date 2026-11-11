@@ -8,6 +8,7 @@ tests/ec_42/             EC42 records, actuation and navigation
 tests/alienware_aw768/   Lighting packets, readback and USB pairing
 tests/my2k/              GIFs, OLED, gaming and persistent-settings codecs
 tests/xwhatsit/         Live calibration, protocol bounds and IBM port identities
+tests/leyden_jar/       Native mapping, live pages, persistence and capture guard
 src/main/python/test/   Upstream Vial core tests
 ```
 
@@ -52,3 +53,12 @@ and retry, then writes `ready.json`. Start a second app with the `no-hid.py`
 guard to assert it exits without discovering hardware. Create `finish` in the
 output directory so the primary closes cleanly and writes `result.json`.
 Never use the hardware scripts as automated CI fixtures.
+
+## Leyden Jar
+
+`python -m pytest tests/leyden_jar` replays native commands with simulated HID
+peers, including temporary versus saved calibration, short/stale replies,
+identity gating, group readback, worker lifecycle and rendering. Portable UID
+exports and finite hardware diagnostics are in
+[`util/dev/leyden_jar/`](../util/dev/leyden_jar/README.md). Historical captures and
+firmware artifacts stay outside the repository.

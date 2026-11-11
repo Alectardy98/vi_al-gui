@@ -14,6 +14,11 @@ def allowed(data):
     if len(data)!=33 or data[0]!=0:return False
     q=data[1:]
     if q[:6]==b'\xcaEC42\2':return q[6] in (0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x1c,0x1d,0x27,0x28,0x2b)
+    if q[2:4]==b'\xc0\x21' and 0x81<=q[1]<=0x95:
+        # Native Leyden Jar reads/snapshots. No output toggle, trigger save,
+        # defaults reset, EEPROM clear, reboot or bootloader is allowed.
+        return (q[0]==2 and q[1] in (0x81,0x82,0x83,0x85,0x86,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x95)
+                or q[0]==3 and q[1] in (0x84,0x87,0x88))
     if q[0] in (1,2,4,8,12,13,14,17,18):return True
     if q[0]==254:
         return q[1] in (0,1,2,3,5,8,9,10) or (q[1]==13 and q[2] in (0,1,3,5,7))

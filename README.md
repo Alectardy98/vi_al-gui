@@ -17,7 +17,7 @@ once; persistent failures show a connection message with a Refresh action.
 
 Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
-automatically on future launches. The bundled release includes all four.
+automatically on future launches. The bundled release includes all five.
 
 ## Add-ons
 
@@ -27,6 +27,7 @@ automatically on future launches. The bundled release includes all four.
 | `alienware_aw768` | AW768 zones, effects, macro-area lighting and onboard saving |
 | `my2k` | MY-2K RGB, touch, displays, GIF transfers and gaming controls |
 | `xwhatsit` | Model F / Beamspring calibration, live signals and persistent tuning |
+| `leyden_jar` | Native Leyden Jar live calibration, group sensitivity controls and signal views |
 
 All packages use the same versioned format and appear only for supported devices.
 Add-ons run local Python code; install packages you trust. Installing an add-on
@@ -40,6 +41,7 @@ addons/                         Optional keyboard package sources
   alienware_aw768/
   my2k/
   xwhatsit/
+  leyden_jar/
 src/main/python/                Core Vial application
   addon_runtime/                Shared installer, loader and add-on API
 util/packaging/                 Builds, release packaging and add-on templates
@@ -54,7 +56,11 @@ addons/<id>/
   resources/                          Optional assets
 ```
 
-Testing and capture tools live on the [`dev` branch](../../tree/dev); this branch contains the application, add-ons and release build tools.
+`main` contains the desktop application, add-ons and release build tools.
+[`dev`](../../tree/dev) adds tests, captures and firmware/profile utilities.
+[`web`](../../tree/web) contains the browser interface under `web/`, including
+Leyden Jar calibration and live sensors. Development tools are not bundled
+with the release applications.
 
 The core builds without the `addons/` directory. See the [add-on guide](docs/ADDONS.md)
 for creating new packages.

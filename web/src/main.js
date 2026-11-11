@@ -185,7 +185,7 @@ function welcome() {
           el(
             "p",
             {},
-            "Add a browser add-on in web/addons/<id>/, then rebuild and publish the site. Its controls appear automatically for matching keyboards. EC42, MY-2K, Alienware and xwhatsit are already included.",
+            "Add a browser add-on in web/addons/<id>/, then rebuild and publish the site. Its controls appear automatically for matching keyboards. EC42, MY-2K, Alienware, xwhatsit and Leyden Jar are already included.",
           ),
         ),
         section(

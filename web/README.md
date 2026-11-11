@@ -93,6 +93,7 @@ change.
 | Vial core | Actual compressed definition, correctly placed layout alternatives and ISO/stepped keys, layers, categorized keycode tabs, firmware-defined User keycodes, modifier/layer-tap builder, encoders, keymap export, macros, Tap Dance, combos, key overrides, alternate repeat, QMK settings, generic lighting, unlock/lock and matrix tester |
 | EC42 | Verified v2.9 identity, global/per-key actuation, atomic global reset, Rapid Trigger, live sensors, calibration backup/capture/review/apply and stored readback |
 | MY-2K | RGB region effects/colors/brightness, Lock Lights, touch/jitter, visual sleep, Standard/High Performance selection, OLED message/label/overrides, clock sync, game bindings and ROM selection, GIF conversion, slot preview/upload/clear/play |
+| Leyden Jar | UID-gated native controller information, live calibration groups, acknowledged persistent offsets/defaults, logical/physical signal views, direct blue switch and expanded 3276 matrices |
 | AW768 | Explicit original-PCB selection, native group effects, Macro zone color, full two-pass onboard save and group readback |
 
 USB grants are browser permissions, not website account permissions. MY-2K file
@@ -166,3 +167,27 @@ No external program or layout table is needed. Signal charts stay in RAM only.
 Close desktop Vi_al / Cap-Util before connecting. Browser WebHID access requires
 a supported desktop Chromium browser and user permission. New board ports are
 compile-verified; all physical variants still require their own hardware tests.
+
+## Leyden Jar controllers
+
+`addons/leyden_jar/` matches a known Vial UID and logical matrix, then validates
+the native protocol and reads the actual row/column maps. General information
+appears under **Controller**; **Calibration** shows device geometry and all
+groups, and **Live sensors** follows pressed keys with coordinates, a bounded
+RAM graph and keyboard/QMK/controller views. Direct switches are labelled
+digital and never receive invented signal values.
+
+Firmware 0.10.0 advertises persistent group offsets. **Apply and save** checks
+the acknowledgement, saved offset and actual trigger. **Restore calibration
+defaults** clears only those offsets. Earlier native firmware keeps edits in
+RAM and the page states that limit. Merely opening the device or editing a
+slider does not save settings or disable typing. Reboot/BOOT/EEPROM actions are
+explicit, confirmed, single-send actions; a sent command is not a verified
+restart. They use the controller's existing bootloader, never a web flasher.
+
+Level measurements require a native DAC sweep that temporarily blocks keyboard
+scanning. Live pages space sweeps after completed work and offer Pause; leaving
+them stops new requests. Close desktop Vi_al and external recorders before
+connecting through WebHID. Physical browser testing is still required for each
+controller. Profiles are shared with the desktop add-on; the synchronization
+helper is maintained on `dev`, not required to build this self-contained site.

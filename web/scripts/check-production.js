@@ -5,6 +5,7 @@ import { resolve, extname, sep } from "node:path";
 import assert from "node:assert/strict";
 import { chromium } from "@playwright/test";
 import { mockKeyboard } from "../tests/browser/mock-hid.js";
+import { mockLeyden } from "../tests/browser/leyden-mock.js";
 
 const root = resolve("dist"),
   prefix = "/vi_al-gui/";
@@ -82,9 +83,11 @@ try {
     ["ec", "Actuation"],
     ["aw", "AW768 lighting"],
     ["xwhatsit", "Calibration"],
+    ["leyden", "Calibration"],
   ]) {
     const page = await context.newPage();
-    await mockKeyboard(page, kind);
+    if (kind === "leyden") await mockLeyden(page);
+    else await mockKeyboard(page, kind);
     await page.goto(origin + prefix);
     await page.getByRole("button", { name: "Connect your keyboard" }).click();
     await page.locator(".keycap").first().waitFor();
@@ -107,6 +110,39 @@ try {
         .getByRole("button", { name: "Save changes to keyboard", exact: true })
         .waitFor();
     }
+    if (kind === "leyden") {
+      await page
+        .getByRole("slider", { name: "Group trigger", exact: true })
+        .waitFor();
+      await page.waitForFunction(() =>
+        [...document.querySelectorAll(".leyden-keyboard .keycap-label")].some(
+          (n) => /^\d+$/.test(n.textContent),
+        ),
+      );
+      await shot(page, "leyden-calibration");
+      await page
+        .getByRole("button", { name: "Live sensors", exact: true })
+        .click();
+      await page.locator(".leyden-reading").waitFor();
+      await shot(page, "leyden-sensors");
+      await page
+        .getByRole("button", { name: "Controller", exact: true })
+        .click();
+      await page
+        .getByRole("button", { name: "Disable typing", exact: true })
+        .waitFor();
+      assert.equal(
+        await page.evaluate(
+          () =>
+            window.__hidWrites.filter(
+              (q) =>
+                q[0] === 3 &&
+                [0x83, 0x85, 0x89, 0x8a, 0x8b, 0x93, 0x94].includes(q[1]),
+            ).length,
+        ),
+        0,
+      );
+    }
     await shot(page, kind);
     await page.close();
   }
@@ -122,7 +158,7 @@ try {
     "Unexpected external request",
   );
   console.log(
-    "Production build passed: project subpath, demo, all four bundled providers, XZ decoding, no external requests or page errors. Simulated USB only.",
+    "Production build passed: project subpath, demo, all five bundled providers, XZ decoding, no external requests or page errors. Simulated USB only.",
   );
 } finally {
   await browser?.close();

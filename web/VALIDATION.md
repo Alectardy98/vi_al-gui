@@ -1,21 +1,20 @@
 # Web preview validation
 
-Validated on the `web` branch with Node 26.8.1 and local headless Chrome.
-The GitHub workflow uses Node 24 and Playwright Chromium. The earlier preview
-at commit `e4753e7` passed its GitHub build and deployment; the published homepage
-and demo were checked in Chrome. The layout/picker changes described below have
-been validated locally and require a new push before remote deployment.
+Validated locally on 2026-11-11 with Node 26.8.1 and headless Chrome.
+The GitHub workflow uses Node 24 and Playwright Chromium. This update is
+prepared on the local `web` branch; publishing requires a push/deployment.
 
 | Check | Result |
 |---|---|
-| `npm test` | 32 passed |
-| `npm run test:browser` | 18 passed |
+| `npm test` | 49 passed |
+| Browser regression suite | 25 passed, plus the new sixteen-group layout test |
 | `npm run build` | Passed; static output in `web/dist/` |
-| `npm run test:production` | Passed under `/vi_al-gui/`, including all three providers; no external requests or browser errors |
-| Core build with `web/addons/` absent | Passed in an isolated copy |
-| Desktop regression suite before folder reorganization | 170 tests and 365 subtests passed |
-| Desktop add-on ZIP boundary | All three packages validated; browser sources excluded |
-| Standalone `web/` copy after folder reorganization | 24 unit tests, build and production checks passed without desktop source/assets |
+| `npm run test:production` | Passed below `/vi_al-gui/`, exercising all five providers with no external requests or page errors |
+| Desktop regression suite on `dev` | 280 tests and 365 subtests passed; 55 targeted Leyden Jar tests passed after descriptor additions |
+| Desktop bundles | Linux and Windows startup with all five add-ons passed |
+| Windows installer | Install, 188 payload files, startup and safe uninstall passed under Wine |
+
+Earlier core-only/standalone website and layout checks are recorded below.
 
 Browser-only source, assets, licenses, fixtures, tests and configuration now
 live under `web/`, including `web/addons/`. The GitHub Pages workflow remains
@@ -151,3 +150,17 @@ The unmodified desktop app remains the fallback for unsupported operations.
 - Physical WebHID acceptance for each board is still required. This port neither
   flashes firmware nor changes bootloaders. Close desktop configurators before
   browser access.
+
+## Leyden Jar port · 2026-11-11
+
+- Native protocol tests cover exact UID/matrix gates, signed offsets, separate
+  acknowledgement/readback, both polarities, reversed and unused mappings,
+  temporary legacy firmware, split 1.x, direct switches and four-row expanded
+  scanners. Invalid/short/rejected replies do not retry configuration writes.
+- Browser tests exercise live values, group selection, explicit Apply, restore
+  defaults, automatic following, coordinate labels, controller matrix views,
+  polling cancellation and output enable/readback. Simulated peers also cover
+  the 3178 digital switch and current 4×20 descriptor.
+- No real keyboard configuration was changed by these tests. USB grants, actual
+  signals, persistence after restart and physical key behaviour require manual
+  browser acceptance with the corresponding keyboard connected.

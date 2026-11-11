@@ -53,7 +53,9 @@ export async function mockKeyboard(page, kind = "my2k") {
       const revisions = { touch: 1, sleep: 1, locks: 1, game: 1, ec: 1 };
       const compressed = Uint8Array.from(
         atob(
-          kind === "xwhatsit"
+          kind === "leyden"
+            ? window.__leydenFixture.compressed
+            : kind === "xwhatsit"
             ? xw.compressed
             : kind.startsWith("zenithal")
               ? zenithal.compressed
@@ -70,7 +72,9 @@ export async function mockKeyboard(page, kind = "my2k") {
         (c) => c.charCodeAt(0),
       );
       const rows =
-          kind === "xwhatsit"
+          kind === "leyden"
+            ? window.__leydenFixture.rows
+            : kind === "xwhatsit"
             ? xw.rows
             : kind.startsWith("zenithal")
               ? 10
@@ -80,7 +84,9 @@ export async function mockKeyboard(page, kind = "my2k") {
                   ? 6
                   : 3,
         cols =
-          kind === "xwhatsit"
+          kind === "leyden"
+            ? window.__leydenFixture.cols
+            : kind === "xwhatsit"
             ? xw.cols
             : kind.startsWith("zenithal")
               ? 10
@@ -160,7 +166,10 @@ export async function mockKeyboard(page, kind = "my2k") {
           const q = new Uint8Array(input),
             r = q.slice();
           window.__hidWrites.push([...q]);
-          if (q[0] === 85 && q[1] === 170 && kind === "xwhatsit") {
+          if (kind === "leyden" && [2,3].includes(q[0]) && q[1]>=0x81) {
+            if([0x89,0x8a,0x8b].includes(q[1]))return;
+            r.set(window.__leydenPeer.reply(q));
+          } else if (q[0] === 85 && q[1] === 170 && kind === "xwhatsit") {
             r.fill(0);
             r.set([85, 170, 34]);
             const op = q[2];
@@ -212,7 +221,9 @@ export async function mockKeyboard(page, kind = "my2k") {
               r[0] = 6;
               r.set(
                 unhex(
-                  kind === "xwhatsit"
+                  kind === "leyden"
+                    ? window.__leydenFixture.uid
+                    : kind === "xwhatsit"
                     ? xw.uid
                     : kind.startsWith("zenithal")
                       ? "e07d62d65aab8883"

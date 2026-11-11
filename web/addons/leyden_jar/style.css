@@ -1,0 +1,79 @@
+.leyden-keyboard {
+  container-type: inline-size;
+  min-width: 0;
+}
+.leyden-keyboard .keycap-label,
+.leyden-matrix .matrix-cell {
+  white-space: pre-line;
+  line-height: 1.2;
+}
+.leyden-keyboard .keycap.leyden-group {
+  background: #524066;
+  border-color: #b69bd4;
+}
+.leyden-keyboard .keycap.leyden-near {
+  border-color: #ffcb70;
+}
+.leyden-keyboard .keycap.pressed,
+.leyden-matrix .matrix-cell.pressed {
+  background: #355f48;
+  border-color: #8fdeae;
+}
+.leyden-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+.leyden-actions [aria-pressed="true"] {
+  background: #735293;
+  border-color: #d4b9f4;
+}
+.leyden-calibration {
+  align-items: start;
+}
+.leyden-calibration table {
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.leyden-calibration td,
+.leyden-calibration th {
+  padding: 9px 7px;
+  white-space: nowrap;
+}
+.leyden-calibration tr.selected {
+  background: #463552;
+}
+.leyden-calibration input[type="number"] {
+  max-width: 140px;
+  font-size: 18px;
+}
+.leyden-reading {
+  font-size: 16px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.leyden-matrix .matrix-cell {
+  font-size: 11px;
+  padding: 8px 2px;
+  min-width: 0;
+}
+
+.leyden-calibration {
+  grid-template-columns: minmax(0, 2fr) minmax(350px, 1fr);
+}
+.leyden-calibration td,
+.leyden-calibration th {
+  padding: 7px 6px;
+  font-size: 12px;
+}
+.leyden-calibration table button {
+  padding: 7px 9px;
+  font-size: 12px;
+  min-height: 32px;
+}
+@media (max-width: 1350px) {
+  .leyden-calibration {
+    grid-template-columns: 1fr;
+  }
+}

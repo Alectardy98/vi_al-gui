@@ -4,9 +4,20 @@
 
 **Vial keyboard configuration, with optional keyboard add-ons.**
 
+**Vi_al Purple** is the default desktop theme, matching the web edition's dark
+backgrounds and lavender accents. This update selects purple once, including on
+existing installations. Later choices from **Theme** are saved normally.
+
+The window opens directly to the normal disconnected interface. Keyboard discovery starts after
+all pages are prepared, so switching tabs does not trigger deferred page builds.
+Switching keyboards still reads their current device settings. Reopening Vi_al
+activates the existing window, keeping a second instance from competing for HID
+replies. Layout reads validate the compressed data and retry a failed transfer
+once; persistent failures show a connection message with a Refresh action.
+
 Vi_al works on its own. Add-ons provide extra controls for supported keyboards
 without changing the core application. Install each add-on once; it loads
-automatically on future launches. The bundled release includes all three.
+automatically on future launches. The bundled release includes all five.
 
 The `web` branch also includes [Vi_al Web](web/README.md): a browser frontend
 with WebHID/WebUSB access and a GitHub Pages deployment workflow.
@@ -18,6 +29,8 @@ with WebHID/WebUSB access and a GitHub Pages deployment workflow.
 | `ec_42` | Topre / electrocapacitive calibration, actuation, Rapid Trigger and live sensors |
 | `alienware_aw768` | AW768 zones, effects, macro-area lighting and onboard saving |
 | `my2k` | MY-2K RGB, touch, displays, GIF transfers and gaming controls |
+| `xwhatsit` | Model F / Beamspring calibration, live signals and persistent tuning |
+| `leyden_jar` | Native Leyden Jar live calibration, group sensitivity controls and signal views |
 
 All packages use the same versioned format and appear only for supported devices.
 Add-ons run local Python code; install packages you trust. Installing an add-on
@@ -30,10 +43,11 @@ addons/                         Optional keyboard package sources
   ec_42/
   alienware_aw768/
   my2k/
+  xwhatsit/
+  leyden_jar/
 src/main/python/                Core Vial application
   addon_runtime/                Shared installer, loader and add-on API
 util/packaging/                 Builds, release packaging and add-on templates
-tests/                          Optional focused regression tests, grouped by add-on
 web/                            Self-contained browser app, browser add-ons and tests
 ```
 
@@ -45,6 +59,12 @@ addons/<id>/
   python/vi_al_addons/<id>/provider.py  Keyboard detection and extra pages
   resources/                          Optional assets
 ```
+
+`main` contains the desktop application, add-ons and release build tools.
+[`dev`](../../tree/dev) adds tests, captures and firmware/profile utilities.
+[`web`](../../tree/web) contains the browser interface under `web/`, including
+Leyden Jar calibration and live sensors. Development tools are not bundled
+with the release applications.
 
 The core builds without the `addons/` directory. See the [add-on guide](docs/ADDONS.md)
 for creating new packages.

@@ -2,6 +2,7 @@
 import struct
 import json
 import lzma
+import time
 from collections import OrderedDict
 
 from keycodes.keycodes import RESET_KEYCODE, Keycode, recreate_keyboard_keycodes
@@ -31,6 +32,10 @@ SUPPORTED_VIAL_PROTOCOL = [-1, 0, 1, 2, 3, 4, 5, 6]
 
 class ProtocolError(Exception):
     pass
+
+
+class KeyboardDefinitionError(RuntimeError):
+    """A bounded, read-only layout transfer could not be verified."""
 
 
 class Keyboard(ProtocolMacro, ProtocolDynamic, ProtocolTapDance, ProtocolCombo, ProtocolKeyOverride, ProtocolAltRepeatKey):
@@ -114,37 +119,80 @@ class Keyboard(ProtocolMacro, ProtocolDynamic, ProtocolTapDance, ProtocolCombo, 
         if self.via_protocol not in SUPPORTED_VIA_PROTOCOL or self.vial_protocol not in SUPPORTED_VIAL_PROTOCOL:
             raise ProtocolError()
 
+    def layout_packet(self, message):
+        # Do not queue duplicate requests behind a slow startup calibration.
+        # This timeout is specific to read-only connection/layout requests.
+        if self.usb_send is hid_send:
+            data = hid_send(self.dev, message, retries=1, timeout_ms=2000)
+        else:
+            data = self.usb_send(self.dev, message, retries=1)
+        if len(data) != MSG_LEN:
+            raise KeyboardDefinitionError('Incomplete keyboard layout reply.')
+        return data
+
+    def read_device_definition(self):
+        for attempt in range(2):
+            try:
+                data = self.layout_packet(bytes((CMD_VIA_GET_PROTOCOL_VERSION,)))
+                if data[0] != CMD_VIA_GET_PROTOCOL_VERSION:
+                    raise KeyboardDefinitionError('Unexpected keyboard reply.')
+                self.via_protocol = struct.unpack('>H', data[1:3])[0]
+                data = self.layout_packet(bytes((CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID)))
+                self.vial_protocol, self.keyboard_id = struct.unpack('<IQ', data[:12])
+                if self.vial_protocol > 0xffff:
+                    raise KeyboardDefinitionError('Invalid keyboard identity reply.')
+                self.check_protocol_version()
+                data = self.layout_packet(bytes((CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_SIZE)))
+                size = struct.unpack('<I', data[:4])[0]
+                if not 1 <= size <= 4*1024*1024:
+                    raise KeyboardDefinitionError('Invalid keyboard layout size.')
+                decoder = lzma.LZMADecompressor(memlimit=256*1024*1024)
+                payload = bytearray()
+                received = 0
+                for block in range((size+MSG_LEN-1)//MSG_LEN):
+                    data = self.layout_packet(struct.pack('<BBI', CMD_VIA_VIAL_PREFIX,
+                                                          CMD_VIAL_GET_DEFINITION, block))
+                    if decoder.eof:
+                        raise KeyboardDefinitionError('Layout size exceeds its compressed stream.')
+                    chunk = data[:min(MSG_LEN, size-received)]
+                    received += len(chunk)
+                    payload.extend(decoder.decompress(chunk, max_length=16*1024*1024+1-len(payload)))
+                    if len(payload) > 16*1024*1024:
+                        raise KeyboardDefinitionError('Decoded keyboard layout is too large.')
+                if not decoder.eof or decoder.unused_data:
+                    raise KeyboardDefinitionError('Incomplete keyboard layout stream.')
+                definition = json.loads(payload)
+                if not isinstance(definition, dict) or not all(key in definition for key in ('matrix', 'layouts')):
+                    raise KeyboardDefinitionError('Invalid keyboard layout document.')
+                return definition
+            except (KeyboardDefinitionError, lzma.LZMAError, UnicodeError, ValueError,
+                    struct.error, OSError, RuntimeError) as error:
+                last_error = error
+                if attempt == 0:
+                    # Drain only pending input, before repeating the whole
+                    # read-only transfer. Never replay configuration writes.
+                    reader = getattr(self.dev, 'read', None)
+                    if callable(reader):
+                        try:
+                            for _ in range(16):
+                                if not reader(MSG_LEN, timeout_ms=25):
+                                    break
+                        except OSError:
+                            pass
+                    time.sleep(.1)
+        raise KeyboardDefinitionError('Could not verify the keyboard layout. Close other keyboard tools, '
+                                      'wait for startup to finish, then click Refresh.') from last_error
+
     def reload_layout(self, sideload_json=None):
         """ Requests layout data from the current device """
 
-        self.reload_via_protocol()
-
         self.sideload = False
         if sideload_json is not None:
+            self.reload_via_protocol()
             self.sideload = True
             payload = sideload_json
         else:
-            # get keyboard identification
-            data = self.usb_send(self.dev, struct.pack("BB", CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_KEYBOARD_ID), retries=20)
-            self.vial_protocol, self.keyboard_id = struct.unpack("<IQ", data[0:12])
-
-            # get the size
-            data = self.usb_send(self.dev, struct.pack("BB", CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_SIZE), retries=20)
-            sz = struct.unpack("<I", data[0:4])[0]
-
-            # get the payload
-            payload = b""
-            block = 0
-            while sz > 0:
-                data = self.usb_send(self.dev, struct.pack("<BBI", CMD_VIA_VIAL_PREFIX, CMD_VIAL_GET_DEFINITION, block),
-                                     retries=20)
-                if sz < MSG_LEN:
-                    data = data[:sz]
-                payload += data
-                block += 1
-                sz -= MSG_LEN
-
-            payload = json.loads(lzma.decompress(payload))
+            payload = self.read_device_definition()
 
         self.check_protocol_version()
 

@@ -38,6 +38,10 @@ if os.environ.get('VI_AL_SMOKE_TEST') or os.environ.get('VI_AL_TEST_BRIDGE'):
                 errors=[w.text() for w in app.topLevelWidgets() if isinstance(w,QMessageBox) and w.isVisible()]
                 assert len(windows)==1 and not errors, (len(windows), errors)
                 window=windows[0]
+                if not window.startup_ready:
+                    assert time.monotonic() < deadline, 'Window initialization timed out'
+                    QTimer.singleShot(100,verify)
+                    return
                 if os.environ.get('VI_AL_TEST_BRIDGE'):
                     import runpy
                     runpy.run_path(os.environ['VI_AL_TEST_BRIDGE'],init_globals={'APP':app,'WINDOW':window})
@@ -55,6 +59,8 @@ if os.environ.get('VI_AL_SMOKE_TEST') or os.environ.get('VI_AL_TEST_BRIDGE'):
             except Exception as error:
                 import traceback
                 traceback.print_exc(); print('SMOKE FAIL: '+str(error),flush=True);app.exit(1)
-        QTimer.singleShot(2500,verify)
+        import time
+        deadline = time.monotonic() + 45
+        QTimer.singleShot(100,verify)
         return original_exec()
     QApplication.exec_=checked_exec

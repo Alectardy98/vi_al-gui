@@ -1,0 +1,8 @@
+{
+  "api": 1,
+  "id": "xwhatsit",
+  "name": "xwhatsit \u00b7 Capacitive Model F / Beamspring",
+  "version": "1.0.4",
+  "entrypoint": "provider",
+  "description": "Vial-layout calibration, live capacitance signals and persistent calibration controls."
+}

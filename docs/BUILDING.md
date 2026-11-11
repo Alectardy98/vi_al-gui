@@ -41,26 +41,11 @@ compiler only for optional acceleration, and the usual Qt X11 libraries.
 Linux builds use this host's glibc; the Ubuntu 22.04 CI build is the distribution
 build for wider Linux compatibility.
 
-## Tests
+## Validation
 
-```sh
-python -m pip install -r test-requirements.txt
-QT_QPA_PLATFORM=offscreen PYTHONPATH=src/main/python python -m pytest tests src/main/python/test -q
-```
-
-Tests package the current add-on sources into a temporary profile. The focused
-suite uses simulated devices and requires no external firmware/C harness.
-See [TESTING.md](TESTING.md) for the test layout and core-only checks.
-
-Packaged smoke tests disable all HID enumeration/open operations:
-
-```sh
-QT_QPA_PLATFORM=offscreen VI_AL_SMOKE_TEST=1 VI_AL_EXPECT_ADDONS=0 \
-  VI_AL_ADDON_DIR=/tmp/vi-al-core-check ./Vi_al-*-core.AppImage
-```
-
-Use a fresh profile and `VI_AL_EXPECT_ADDONS=3` for the bundled edition. Never
-point test fixtures at an actual keyboard or a live settings directory.
+Regression tests, frozen-app smoke checks and hardware capture tools are maintained
+on the [`dev` branch](../../tree/dev). They are not needed to build or run the app.
+Use that branch for test instructions and `test-requirements.txt`.
 
 ## Windows and macOS
 

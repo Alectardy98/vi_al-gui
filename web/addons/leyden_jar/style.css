@@ -59,8 +59,9 @@
   min-width: 0;
 }
 
-.leyden-calibration {
-  grid-template-columns: minmax(0, 2fr) minmax(350px, 1fr);
+.columns.leyden-calibration {
+  /* Leave room for all five columns and the surrounding card padding. */
+  grid-template-columns: minmax(0, 2fr) minmax(440px, 1fr);
 }
 .leyden-calibration td,
 .leyden-calibration th {
@@ -73,7 +74,7 @@
   min-height: 32px;
 }
 @media (max-width: 1350px) {
-  .leyden-calibration {
+  .columns.leyden-calibration {
     grid-template-columns: 1fr;
   }
 }

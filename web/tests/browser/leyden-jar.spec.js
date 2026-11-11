@@ -30,13 +30,16 @@ test("calibration renders device geometry, live values and all groups; edits req
   await expect(
     page.locator(".leyden-keyboard .keycap").first().locator(".keycap-label"),
   ).not.toHaveText("—");
-  const bounds = await page
-    .locator(".leyden-calibration table")
-    .evaluate((t) => ({
-      table: t.getBoundingClientRect().right,
-      card: t.parentElement.getBoundingClientRect().right,
-    }));
-  expect(bounds.table).toBeLessThanOrEqual(bounds.card);
+  for (const width of [1440, 1360, 1100]) {
+    await page.setViewportSize({ width, height: 1000 });
+    const bounds = await page
+      .locator(".leyden-calibration table")
+      .evaluate((t) => ({
+        table: t.getBoundingClientRect().right,
+        card: t.parentElement.getBoundingClientRect().right,
+      }));
+    expect(bounds.table, `calibration table at ${width}px`).toBeLessThanOrEqual(bounds.card);
+  }
   expect(await page.evaluate(edits)).toHaveLength(0);
   const trigger = page.getByRole("slider", {
     name: "Group trigger",
